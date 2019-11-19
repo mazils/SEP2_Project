@@ -3,12 +3,11 @@ package client.model.modelaccount;
 import java.util.ArrayList;
 
 public class AccountModel implements IAccountsModel {
-    private Account accounts;
     private ArrayList<Account> database;
 
-    public AccountModel(Account accs)
+    public AccountModel()
     {
-        accounts = accs;
+
         database= new ArrayList<>();
     }
 
@@ -39,6 +38,11 @@ public class AccountModel implements IAccountsModel {
             }
         }
         return false;
+    }
+
+    public void createAccount(Account acc)
+    {
+        database.add(acc);
     }
 
     public boolean checkUsername(String username)

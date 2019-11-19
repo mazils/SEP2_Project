@@ -22,8 +22,8 @@ public class LoginController {
         loginViewModel=viewModel;
         this.viewHandler=viewHandler;
 
-        // binding username
-        // binding password
+        loginViewModel.getUserNameProperty().bind(userNameTextField.textProperty());
+        loginViewModel.getPasswordProperty().bind(passwordTextField.textProperty());
     }
 
     public void onLogInButton(){

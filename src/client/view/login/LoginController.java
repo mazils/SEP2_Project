@@ -22,12 +22,12 @@ public class LoginController {
         loginViewModel=viewModel;
         this.viewHandler=viewHandler;
 
-        loginViewModel.getUserNameProperty().bind(userNameTextField.textProperty());
-        loginViewModel.getPasswordProperty().bind(passwordTextField.textProperty());
+        loginViewModel.getUserNameProperty().bindBidirectional(userNameTextField.textProperty());
+        loginViewModel.getPasswordProperty().bindBidirectional(passwordTextField.textProperty());
     }
 
     public void onLogInButton(){
-
+        loginViewModel.checkIfExists();
     }
 
 }

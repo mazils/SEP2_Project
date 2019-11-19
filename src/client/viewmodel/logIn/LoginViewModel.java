@@ -1,4 +1,4 @@
-package client.viewmodel;
+package client.viewmodel.logIn;
 
 public class LoginViewModel {
 }

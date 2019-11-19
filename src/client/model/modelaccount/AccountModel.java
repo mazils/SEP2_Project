@@ -2,7 +2,7 @@ package client.model.modelaccount;
 
 import java.util.ArrayList;
 
-public class AccountModel {
+public class AccountModel implements IAccountsModel {
     private Account accounts;
     private ArrayList<Account> database;
 

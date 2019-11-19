@@ -1,6 +1,7 @@
 package client.viewmodel.logIn;
 
 import client.model.modelaccount.IAccountsModel;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 import javax.swing.*;
@@ -15,7 +16,8 @@ public class LoginViewModel {
     public LoginViewModel(IAccountsModel accountsModel){
         this.accountsModel=accountsModel;
 
-
+        userName = new SimpleStringProperty();
+        password = new SimpleStringProperty();
     }
 
     public StringProperty getUserNameProperty() {

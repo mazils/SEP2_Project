@@ -6,6 +6,12 @@ public class AccountModel implements IAccountsModel {
     private Account accounts;
     private ArrayList<Account> database;
 
+    public AccountModel(Account accs)
+    {
+        accounts = accs;
+        database= new ArrayList<>();
+    }
+
     public void addAccount(Account acc)
     {
         database.add(acc);

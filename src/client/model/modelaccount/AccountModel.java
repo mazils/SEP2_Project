@@ -28,6 +28,12 @@ public class AccountModel implements IAccountsModel {
         return false;
     }
 
+    /**
+     * Check if account already exists  by given parameters
+     * @param username
+     * @param password
+     * @return true or false
+     */
     public boolean accountExists( String username, String password)
     {
         for(int i= 0; i<database.size();i++)
@@ -45,6 +51,11 @@ public class AccountModel implements IAccountsModel {
         database.add(acc);
     }
 
+    /**
+     * Check if user name is already in use
+     * @param username
+     * @return true or false
+     */
     public boolean checkUsername(String username)
     {
         for(int i= 0; i<database.size();i++)

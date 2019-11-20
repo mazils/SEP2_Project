@@ -3,6 +3,7 @@ package client.viewmodel.logIn;
 import client.model.modelaccount.IAccountsModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.scene.control.Alert;
 
 import javax.swing.*;
 
@@ -28,11 +29,20 @@ public class LoginViewModel {
         return password;
     }
 
+    /**
+     * Validate input of username and password
+     * if both are correct - calling another view trough view handler
+     * else warning message
+     */
     public void checkIfExists(){
         if(accountsModel.accountExists(userName.getValue(),password.getValue())){
-            return ;
+            return;
         }else{
-            JOptionPane.showMessageDialog(null, "Invalid user name or password", "Error", JOptionPane.WARNING_MESSAGE);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Log in error");
+            alert.setContentText("Invalid user name or password");
+            alert.showAndWait();
+
             userName.setValue("");
             password.setValue("");
         }

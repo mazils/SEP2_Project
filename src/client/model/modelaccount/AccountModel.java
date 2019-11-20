@@ -1,12 +1,23 @@
 package client.model.modelaccount;
 
+import server.RemoteServer;
+
+import java.rmi.NotBoundException;
+import java.rmi.RemoteException;
+import java.rmi.registry.LocateRegistry;
+import java.rmi.registry.Registry;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
 public class AccountModel implements IAccountsModel {
     private ArrayList<Account> database;
+    private RemoteServer rmi;
 
-    public AccountModel()
-    {
+    public AccountModel() throws RemoteException, NotBoundException {
+        UnicastRemoteObject.exportObject(this,0);
+        Registry reg = LocateRegistry.getRegistry();
+        rmi = (RemoteServer) reg.lookup("Accounts");
+        System.out.println("Connected to Server");
 
         database= new ArrayList<>();
     }
@@ -16,17 +27,6 @@ public class AccountModel implements IAccountsModel {
         database.add(acc);
     }
 
-    public boolean accountExists( Account acc)
-    {
-        for(int i= 0; i<database.size();i++)
-        {
-            if(acc== database.get(i))
-            {
-                return true;
-            }
-        }
-        return false;
-    }
 
     /**
      * Check if account already exists  by given parameters
@@ -36,14 +36,7 @@ public class AccountModel implements IAccountsModel {
      */
     public boolean accountExists( String username, String password)
     {
-        for(int i= 0; i<database.size();i++)
-        {
-            if(username== database.get(i).getUsername() && password== database.get(i).getPassword())
-            {
-                return true;
-            }
-        }
-        return false;
+       return rmi.checkIfExists(username,password);
     }
 
     public void createAccount(Account acc)

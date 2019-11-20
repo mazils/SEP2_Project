@@ -18,6 +18,9 @@ public class LoginController {
     @FXML
     private TextField passwordTextField;
 
+    /** initial method for controller, takes parameters and do binding
+     * @parameter view model of log in, view handler
+     */
     public void init(LoginViewModel viewModel, ViewHandler viewHandler){
         loginViewModel=viewModel;
         this.viewHandler=viewHandler;
@@ -26,8 +29,11 @@ public class LoginController {
         loginViewModel.getPasswordProperty().bindBidirectional(passwordTextField.textProperty());
     }
 
+    /** execute the login function by view model
+     */
     public void onLogInButton(){
         loginViewModel.checkIfExists();
     }
+
 
 }

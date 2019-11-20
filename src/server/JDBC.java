@@ -27,6 +27,7 @@ public class JDBC implements  Runnable{
 
     public boolean checkAccExists(String userName, String password) throws SQLException {
         String statement = "SELECT * FROM account WHERE userName = " + userName + "AND password =" + password;
+        st.executeQuery("Set search_path = " + "SEP2");
         ResultSet rs= st.executeQuery(statement);
             if(rs.getString(2).equals(userName) && rs.getString(3).equals(password))
             {

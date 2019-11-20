@@ -6,14 +6,14 @@ import java.util.concurrent.locks.ReentrantLock;
 public class JDBC implements  Runnable{
 
     private static JDBC databaseConnector;
-    Lock lock= new ReentrantLock();
+    private static Lock lock= new ReentrantLock();
     private Connection con = null;
     private Statement st= null;
 
     private JDBC()
     {}
 
-    public JDBC getInstance()
+    public static JDBC getInstance()
     {
         if(databaseConnector==null) {
             synchronized (lock) {

@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 
 import javafx.scene.control.TextField;
 
+import java.rmi.RemoteException;
+
 
 public class LoginController {
 
@@ -31,7 +33,7 @@ public class LoginController {
 
     /** execute the login function by view model
      */
-    public void onLogInButton(){
+    public void onLogInButton() throws RemoteException {
         loginViewModel.checkIfExists();
     }
 

@@ -37,9 +37,12 @@ public class Server implements RemoteServer
     }
 
     public static void main(String[] args) {
+        JDBC database= JDBC.getInstance();
+        Thread nana = new Thread(database);
+        nana.start();
         Registry registry;
         try{
-            registry = LocateRegistry.createRegistry(8998);
+            registry = LocateRegistry.createRegistry(1099);
             Server server = new Server();
             registry.bind("server", server);
         }catch(RemoteException | AlreadyBoundException e){

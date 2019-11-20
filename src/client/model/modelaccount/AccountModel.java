@@ -15,7 +15,7 @@ public class AccountModel implements IAccountsModel {
 
     public AccountModel() throws RemoteException, NotBoundException {
         UnicastRemoteObject.exportObject(this,0);
-        Registry reg = LocateRegistry.getRegistry();
+        Registry reg = LocateRegistry.getRegistry("Localhost",1099);
         rmi = (RemoteServer) reg.lookup("server");
         System.out.println("Connected to Server");
 
@@ -34,8 +34,7 @@ public class AccountModel implements IAccountsModel {
      * @param password
      * @return true or false
      */
-    public boolean accountExists( String username, String password)
-    {
+    public boolean accountExists( String username, String password) throws RemoteException {
        return rmi.checkIfExists(username,password);
     }
 

@@ -26,13 +26,18 @@ public class JDBC implements  Runnable{
     }
 
     public boolean checkAccExists(String userName, String password) throws SQLException {
-        String statement = "SELECT * FROM account WHERE userName = " + userName + "AND password =" + password;
-        st.executeQuery("Set search_path = " + "SEP2");
+
+        String statement = "SELECT * FROM " + "\"SEP2\""+ ".account WHERE userName = " + "'" + userName+ "'" + " AND password =" + "'" + password + "'";
+        System.out.println(statement);
         ResultSet rs= st.executeQuery(statement);
-            if(rs.getString(2).equals(userName) && rs.getString(3).equals(password))
+            while (rs.next())
             {
-                return true;
+                if(rs.getString(2).equals(userName) && rs.getString(3).equals(password))
+                {
+                    return true;
+                }
             }
+
 
         return false;
     }

@@ -6,6 +6,7 @@ import javafx.beans.property.StringProperty;
 import javafx.scene.control.Alert;
 
 import javax.swing.*;
+import java.rmi.RemoteException;
 
 public class LoginViewModel {
 
@@ -34,7 +35,7 @@ public class LoginViewModel {
      * if both are correct - calling another view trough view handler
      * else warning message
      */
-    public void checkIfExists(){
+    public void checkIfExists() throws RemoteException {
         if(accountsModel.accountExists(userName.getValue(),password.getValue())){
             return;
         }else{

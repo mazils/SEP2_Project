@@ -4,6 +4,7 @@ import client.model.modelaccount.IAccountsModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.rmi.RemoteException;
@@ -35,9 +36,13 @@ public class LoginViewModel {
      * if both are correct - calling another view trough view handler
      * else warning message
      */
-    public void checkIfExists() throws RemoteException {
+    public void checkIfExists(Stage stage) throws RemoteException {
         if(accountsModel.accountExists(userName.getValue(),password.getValue())){
-            return;
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setHeaderText("Log in");
+            alert.setContentText("Logged in succesfully");
+            alert.showAndWait();
+            stage.close();
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setHeaderText("Log in error");

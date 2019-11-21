@@ -5,6 +5,7 @@ import client.viewmodel.logIn.LoginViewModel;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 import java.rmi.RemoteException;
 
@@ -34,7 +35,8 @@ public class LoginController {
     /** execute the login function by view model
      */
     public void onLogInButton() throws RemoteException {
-        loginViewModel.checkIfExists();
+        Stage stage= (Stage) passwordTextField.getScene().getWindow();
+        loginViewModel.checkIfExists(stage);
     }
 
 

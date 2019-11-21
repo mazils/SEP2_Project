@@ -51,8 +51,8 @@ public class Server implements RemoteServer
 
     public static void main(String[] args) {
         JDBC database= JDBC.getInstance();
-        Thread nana = new Thread(database);
-        nana.start();
+        Thread thread = new Thread(database);
+        thread.start();
         Registry registry;
         try{
             registry = LocateRegistry.createRegistry(1099);

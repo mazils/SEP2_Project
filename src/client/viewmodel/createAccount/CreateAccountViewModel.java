@@ -46,7 +46,18 @@ public class CreateAccountViewModel
 
     public void createAccount(Stage stage) throws RemoteException, SQLException
     {
-        if (iAccountsModel.checkUsername(username.getValue()))
+        //check if empty
+        if (password.getValue().equals("") || confirmPassword.getValue().equals("")||username.getValue().equals(""))
+        {
+            System.out.println("this is empty");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Please fill in all fields");
+            alert.showAndWait();
+            managerAccount.setValue(false);
+
+        }
+        //checks if already in dbs
+        else if (iAccountsModel.checkUsername(username.getValue()))
         {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("This account already exists");
@@ -57,7 +68,9 @@ public class CreateAccountViewModel
             managerAccount.setValue(false);
 
        }
-         if(!password.getValue().equals(confirmPassword.getValue()))
+
+        //checks if passwords match
+          else if(!password.getValue().equals(confirmPassword.getValue()))
         {
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("The password doesn't match");
@@ -65,6 +78,7 @@ public class CreateAccountViewModel
             password.setValue("");
             confirmPassword.setValue("");
         }
+
         else
         {
             System.out.println(password.getValue()+" "+confirmPassword.getValue());

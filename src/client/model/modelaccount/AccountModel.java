@@ -61,7 +61,7 @@ public class AccountModel implements IAccountsModel {
             acc = new VOS(userName,password);
        }
 
-       rmi.addAccount(acc);
+       rmi.addAccount(acc,isManager);
     }
 
 }

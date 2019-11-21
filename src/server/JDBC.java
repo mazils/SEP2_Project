@@ -1,4 +1,6 @@
 package server;
+import client.model.modelaccount.Account;
+
 import java.sql.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
@@ -42,6 +44,16 @@ public class JDBC implements  Runnable{
         return false;
     }
 
+    public void addAccount(Account acc,boolean isManager) {
+        String statement = "INSERT INTO " + "\"SEP2\"" + ".account(username,password,isManager) VALUES " +"(" +acc.getUsername() + ", " + acc.getPassword() + ", " + isManager +")";
+        System.out.println(statement);
+        try {
+            ResultSet rs= st.executeQuery(statement);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 
 
@@ -62,4 +74,6 @@ public class JDBC implements  Runnable{
         }
 
     }
+
+
 }

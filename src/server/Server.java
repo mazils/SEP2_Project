@@ -1,5 +1,7 @@
 package server;
 
+import client.model.modelaccount.Account;
+
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -34,6 +36,12 @@ public class Server implements RemoteServer
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public void addAccount(Account acc,boolean isManager) throws RemoteException {
+        jdbc.addAccount(acc,isManager);
+
     }
 
     public static void main(String[] args) {

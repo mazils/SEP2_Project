@@ -13,6 +13,6 @@ public class ChatApplication extends Application {
         ModelFactory mf= new ModelFactory();
         ViewModelFactory vm = new ViewModelFactory(mf);
         ViewHandler view = new ViewHandler(vm,stage);
-        view.openView("logIn");
+        view.openView("createAccount");
     }
 }

@@ -45,7 +45,7 @@ public class JDBC implements  Runnable{
     }
 
     public void addAccount(Account acc,boolean isManager) {
-        String statement = "INSERT INTO " + "\"SEP2\"" + ".account(username,password,isManager) VALUES " +"(" +acc.getUsername() + ", " + acc.getPassword() + ", " + isManager +")";
+        String statement = "INSERT INTO " + "\"SEP2\"" + ".account(username,password,isManager) VALUES " +"( '" +acc.getUsername() + "', '" + acc.getPassword() + "', '" + isManager +"')";
         System.out.println(statement);
         try {
             ResultSet rs= st.executeQuery(statement);

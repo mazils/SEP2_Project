@@ -1,6 +1,8 @@
 package client.model.modelaccount;
 
-public class VOS implements Account {
+import java.io.Serializable;
+
+public class VOS implements Account, Serializable {
 
     private String username;
     private String password;
@@ -11,22 +13,6 @@ public class VOS implements Account {
         this.password= password;
     }
 
-    @Override
-    public void setUsername(String Username) {
-        this.username= Username;
-
-    }
-
-    @Override
-    public void setPassword(String password) {
-
-        if(password.length() >= 8   ) {
-            this.password = password;
-        }
-        else
-            System.out.println("Password not strong enough");
-
-    }
 
     @Override
     public String getPassword() {

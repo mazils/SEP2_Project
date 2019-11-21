@@ -6,6 +6,7 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.Alert;
+import javafx.stage.Stage;
 
 import java.rmi.RemoteException;
 import java.sql.SQLException;
@@ -17,68 +18,61 @@ public class CreateAccountViewModel
     private StringProperty password = new SimpleStringProperty();
     private StringProperty confirmPassword = new SimpleStringProperty();
     private BooleanProperty managerAccount = new SimpleBooleanProperty();
-    private Alert alert = new Alert(Alert.AlertType.WARNING);
 
     public CreateAccountViewModel(IAccountsModel iAccountsModel)
     {
         this.iAccountsModel = iAccountsModel;
     }
 
-    public String getUsername()
-    {
-        return username.get();
-    }
-
-    public StringProperty usernameProperty()
+    public StringProperty getUsername()
     {
         return username;
     }
 
-    public String getPassword()
-    {
-        return password.get();
-    }
-
-    public StringProperty passwordProperty()
+    public StringProperty getPassword()
     {
         return password;
     }
 
-    public String getConfirmPassword()
-    {
-        return confirmPassword.get();
-    }
-
-    public StringProperty confirmPasswordProperty()
+    public StringProperty getConfirmPassword()
     {
         return confirmPassword;
     }
 
-    public boolean isManagerAccount()
-    {
-        return managerAccount.get();
-    }
-
-    public BooleanProperty managerAccountProperty()
+    public BooleanProperty getIsManagerProperty()
     {
         return managerAccount;
     }
 
-    public void createAccount(SimpleStringProperty username, SimpleStringProperty password, SimpleStringProperty confirmPassword, BooleanProperty managerAccount) throws RemoteException, SQLException
+    public void createAccount(Stage stage) throws RemoteException, SQLException
     {
         if (iAccountsModel.checkUsername(username.getValue()))
         {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setContentText("This account already exists");
             alert.showAndWait();
-        }
-        else if(!password.getValue().equals(confirmPassword.getValue()))
+            username.setValue("");
+            password.setValue("");
+            confirmPassword.setValue("");
+            managerAccount.setValue(false);
+
+       }
+         if(!password.getValue().equals(confirmPassword.getValue()))
         {
-            alert.setContentText("The username and password doesn't match");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("The password doesn't match");
             alert.showAndWait();
+            password.setValue("");
+            confirmPassword.setValue("");
         }
         else
         {
+            System.out.println(password.getValue()+" "+confirmPassword.getValue());
             iAccountsModel.createAccount(username.getValue(),password.getValue(),managerAccount.getValue());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("New account has been created");
+            alert.showAndWait();
+            stage.close();
         }
     }
 }

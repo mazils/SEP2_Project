@@ -7,6 +7,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import javafx.scene.control.CheckBox;
 
+import java.rmi.RemoteException;
+import java.sql.SQLException;
+
 
 public class CreateAccountController {
     @FXML
@@ -28,14 +31,14 @@ public class CreateAccountController {
         handler=viewHandler;
         viewModel=createAccountViewModel;
 
-        viewModel.getUserNameProperty().bindBidirectional(userNameTextField.textProperty());
-        viewModel.getPasswordProperty().bindBidirectional(passwordConfTextField.textProperty());
-        viewModel.getConfPasswordProperty().bindBidirectional(passwordConfTextField.textProperty());
-        viewModel.getIsManager().bindBidirectional(isManager.borderProperty());
+        viewModel.getUsername().bindBidirectional(userNameTextField.textProperty());
+        viewModel.getPassword().bindBidirectional(passwordTextField.textProperty());
+        viewModel.getConfirmPassword().bindBidirectional(passwordConfTextField.textProperty());
+        viewModel.getIsManagerProperty().bindBidirectional(isManager.selectedProperty());
 
     }
 
-    public void onCreateButton(){
+    public void onCreateButton() throws RemoteException, SQLException {
         Stage stage = (Stage) userNameTextField.getScene().getWindow();
         viewModel.createAccount(stage);
     }

@@ -1,5 +1,6 @@
 package client.view;
 
+import client.view.createaccount.CreateAccountController;
 import client.view.login.LoginController;
 import client.viewmodel.ViewModelFactory;
 import javafx.fxml.FXMLLoader;
@@ -29,6 +30,12 @@ public class ViewHandler {
                 loader.<LoginController>getController().init(vm.getLoginViewModel(), this);
 
                 stage.setTitle("Log-in");
+            }else if (viewToOpen.equals("createAccount")){
+                loader.setLocation(getClass().getResource("createaccount/createAccount.fxml"));
+                root = loader.load();
+                loader.<CreateAccountController>getController().init(this, vm.getCreateAccountVM());
+
+                stage.setTitle("Create-Account");
             }
 
 

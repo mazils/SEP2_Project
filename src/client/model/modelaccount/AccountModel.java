@@ -7,6 +7,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AccountModel implements IAccountsModel {
@@ -38,16 +39,10 @@ public class AccountModel implements IAccountsModel {
      * @param username
      * @return true or false
      */
-    public boolean checkUsername(String username)
-    {
-        for(int i= 0; i<database.size();i++)
-        {
-            if(username== database.get(i).getUsername())
-            {
-                return true;
-            }
-        }
-        return false;
+    public boolean checkUsername(String username) throws RemoteException, SQLException {
+
+            return rmi.checkUsername(username);
+
     }
 
     public void createAccount(String userName,String password,boolean isManager ) throws RemoteException {

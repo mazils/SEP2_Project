@@ -54,6 +54,21 @@ public class JDBC implements  Runnable{
         }
     }
 
+    public boolean checkUsername(String username) throws SQLException {
+        String statement = "SELECT * FROM " + "\"SEP2\""+ ".account WHERE userName = " + "'" + username+ "'";
+        System.out.println(statement);
+        ResultSet rs= st.executeQuery(statement);
+        while (rs.next())
+        {
+            if(rs.getString(2).equals(username) )
+            {
+                return true;
+            }
+        }
+        return false;
+
+    }
+
 
 
 

@@ -1,4 +1,13 @@
 package client.viewmodel.createAccount;
 
-public class CreateAccountViewModel {
+import client.model.modelaccount.IAccountsModel;
+
+public class CreateAccountViewModel
+{
+    private IAccountsModel iAccountsModel;
+
+    public CreateAccountViewModel()
+    {
+
+    }
 }

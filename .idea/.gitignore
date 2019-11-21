@@ -1,9 +1,9 @@
 # Default ignored files
 /workspace.xml
-/misc.xml
 /vcs.xml
-/SEP2_Project.iml
+/misc.xml
 /modules.xml
-/uiDesigner.xml
+/$PRODUCT_WORKSPACE_FILE$
+
 # Datasource local storage ignored files
 /dataSources.local.xml

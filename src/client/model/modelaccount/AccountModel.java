@@ -22,11 +22,6 @@ public class AccountModel implements IAccountsModel {
         database= new ArrayList<>();
     }
 
-    public void addAccount(Account acc)
-    {
-        database.add(acc);
-    }
-
 
     /**
      * Check if account already exists  by given parameters
@@ -36,11 +31,6 @@ public class AccountModel implements IAccountsModel {
      */
     public boolean accountExists( String username, String password) throws RemoteException {
        return rmi.checkIfExists(username,password);
-    }
-
-    public void createAccount(Account acc)
-    {
-        database.add(acc);
     }
 
     /**
@@ -58,6 +48,20 @@ public class AccountModel implements IAccountsModel {
             }
         }
         return false;
+    }
+
+    public void createAccount(String userName,String password,boolean isManager ) throws RemoteException {
+        Account acc = null;
+       if(isManager)
+       {
+            acc = new Manager(userName,password);
+       }
+       else
+       {
+            acc = new VOS(userName,password);
+       }
+
+       rmi.addAccount(acc);
     }
 
 }

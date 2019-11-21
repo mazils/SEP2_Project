@@ -6,5 +6,6 @@ import java.rmi.RemoteException;
 public interface IAccountsModel extends Remote {
     boolean accountExists(String username,String password) throws RemoteException;
     boolean checkUsername(String username) throws RemoteException;
+    void createAccount(String username,String password,boolean isManager) throws RemoteException;
 
 }

@@ -3,6 +3,7 @@ import client.model.modelaccount.AccountModelDummyClass;
 import client.viewmodel.createAccount.CreateAccountViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.stage.Stage;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,8 +12,8 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 //todo this
 class CreateAccountViewModelTest
@@ -68,19 +69,21 @@ class CreateAccountViewModelTest
         username.setValue("artur");
         password.setValue("password");
 
-//        try
-//        {
-//            createAccountViewModel.createAccount(new Stage());
-//        }
-//        catch (ExceptionInInitializerError e)
-//        {
-//
-//        }
+        try
+        {
+            createAccountViewModel.createAccount(new Stage());
+        }
+        catch (ExceptionInInitializerError e)
+        {
+
+        }
 
 
         System.out.println(createAccountViewModel.getUsername());
         //assert
         assertEquals("",createAccountViewModel.getUsername().getValue());
+
+
     }
 
 }

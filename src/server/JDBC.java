@@ -113,7 +113,7 @@ public class JDBC implements  Runnable{
     }
 
     public void removeModel(ISModel model) {
-        String statement= "DELETE FROM" + "\"SEP2\"" + ".model WHERE" + " name in " + model.getModelName();
+        String statement= "DELETE FROM" + "\"SEP2\"" + ".model WHERE" + " name in  (" + model.getModelName() + ")";
         try {
             st.executeQuery(statement);
         } catch (SQLException e) {

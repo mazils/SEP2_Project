@@ -1,5 +1,7 @@
 package server;
 
+import client.model.SMModel.ISModel;
+import client.model.SMModel.ISparePart;
 import client.model.modelaccount.Account;
 
 import java.rmi.AlreadyBoundException;
@@ -47,6 +49,27 @@ public class Server implements RemoteServer
     public void addAccount(Account acc,boolean isManager){
         jdbc.addAccount(acc,isManager);
 
+    }
+
+    @Override
+    public void addModel(ISModel model) {
+        jdbc.addModel(model);
+
+    }
+
+    @Override
+    public void addSparePart(ISparePart sparePart, ISModel model) {
+        jdbc.addSparePart(sparePart,model);
+    }
+
+    @Override
+    public void removeSparePart(ISparePart sparePart, ISModel model) {
+        jdbc.removeSparePart(sparePart,model);
+    }
+
+    @Override
+    public void removeModel(ISModel model) {
+        jdbc.removeModel(model);
     }
 
     public static void main(String[] args) {

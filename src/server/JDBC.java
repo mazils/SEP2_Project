@@ -1,4 +1,6 @@
 package server;
+import client.model.SMModel.ISModel;
+import client.model.SMModel.ISparePart;
 import client.model.modelaccount.Account;
 
 import java.sql.*;
@@ -91,4 +93,16 @@ public class JDBC implements  Runnable{
     }
 
 
+    public void addModel(ISModel model) {
+
+    }
+
+    public void addSparePart(ISparePart sparePart, ISModel model) {
+    }
+
+    public void removeSparePart(ISparePart sparePart, ISModel model) {
+    }
+
+    public void removeModel(ISModel model) {
+    }
 }

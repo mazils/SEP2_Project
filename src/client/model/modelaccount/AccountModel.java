@@ -11,16 +11,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class AccountModel implements IAccountsModel {
-    private ArrayList<Account> database;
     private RemoteServer rmi;
-
+    private Account acc;
     public AccountModel() throws RemoteException, NotBoundException {
         UnicastRemoteObject.exportObject(this,0);
         Registry reg = LocateRegistry.getRegistry("Localhost",1099);
         rmi = (RemoteServer) reg.lookup("server");
         System.out.println("Connected to Server");
 
-        database= new ArrayList<>();
     }
 
 
@@ -54,7 +52,7 @@ public class AccountModel implements IAccountsModel {
     }
 
     public void createAccount(String userName,String password,boolean isManager ){
-        Account acc = null;
+
        if(isManager)
        {
             acc = new Manager(userName,password);

@@ -14,7 +14,7 @@ public class NewModelVM {
         modelName= new SimpleStringProperty();
     }
 
-    public StringProperty getModelName()
+    public StringProperty getModelNameProperty()
     {
         return modelName;
     }

@@ -1,49 +1,86 @@
-import client.model.modelaccount.AccountModel;
 import client.model.modelaccount.IAccountsModel;
+import client.model.modelaccount.AccountModelDummyClass;
 import client.viewmodel.createAccount.CreateAccountViewModel;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
+//todo this
 class CreateAccountViewModelTest
 {
+    IAccountsModel iAccountsModel ;
+    CreateAccountViewModel createAccountViewModel;
 
-    @org.junit.jupiter.api.BeforeEach
-    void setUp() throws RemoteException, NotBoundException
+    @BeforeEach
+    void setUp() throws RemoteException, NotBoundException, SQLException
     {
-        IAccountsModel iAccountsModel = new AccountModel();
-        CreateAccountViewModel  createAccountViewModel = new CreateAccountViewModel(iAccountsModel);
+        //arrange
+        iAccountsModel = new AccountModelDummyClass();
+        createAccountViewModel = new CreateAccountViewModel(iAccountsModel);
+
     }
 
-    @org.junit.jupiter.api.AfterEach
+    @AfterEach
     void tearDown()
     {
+
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getUsername()
     {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getPassword()
     {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getConfirmPassword()
     {
     }
 
-    @org.junit.jupiter.api.Test
+    @Test
     void getIsManagerProperty()
     {
     }
 
-    @org.junit.jupiter.api.Test
-    void createAccount()
+    @Test
+    void createAccount() throws RemoteException, SQLException
     {
+        StringProperty username = new SimpleStringProperty();
+        StringProperty password = new SimpleStringProperty();
+
+        username.bindBidirectional(createAccountViewModel.getUsername());
+        password.bindBidirectional(createAccountViewModel.getPassword());
+
+        //act
+        username.setValue("artur");
+        password.setValue("password");
+
+//        try
+//        {
+//            createAccountViewModel.createAccount(new Stage());
+//        }
+//        catch (ExceptionInInitializerError e)
+//        {
+//
+//        }
+
+
+        System.out.println(createAccountViewModel.getUsername());
+        //assert
+        assertEquals("",createAccountViewModel.getUsername().getValue());
     }
+
 }

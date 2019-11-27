@@ -5,8 +5,8 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 public interface IAccountsModel extends Remote {
-    boolean accountExists(String username,String password);
-    boolean checkUsername(String username);
-    void createAccount(String username,String password,boolean isManager);
+    boolean accountExists(String username,String password) throws RemoteException;
+    boolean checkUsername(String username) throws RemoteException, SQLException;//todo we should not catch sql here
+    void createAccount(String username,String password,boolean isManager) throws RemoteException;
 
 }

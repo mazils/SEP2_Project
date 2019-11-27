@@ -30,8 +30,11 @@ public class AccountModel implements IAccountsModel {
      * @param password
      * @return true or false
      */
-    public boolean accountExists( String username, String password) throws RemoteException {
-       return rmi.checkIfExists(username,password);
+    public boolean accountExists( String username, String password) {
+
+
+           return rmi.checkIfExists(username, password);
+
     }
 
     /**
@@ -39,13 +42,18 @@ public class AccountModel implements IAccountsModel {
      * @param username
      * @return true or false
      */
-    public boolean checkUsername(String username) throws RemoteException, SQLException {
+    public boolean checkUsername(String username) {
 
+
+        try {
             return rmi.checkUsername(username);
-
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
-    public void createAccount(String userName,String password,boolean isManager ) throws RemoteException {
+    public void createAccount(String userName,String password,boolean isManager ){
         Account acc = null;
        if(isManager)
        {
@@ -55,8 +63,8 @@ public class AccountModel implements IAccountsModel {
        {
             acc = new VOS(userName,password);
        }
+           rmi.addAccount(acc, isManager);
 
-       rmi.addAccount(acc,isManager);
     }
 
 }

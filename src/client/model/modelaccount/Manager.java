@@ -12,7 +12,6 @@ public class Manager implements Account, Serializable {
         this.password= password;
         this.username= username;
     }
-    
     @Override
     public String getPassword() {
         return password;

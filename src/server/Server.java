@@ -39,12 +39,12 @@ public class Server implements RemoteServer
     }
 
     @Override
-    public boolean checkUsername(String username) throws RemoteException, SQLException {
+    public boolean checkUsername(String username)throws SQLException {
         return jdbc.checkUsername(username);
     }
 
     @Override
-    public void addAccount(Account acc,boolean isManager) throws RemoteException {
+    public void addAccount(Account acc,boolean isManager){
         jdbc.addAccount(acc,isManager);
 
     }

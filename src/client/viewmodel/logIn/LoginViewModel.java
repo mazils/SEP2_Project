@@ -36,7 +36,7 @@ public class LoginViewModel {
      * if both are correct - calling another view trough view handler
      * else warning message
      */
-    public void checkIfExists(Stage stage) throws RemoteException {
+    public void checkIfExists(Stage stage){
         if(accountsModel.accountExists(userName.getValue(),password.getValue())){
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setHeaderText("Log in");

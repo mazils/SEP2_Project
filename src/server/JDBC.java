@@ -94,15 +94,30 @@ public class JDBC implements  Runnable{
 
 
     public void addModel(ISModel model) {
+        String statement = "INSERT INTO " + "\"SEP2\"" + ".model(name) VALUES " +"( '" +model.getModelName() + "')";
+        try {
+            st.executeQuery(statement);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
     }
 
     public void addSparePart(ISparePart sparePart, ISModel model) {
+      //  String statement = "INSERT INTO " + "\"SEP2\"" + ".sparePart(name,mName) VALUES " +"( '" +sparePart.getName() +   "', '" + acc.getPassword() + "')";
+
     }
 
     public void removeSparePart(ISparePart sparePart, ISModel model) {
+      // String statement= "DELETE FROM" + "\"SEP2\"" + ".sparepart WHERE" + " name in " + sparePart.ge + " AND mName IN " + model.getModelName();
     }
 
     public void removeModel(ISModel model) {
+        String statement= "DELETE FROM" + "\"SEP2\"" + ".model WHERE" + " name in " + model.getModelName();
+        try {
+            st.executeQuery(statement);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }

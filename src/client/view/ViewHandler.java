@@ -2,6 +2,7 @@ package client.view;
 
 import client.view.createaccount.CreateAccountController;
 import client.view.login.LoginController;
+import client.view.scooterModel.NewSMController;
 import client.viewmodel.ViewModelFactory;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -36,6 +37,10 @@ public class ViewHandler {
                 loader.<CreateAccountController>getController().init(this, vm.getCreateAccountVM());
 
                 stage.setTitle("Create-Account");
+            }else if(viewToOpen.equals("newModel")){
+                loader.setLocation(getClass().getResource("scooterModel/newScooterModel.fxml"));
+                root = loader.load();
+                loader.<NewSMController>getController().init(this,vm.getNewModelVM());
             }
 
 
@@ -45,5 +50,9 @@ public class ViewHandler {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+    }
+
+    public void closeView(Stage stage){
+        stage.close();
     }
 }

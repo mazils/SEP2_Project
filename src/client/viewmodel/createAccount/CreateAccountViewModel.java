@@ -14,14 +14,18 @@ import java.sql.SQLException;
 public class CreateAccountViewModel
 {
     private IAccountsModel iAccountsModel;
-    private StringProperty username = new SimpleStringProperty();
-    private StringProperty password = new SimpleStringProperty();
-    private StringProperty confirmPassword = new SimpleStringProperty();
-    private BooleanProperty managerAccount = new SimpleBooleanProperty();
+    private StringProperty username ;
+    private StringProperty password;
+    private StringProperty confirmPassword;
+    private BooleanProperty managerAccount;
 
     public CreateAccountViewModel(IAccountsModel iAccountsModel)
     {
         this.iAccountsModel = iAccountsModel;
+        username= new SimpleStringProperty();
+        password= new SimpleStringProperty();
+        confirmPassword= new SimpleStringProperty();
+        managerAccount= new SimpleBooleanProperty();
     }
 
     public StringProperty getUsername()
@@ -44,7 +48,7 @@ public class CreateAccountViewModel
         return managerAccount;
     }
 
-    public void createAccount(Stage stage) throws RemoteException, SQLException
+    public void createAccount(Stage stage)
     {
         //check if empty
         if (password.getValue().equals("") || confirmPassword.getValue().equals("")||username.getValue().equals(""))

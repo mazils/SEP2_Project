@@ -1,4 +1,4 @@
-package client.SMModel;
+package client.model.SMModel;
 
 public interface IMSModel {
 }

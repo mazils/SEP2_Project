@@ -4,6 +4,7 @@ import client.view.ViewHandler;
 import client.viewmodel.scooterModel.NewModelVM;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 
 public class NewSMController {
@@ -20,8 +21,10 @@ public void init(ViewHandler viewHandler, NewModelVM viewModel){
     viewModel.getModelNameProperty().bindBidirectional(newModelName.textProperty());
 }
 
-public void onSaveButton{
-
+public void onSaveButton(){
+    viewModel.addAccount();
+    Stage stage = (Stage)newModelName.getScene().getWindow();
+    viewHandler.closeView(stage);
 }
 
 }

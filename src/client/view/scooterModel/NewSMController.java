@@ -6,6 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.rmi.RemoteException;
+
 
 public class NewSMController {
 @FXML
@@ -21,7 +23,7 @@ public void init(ViewHandler viewHandler, NewModelVM viewModel){
     viewModel.getModelNameProperty().bindBidirectional(newModelName.textProperty());
 }
 
-public void onSaveButton(){
+public void onSaveButton() throws RemoteException {
     viewModel.addScooterModel();
     Stage stage = (Stage)newModelName.getScene().getWindow();
     viewHandler.closeView(stage);

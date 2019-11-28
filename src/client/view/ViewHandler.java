@@ -3,6 +3,7 @@ package client.view;
 import client.view.createaccount.CreateAccountController;
 import client.view.login.LoginController;
 import client.view.scooterModel.NewSMController;
+import client.view.sparePartsManager.SparePartsMController;
 import client.viewmodel.ViewModelFactory;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -41,6 +42,10 @@ public class ViewHandler {
                 loader.setLocation(getClass().getResource("scooterModel/newScooterModel.fxml"));
                 root = loader.load();
                 loader.<NewSMController>getController().init(this,vm.getNewModelVM());
+            }else if(viewToOpen.equals("sparePartsManager")){
+                loader.setLocation(getClass().getResource("sparePartsManager/sparePartsManager.fxml"));
+                root = loader.load();
+                loader.<SparePartsMController>getController().init(vm.getSparePartViewModel(), this);
             }
 
 

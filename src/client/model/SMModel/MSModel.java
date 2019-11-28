@@ -35,20 +35,17 @@ public class MSModel implements IMSModel, Remote {
         server.removeModel(scooterModel);
     }
 
-    public void addSparepart(String name,ISModel model)
-    {
+    public void addSparepart(String name,ISModel model) throws RemoteException {
         sparePart= new SparePart(name);
         server.addSparePart(sparePart,model);
     }
 
-    public void removeSparepart(String name,ISModel model)
-    {
+    public void removeSparepart(String name,ISModel model) throws RemoteException {
         sparePart= new SparePart(name);
         server.removeSparePart(sparePart,model);
     }
 
-    public ArrayList<SparePart> getAllSpareparts(ISModel model)
-    {
+    public ArrayList<SparePart> getAllSpareparts(ISModel model) throws RemoteException {
         return server.getAllSpareparts(model);
     }
 

@@ -1,5 +1,8 @@
 package client.model.SMModel;
 
-public interface ISModel {
-    public String getModelName();
+import java.rmi.Remote;
+import java.rmi.RemoteException;
+
+public interface ISModel  {
+    public String getModelName() ;
 }

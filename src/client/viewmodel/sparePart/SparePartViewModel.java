@@ -8,6 +8,7 @@ import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
 import javafx.collections.ObservableList;
 
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -31,8 +32,7 @@ public class SparePartViewModel {
         return models;
     }
 
-    public void getList(ISModel scooterModel)
-    {
+    public void getList(ISModel scooterModel) throws RemoteException {
         Iterator<SparePart> sparePartIterator= model.getAllSpareparts(scooterModel).iterator();
         while (sparePartIterator.hasNext())
         {
@@ -40,8 +40,7 @@ public class SparePartViewModel {
         }
     }
 
-    public void removeSparePart(ISparePart sparePart,ISModel scootermodel)
-    {
+    public void removeSparePart(ISparePart sparePart,ISModel scootermodel) throws RemoteException {
         model.removeSparepart(sparePart.getName(),scootermodel);
     }
 

@@ -4,6 +4,8 @@ import client.model.SMModel.IMSModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
+import java.rmi.RemoteException;
+
 public class NewModelVM {
     private StringProperty modelName;
     private IMSModel model;
@@ -19,8 +21,7 @@ public class NewModelVM {
         return modelName;
     }
 
-    public void addScooterModel()
-    {
+    public void addScooterModel() throws RemoteException {
         model.addModel(modelName.getValue());
     }
 }

@@ -52,9 +52,11 @@ public class SparePartsMController {
 
 
     public void onModelList(ActionEvent actionEvent) {
+
     }
 
     public void onNewSparePart(ActionEvent actionEvent) {
+
     }
 
     public void onDeleteSparePart(ActionEvent actionEvent) {

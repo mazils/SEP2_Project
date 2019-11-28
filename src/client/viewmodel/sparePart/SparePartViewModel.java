@@ -14,7 +14,7 @@ import java.util.Iterator;
 
 public class SparePartViewModel {
     private IMSModel model;
-    private ListProperty<ISparePart> spareParts;
+    private ListProperty<SparePart> spareParts;
     private ListProperty<ISModel> models;
 
     public SparePartViewModel (IMSModel model)
@@ -23,7 +23,7 @@ public class SparePartViewModel {
         spareParts= new SimpleListProperty<>();
         models= new SimpleListProperty<>();
     }
-    public ObservableList<ISparePart> getSparePartsProperty() {
+    public ObservableList<SparePart> getSparePartsProperty() {
         return spareParts;
     }
 

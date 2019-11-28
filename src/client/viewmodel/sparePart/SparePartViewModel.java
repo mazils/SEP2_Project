@@ -23,11 +23,11 @@ public class SparePartViewModel {
         spareParts= new SimpleListProperty<>();
         models= new SimpleListProperty<>();
     }
-    public ObservableList<ISparePart> getSparePartsProperty() {
+    public ListProperty<ISparePart> getSparePartsProperty() {
         return spareParts;
     }
 
-    public ObservableList<ISModel> getModelsProperty() {
+    public ListProperty<ISModel> getModelsProperty() {
         return models;
     }
 

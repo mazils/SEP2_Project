@@ -23,11 +23,11 @@ public class SparePartViewModel {
         spareParts= new SimpleListProperty<>();
         models= new SimpleListProperty<>();
     }
-    public ListProperty<ISparePart> getSparePartsProperty() {
+    public ObservableList<ISparePart> getSparePartsProperty() {
         return spareParts;
     }
 
-    public ListProperty<ISModel> getModelsProperty() {
+    public ObservableList<ISModel> getModelsProperty() {
         return models;
     }
 
@@ -39,4 +39,11 @@ public class SparePartViewModel {
             spareParts.add(sparePartIterator.next());
         }
     }
+
+    public void removeSparePart(ISparePart sparePart,ISModel scootermodel)
+    {
+        model.removeSparepart(sparePart.getName(),scootermodel);
+    }
+
+
 }

@@ -22,7 +22,7 @@ public void init(ViewHandler viewHandler, NewModelVM viewModel){
 }
 
 public void onSaveButton(){
-    viewModel.addAccount();
+    viewModel.addScooterModel();
     Stage stage = (Stage)newModelName.getScene().getWindow();
     viewHandler.closeView(stage);
 }

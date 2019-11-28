@@ -19,7 +19,7 @@ public class NewModelVM {
         return modelName;
     }
 
-    public void addAccount()
+    public void addScooterModel()
     {
         model.addModel(modelName.getValue());
     }

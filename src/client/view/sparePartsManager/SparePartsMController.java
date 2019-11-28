@@ -34,21 +34,8 @@ public class SparePartsMController {
     public void init(SparePartViewModel viewModel, ViewHandler viewHandler){
         this.viewHandler=viewHandler;
         this.viewModel=viewModel;
-        sparePartsList= FXCollections.observableArrayList(SparePart);
-
-        Bindings.bindContent(viewModel.getSparePartsProperty(),(ObservableList<? extends SparePart>) sparePartsList);
-
-//        viewModel.getSparePartsProperty().addListener(new ListChangeListener<ISparePart>() {
-//            @Override
-//            public void onChanged(Change<? extends ISparePart> change) {
-//                while(change.next()){
-//                    sparePartsList.getItems().addAll((SparePart) change.getAddedSubList());
-//                    sparePartsList.getItems().remove(change.getRemoved());
-//                }
-//            }
-//        });
-        Bindings.bindContent(viewModel.getModelsProperty(),(ObservableList<? extends ISModel>) modelList);
-//        viewModel.getModelsProperty().bindBidirectional(modelList.getValue());
+       sparePartsList.setItems(viewModel.getSparePartsProperty());
+       modelList.setItems(viewModel.getModelsProperty());
     }
 
     public void onNewAccount(){

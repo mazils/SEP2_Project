@@ -8,6 +8,7 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.ArrayList;
 
 public class MSModel implements IMSModel, Remote {
     private ISModel scooterModel;
@@ -33,4 +34,23 @@ public class MSModel implements IMSModel, Remote {
     public void removeModel(SModel scooterModel) {
         server.removeModel(scooterModel);
     }
+
+    public void addSparepart(String name,ISModel model)
+    {
+        sparePart= new SparePart(name);
+        server.addSparePart(sparePart,model);
+    }
+
+    public void removeSparepart(String name,ISModel model)
+    {
+        sparePart= new SparePart(name);
+        server.removeSparePart(sparePart,model);
+    }
+
+    public ArrayList<SparePart> getAllSpareparts(ISModel model)
+    {
+        return server.getAllSpareparts(model);
+    }
+
+
 }

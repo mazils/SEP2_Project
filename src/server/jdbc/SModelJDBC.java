@@ -2,8 +2,6 @@ package server.jdbc;
 
 import client.model.SMModel.ISModel;
 
-import java.sql.SQLException;
-
 public class SModelJDBC {
     JDBC database;
 

@@ -2,6 +2,7 @@ package server;
 
 import client.model.SMModel.ISModel;
 import client.model.SMModel.ISparePart;
+import client.model.SMModel.SparePart;
 import client.model.modelaccount.Account;
 import server.jdbc.AccountsJDBC;
 import server.jdbc.JDBC;
@@ -14,14 +15,15 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Server implements RemoteServer
 {
     // private ISM sparePartsModel
     // private IMM modelsModel
-    AccountsJDBC accountsJDBC;
-    SModelJDBC sModelJDBC;
-    SparePartsJDBC sparePartsJDBC;
+   private AccountsJDBC accountsJDBC;
+    private SModelJDBC sModelJDBC;
+   private SparePartsJDBC sparePartsJDBC;
 
 
 
@@ -78,6 +80,18 @@ public class Server implements RemoteServer
     @Override
     public void removeModel(ISModel model) {
         sModelJDBC.removeModel(model);
+    }
+
+    @Override
+    public ArrayList<SparePart> getAllSpareparts(ISModel model) {
+
+        ArrayList<SparePart> partArrayList= new ArrayList<>();
+        try {
+           partArrayList= sparePartsJDBC.getAllSpareParts(model);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return partArrayList;
     }
 
     public static void main(String[] args) {

@@ -35,7 +35,7 @@ public class Server implements RemoteServer
             UnicastRemoteObject.exportObject(this,0);
             System.out.println("Server started");
         }catch (RemoteException e){
-            throw new RuntimeException(e);
+            e.printStackTrace();
         }
     }
 

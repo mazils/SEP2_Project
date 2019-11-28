@@ -28,7 +28,7 @@ public class AccountModel implements IAccountsModel {
      * @param password
      * @return true or false
      */
-    public boolean accountExists( String username, String password) {
+    public boolean accountExists( String username, String password) throws RemoteException {
 
 
            return rmi.checkIfExists(username, password);
@@ -47,11 +47,13 @@ public class AccountModel implements IAccountsModel {
             return rmi.checkUsername(username);
         } catch (SQLException e) {
             e.printStackTrace();
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
         return false;
     }
 
-    public void createAccount(String userName,String password,boolean isManager ){
+    public void createAccount(String userName,String password,boolean isManager ) throws RemoteException {
 
        if(isManager)
        {

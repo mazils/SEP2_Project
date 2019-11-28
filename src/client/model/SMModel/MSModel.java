@@ -24,14 +24,14 @@ public class MSModel implements IMSModel, Remote {
     };
 
     @Override
-    public void addModel(String modelName) {
+    public void addModel(String modelName) throws RemoteException {
         scooterModel = new SModel(modelName);
 
         server.addModel(scooterModel);
     }
 
     @Override
-    public void removeModel(SModel scooterModel) {
+    public void removeModel(SModel scooterModel) throws RemoteException {
         server.removeModel(scooterModel);
     }
 

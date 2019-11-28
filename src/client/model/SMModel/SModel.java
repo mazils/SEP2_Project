@@ -1,6 +1,8 @@
 package client.model.SMModel;
 
-public class SModel implements ISModel {
+import java.io.Serializable;
+
+public class SModel implements ISModel, Serializable {
     private String modelName;
 
     public SModel(String modelName){

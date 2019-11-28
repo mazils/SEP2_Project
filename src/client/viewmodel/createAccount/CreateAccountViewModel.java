@@ -48,8 +48,7 @@ public class CreateAccountViewModel
         return managerAccount;
     }
 
-    public void createAccount(Stage stage)
-    {
+    public void createAccount(Stage stage) throws RemoteException, SQLException {
         //check if empty
         if (password.getValue().equals("") || confirmPassword.getValue().equals("")||username.getValue().equals(""))
         {

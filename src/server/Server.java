@@ -3,6 +3,10 @@ package server;
 import client.model.SMModel.ISModel;
 import client.model.SMModel.ISparePart;
 import client.model.modelaccount.Account;
+import server.jdbc.AccountsJDBC;
+import server.jdbc.JDBC;
+import server.jdbc.SModelJDBC;
+import server.jdbc.SparePartsJDBC;
 
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
@@ -15,12 +19,16 @@ public class Server implements RemoteServer
 {
     // private ISM sparePartsModel
     // private IMM modelsModel
-    private JDBC jdbc;
+    AccountsJDBC accountsJDBC;
+    SModelJDBC sModelJDBC;
+    SparePartsJDBC sparePartsJDBC;
 
 
 
     public Server() {
-        jdbc = JDBC.getInstance();
+       accountsJDBC= new AccountsJDBC();
+       sModelJDBC= new SModelJDBC();
+       sparePartsJDBC= new SparePartsJDBC();
         try{
             UnicastRemoteObject.exportObject(this,0);
             System.out.println("Server started");
@@ -32,7 +40,7 @@ public class Server implements RemoteServer
     @Override
     public synchronized boolean checkIfExists(String userName, String password) {
         try {
-            return jdbc.checkAccExists(userName,password);
+            return accountsJDBC.checkAccExists(userName,password);
         }
         catch (SQLException e) {
             e.printStackTrace();
@@ -42,34 +50,34 @@ public class Server implements RemoteServer
 
     @Override
     public boolean checkUsername(String username)throws SQLException {
-        return jdbc.checkUsername(username);
+        return accountsJDBC.checkUsername(username);
     }
 
     @Override
     public void addAccount(Account acc,boolean isManager){
-        jdbc.addAccount(acc,isManager);
+        accountsJDBC.addAccount(acc,isManager);
 
     }
 
     @Override
     public void addModel(ISModel model) {
-        jdbc.addModel(model);
+        sModelJDBC.addModel(model);
 
     }
 
     @Override
     public void addSparePart(ISparePart sparePart, ISModel model) {
-        jdbc.addSparePart(sparePart,model);
+        sparePartsJDBC.addSparePart(sparePart,model);
     }
 
     @Override
     public void removeSparePart(ISparePart sparePart, ISModel model) {
-        jdbc.removeSparePart(sparePart,model);
+        sparePartsJDBC.removeSparePart(sparePart,model);
     }
 
     @Override
     public void removeModel(ISModel model) {
-        jdbc.removeModel(model);
+        sModelJDBC.removeModel(model);
     }
 
     public static void main(String[] args) {

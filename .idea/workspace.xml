@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd02163f-1365-4303-bacb-4870413b5ac6" name="Default Changelist" comment="Add account">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/view/scooterModel/NewSMController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/view/scooterModel/NewSMController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/client/viewmodel/scooterModel/NewModelVM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/viewmodel/scooterModel/NewModelVM.java" afterDir="false" />
+    <list default="true" id="fd02163f-1365-4303-bacb-4870413b5ac6" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/server/jdbc/AccountsJDBC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/jdbc/SModelJDBC.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server/jdbc/SparePartsJDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/jdbc/JDBC.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Server.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,11 +73,11 @@
   </component>
   <component name="RunManager" selected="Application.Server">
     <configuration name="JDBC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="server.JDBC" />
+      <option name="MAIN_CLASS_NAME" value="server.jdbc.JDBC" />
       <module name="SEP2_Project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="server.*" />
+          <option name="PATTERN" value="server.jdbc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -89,7 +90,7 @@
       <module name="SEP2_Project" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="server.*" />
+          <option name="PATTERN" value="server.jdbc.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -146,7 +147,7 @@
       <workItem from="1574432430966" duration="4596000" />
       <workItem from="1574760504585" duration="2308000" />
       <workItem from="1574855613571" duration="1390000" />
-      <workItem from="1574866374500" duration="4762000" />
+      <workItem from="1574866374500" duration="7681000" />
     </task>
     <task id="LOCAL-00001" summary="push hard">
       <created>1574168557393</created>
@@ -281,7 +282,14 @@
       <option name="project" value="LOCAL" />
       <updated>1574868953519</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Add scooter">
+      <created>1574945613541</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1574945613541</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,7 +340,8 @@
     <MESSAGE value="Master of quotes" />
     <MESSAGE value="last login" />
     <MESSAGE value="Add account" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add account" />
+    <MESSAGE value="Add scooter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add scooter" />
   </component>
   <component name="masterDetails">
     <states>

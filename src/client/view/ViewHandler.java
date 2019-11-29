@@ -27,34 +27,48 @@ public class ViewHandler {
         Parent root = null;
         try{
             if(viewToOpen.equals("logIn")){
+                Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("login/logIn.fxml"));
                 root = loader.load();
                 loader.<LoginController>getController().init(vm.getLoginViewModel(), this);
+                scene = new Scene(root);
+                stage1.setScene(scene);
+                stage1.show();
 
                 stage.setTitle("Log-in");
             }else if (viewToOpen.equals("createAccount")){
+                Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("createaccount/createAccount.fxml"));
                 root = loader.load();
                 loader.<CreateAccountController>getController().init(this, vm.getCreateAccountVM());
+                scene = new Scene(root);
+                stage1.setScene(scene);
+                stage1.show();
 
                 stage.setTitle("Create-Account");
             }else if(viewToOpen.equals("newModel")){
+                Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("scooterModel/newScooterModel.fxml"));
                 root = loader.load();
                 loader.<NewSMController>getController().init(this,vm.getNewModelVM());
+                scene = new Scene(root);
+                stage1.setScene(scene);
+                stage1.show();
             }else if(viewToOpen.equals("sparePartsManager")){
+                Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("sparePartsManager/sparePartsManager.fxml"));
                 root = loader.load();
                 loader.<SparePartsMController>getController().init(vm.getSparePartViewModel(), this);
+                scene = new Scene(root);
+                stage1.setScene(scene);
+                stage1.show();
             }
 
 
         }catch(IOException e){
             throw new RuntimeException(e);
         }
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+
     }
 
     public void closeView(Stage stage){

@@ -49,5 +49,10 @@ public class MSModel implements IMSModel, Remote {
         return server.getAllSpareparts(model);
     }
 
+    @Override
+    public ArrayList<ISModel> getAllModels() throws RemoteException {
+        return server.getAllModels();
+    }
+
 
 }

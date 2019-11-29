@@ -6,6 +6,7 @@ import client.model.SMModel.ISparePart;
 import client.model.SMModel.SparePart;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.rmi.RemoteException;
@@ -15,20 +16,21 @@ import java.util.Iterator;
 
 public class SparePartViewModel {
     private IMSModel model;
-    private ListProperty<SparePart> spareParts;
-    private ListProperty<ISModel> models;
+    private ObservableList<SparePart> spareParts;
+    private ObservableList<String> models;
 
     public SparePartViewModel (IMSModel model)
     {
         this.model= model;
-        spareParts= new SimpleListProperty<>();
-        models= new SimpleListProperty<>();
+        spareParts= FXCollections.observableArrayList();
+        models= FXCollections.observableArrayList();
+        setAllModels();
     }
     public ObservableList<SparePart> getSparePartsProperty() {
         return spareParts;
     }
 
-    public ObservableList<ISModel> getModelsProperty() {
+    public ObservableList<String> getModelsProperty() {
         return models;
     }
 
@@ -42,6 +44,31 @@ public class SparePartViewModel {
 
     public void removeSparePart(ISparePart sparePart,ISModel scootermodel) throws RemoteException {
         model.removeSparepart(sparePart.getName(),scootermodel);
+    }
+
+    public void addSparePart(ISparePart sparePart,ISModel scootermodel) throws RemoteException {
+        model.addSparepart(sparePart.getName(),scootermodel);
+    }
+
+    public void setAllModels()
+    {
+        ArrayList<ISModel> modelcollection= new ArrayList<>();
+        try {
+             modelcollection= model.getAllModels();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+
+        for(int i=0;i<modelcollection.size();i++)
+        {
+            ISModel model= modelcollection.get(i);
+           if(!(models.contains(model.getModelName())))
+           {
+               models.add(model.getModelName());
+           }
+        }
+
+
     }
 
 

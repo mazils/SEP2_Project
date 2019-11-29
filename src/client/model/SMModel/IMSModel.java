@@ -9,5 +9,6 @@ public interface IMSModel extends Remote {
     void removeModel(SModel scooterModel)throws RemoteException;
     void removeSparepart(String name,ISModel model)throws RemoteException;
     ArrayList<SparePart> getAllSpareparts(ISModel model)throws RemoteException;
+    ArrayList<ISModel> getAllModels()throws RemoteException;
     void addSparepart(String name,ISModel model)throws RemoteException;
 }

@@ -13,6 +13,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 ;
@@ -35,16 +36,28 @@ public class SparePartsMController {
         this.viewHandler=viewHandler;
         this.viewModel=viewModel;
        sparePartsList.setItems(viewModel.getSparePartsProperty());
-       modelList.setItems(viewModel.getModelsProperty());
+       sparePartsList.setPlaceholder(new Label("No Content In List"));
+        modelList.setItems(viewModel.getModelsProperty());
+        if(modelList.getItems().size()==0)
+        {
+            modelList.setPlaceholder(new Label("no models to show"));
+
+        }
+        else {
+            modelList.setValue(modelList.getItems().get(0));
+        }
+
     }
 
     public void onNewAccount(){
-        viewHandler.openView("newAccount");
+        viewHandler.openView("createAccount");
     }
 
     public void onNewModel(){
+        viewModel.setAllModels();
         viewHandler.openView("newModel");
-    };
+
+    }
 
     public void onLogOff(){
         viewHandler.openView("LogIn");
@@ -56,7 +69,7 @@ public class SparePartsMController {
     }
 
     public void onNewSparePart(ActionEvent actionEvent) {
-
+//        viewModel.addSparePart(sparePartsList.getItems().get(0));
     }
 
     public void onDeleteSparePart(ActionEvent actionEvent) {

@@ -22,7 +22,7 @@ public class SparePartsJDBC {
     }
 
     public void removeSparePart(ISparePart sparePart, ISModel model) {
-         String statement= "DELETE FROM" + "\"SEP2\"" + ".sparepart WHERE" + " name in " + sparePart.getName() + " AND mName IN " +  "( '" + model.getModelName() + "')";
+         String statement= "DELETE FROM" + "\"SEP2\"" + ".sparepart WHERE" + " mName in " + sparePart.getName() + " AND mName IN " +  "( '" + model.getModelName() + "')";
          database.executeUpdate(statement);
     }
 

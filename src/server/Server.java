@@ -94,6 +94,16 @@ public class Server implements RemoteServer
         return partArrayList;
     }
 
+    @Override
+    public ArrayList<ISModel> getAllModels() throws RemoteException {
+        try {
+            return sModelJDBC.getAllModels();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
         JDBC database= JDBC.getInstance();
         Thread thread = new Thread(database);

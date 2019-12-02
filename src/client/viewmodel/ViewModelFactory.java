@@ -27,6 +27,7 @@ public class ViewModelFactory {
         sparePartViewModel = new SparePartViewModel(modelFactory.getSparePartModel());
         modelsListMViewModel = new ModelsListMViewModel(modelFactory.getIMSModelModel());
         newSparePartViewModel = new NewSparePartViewModel(modelFactory.getSparePartModel());
+
     }
 
     public LoginViewModel getLoginViewModel() {
@@ -51,5 +52,6 @@ public class ViewModelFactory {
         return modelsListMViewModel;
     }
 
-    public NewSparePartViewModel getNewSparePartViewModel() {return newSparePartViewModel;}
+    public NewSparePartViewModel getNewSparePartViewModel() {
+        return newSparePartViewModel;}
 }

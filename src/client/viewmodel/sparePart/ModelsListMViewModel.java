@@ -13,6 +13,7 @@ import java.util.ArrayList;
 public class ModelsListMViewModel {
     private IMSModel model;
     private ObservableList<String> models;
+
     public ObservableList<String> getModelsProperty() {
         return models;
     }

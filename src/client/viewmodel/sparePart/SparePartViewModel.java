@@ -18,8 +18,8 @@ public class SparePartViewModel {
     private ObservableList<SparePart> spareParts;
 
 
-    public SparePartViewModel (IMSparePart model)
-    {
+    public SparePartViewModel (IMSparePart model) {
+
         this.model= model;
         spareParts= FXCollections.observableArrayList();
 

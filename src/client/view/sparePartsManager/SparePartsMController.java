@@ -34,7 +34,7 @@ public class SparePartsMController {
     private ModelsListMViewModel modelsViewModel;
     private SparePartViewModel sparePartsViewModel;
 
-    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartViewModel, ViewHandler viewHandler){
+    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler){
         this.viewHandler=viewHandler;
         this.modelsViewModel=modelsViewModel;
         this.sparePartsViewModel=sparePartsViewModel;

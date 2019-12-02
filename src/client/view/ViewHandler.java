@@ -70,7 +70,7 @@ public class ViewHandler {
                 Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("newSparePart/newSparePart.fxml"));
                 root = loader.load();
-                loader.<NewSparePartController>getController().init(this, viewModelFactory.getNewSparePartViewModel());
+                loader.<NewSparePartController>getController().init(this, viewModelFactory.getNewSparePartViewModel(), viewModelFactory.getModelsListVM());
                 scene = new Scene(root);
                 stage1.setScene(scene);
                 stage1.show();

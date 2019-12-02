@@ -22,6 +22,6 @@ public class NewSparePartViewModel
 
     public void addPartButton()
     {
-
+//        newSparePartModel.addSparepart(partName,);
     }
 }

@@ -11,7 +11,7 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-public class MSpareSpart implements IMSparepart {
+public class MSpareSpart implements IMSparePart {
     private ISparePart sparePart;
     private RemoteServer server;
     private PropertyChangeSupport support= new PropertyChangeSupport(this);

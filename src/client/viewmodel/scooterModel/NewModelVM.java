@@ -6,7 +6,7 @@ import javafx.beans.property.StringProperty;
 
 import java.rmi.RemoteException;
 
-public class NewModelVM {
+public class NewModelVM  {
     private StringProperty modelName;
     private IMSModel model;
 
@@ -24,4 +24,6 @@ public class NewModelVM {
     public void addScooterModel() throws RemoteException {
         model.addModel(modelName.getValue());
     }
+
+
 }

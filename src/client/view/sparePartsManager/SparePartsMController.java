@@ -5,6 +5,7 @@ import client.model.SMModel.ISparePart;
 import client.model.SMModel.SparePart;
 import client.view.ViewHandler;
 import client.viewmodel.sparePart.SparePartViewModel;
+import javafx.application.Platform;
 import javafx.beans.Observable;
 import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
@@ -35,17 +36,18 @@ public class SparePartsMController {
     public void init(SparePartViewModel viewModel, ViewHandler viewHandler){
         this.viewHandler=viewHandler;
         this.viewModel=viewModel;
-       sparePartsList.setItems(viewModel.getSparePartsProperty());
-       sparePartsList.setPlaceholder(new Label("No Content In List"));
-        modelList.setItems(viewModel.getModelsProperty());
-        if(modelList.getItems().size()==0)
-        {
-            modelList.setPlaceholder(new Label("no models to show"));
+        inittialLoad();
+        viewModel.updateAllModels();
 
-        }
-        else {
-            modelList.setValue(modelList.getItems().get(0));
-        }
+    }
+
+    public void inittialLoad()
+    {
+        sparePartsList.setItems(viewModel.getSparePartsProperty());
+        sparePartsList.setPlaceholder(new Label("No Content In List"));
+        modelList.setItems(viewModel.getModelsProperty());
+        modelList.setPlaceholder(new Label("No models to show"));
+        modelList.setValue("Choose");
 
     }
 
@@ -54,9 +56,7 @@ public class SparePartsMController {
     }
 
     public void onNewModel(){
-        viewModel.setAllModels();
         viewHandler.openView("newModel");
-
     }
 
     public void onLogOff(){

@@ -2,6 +2,8 @@ package client.model.SMModel;
 
 import server.RemoteServer;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -14,6 +16,7 @@ public class MSModel implements IMSModel, Remote {
     private ISModel scooterModel;
     private ISparePart sparePart;
     private RemoteServer server;
+    private PropertyChangeSupport support= new PropertyChangeSupport(this);
 
 
     public MSModel() throws RemoteException, NotBoundException {
@@ -26,8 +29,8 @@ public class MSModel implements IMSModel, Remote {
     @Override
     public void addModel(String modelName) throws RemoteException {
         scooterModel = new SModel(modelName);
-
         server.addModel(scooterModel);
+        support.firePropertyChange("addedModel",null,modelName);
     }
 
     @Override
@@ -55,4 +58,8 @@ public class MSModel implements IMSModel, Remote {
     }
 
 
+    @Override
+    public void addListener(String names, PropertyChangeListener listener) {
+            support.addPropertyChangeListener(names,listener);
+    }
 }

@@ -5,6 +5,7 @@ import client.view.login.LoginController;
 import client.view.newSparePart.NewSparePartController;
 import client.view.scooterModel.NewSMController;
 import client.view.sparePartsManager.SparePartsMController;
+import client.view.sparePartsVOS.SparePartsVOSController;
 import client.viewmodel.ViewModelFactory;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -74,6 +75,15 @@ public class ViewHandler {
                 stage1.setScene(scene);
                 stage1.show();
                 stage.setTitle("New spare parts");
+            }else if(viewToOpen.equals("sparePartsVOS")){
+                Stage stage1 = new Stage();
+                loader.setLocation(getClass().getResource("sparePartsVOS/sparePartsVOS.fxml"));
+                root = loader.load();
+                loader.<SparePartsVOSController>getController().init(viewModelFactory.getModelsListVM(), viewModelFactory.getSparePartViewModel(), this);
+                scene = new Scene(root);
+                stage1.setScene(scene);
+                stage1.show();
+                stage.setTitle("sparePartsVOS");
             }
 
 

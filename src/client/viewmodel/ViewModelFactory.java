@@ -5,6 +5,7 @@ import client.view.ViewHandler;
 import client.viewmodel.createAccount.CreateAccountViewModel;
 import client.viewmodel.logIn.LoginViewModel;
 import client.viewmodel.scooterModel.NewModelVM;
+import client.viewmodel.sparePart.ModelsListMViewModel;
 import client.viewmodel.sparePart.SparePartViewModel;
 
 import java.rmi.NotBoundException;
@@ -15,12 +16,14 @@ public class ViewModelFactory {
     private CreateAccountViewModel createAccountViewModel;
     private NewModelVM newModelVM;
     private SparePartViewModel sparePartViewModel;
+    private ModelsListMViewModel modelsListMViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) throws RemoteException, NotBoundException {
         loginViewModel= new LoginViewModel(modelFactory.getDataModel());
         createAccountViewModel = new CreateAccountViewModel(modelFactory.getDataModel());
-        newModelVM = new NewModelVM(modelFactory.getModelModel());
-        sparePartViewModel= new SparePartViewModel(modelFactory.getModelModel());
+        newModelVM = new NewModelVM(modelFactory.getIMSModelModel());
+        sparePartViewModel = new SparePartViewModel(modelFactory.getSparePartModel());
+        modelsListMViewModel = new ModelsListMViewModel(modelFactory.getIMSModelModel());
     }
 
     public LoginViewModel getLoginViewModel() {
@@ -36,8 +39,12 @@ public class ViewModelFactory {
         return newModelVM;
     }
 
-    public  SparePartViewModel getSparePartViewModel()
+    public SparePartViewModel getSparePartViewModel()
     {
         return sparePartViewModel;
+    }
+
+    public ModelsListMViewModel getModelsListVM() {
+        return modelsListMViewModel;
     }
 }

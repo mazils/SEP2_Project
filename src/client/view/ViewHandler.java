@@ -58,7 +58,7 @@ public class ViewHandler {
                 Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("sparePartsManager/sparePartsManager.fxml"));
                 root = loader.load();
-                loader.<SparePartsMController>getController().init(vm.getSparePartViewModel(), this);
+                loader.<SparePartsMController>getController().init(vm.getModelsListVM(), vm.getSparePartViewModel(), this);
                 scene = new Scene(root);
                 stage1.setScene(scene);
                 stage1.show();

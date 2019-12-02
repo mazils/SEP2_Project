@@ -1,9 +1,6 @@
 package client.viewmodel.sparePart;
 
-import client.model.SMModel.IMSModel;
-import client.model.SMModel.ISModel;
-import client.model.SMModel.ISparePart;
-import client.model.SMModel.SparePart;
+import client.model.SMModel.*;
 import javafx.application.Platform;
 import javafx.beans.property.ListProperty;
 import javafx.beans.property.SimpleListProperty;

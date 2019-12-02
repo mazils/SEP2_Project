@@ -2,9 +2,11 @@ package client.view;
 
 import client.view.createaccount.CreateAccountController;
 import client.view.login.LoginController;
+import client.view.newSparePart.NewSparePartController;
 import client.view.scooterModel.NewSMController;
 import client.view.sparePartsManager.SparePartsMController;
 import client.viewmodel.ViewModelFactory;
+import client.viewmodel.newSparePart.NewSparePartViewModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -63,6 +65,18 @@ public class ViewHandler {
                 stage1.setScene(scene);
                 stage1.show();
             }
+            else if(viewToOpen.equals("newsparepart"))
+            {
+                Stage stage1 = new Stage();
+                loader.setLocation(getClass().getResource("/view/newSparePart/newSparePart.fxml"));
+                root = loader.load();
+                loader.<NewSparePartController>getController().init(this,vm.getNewSparePartViewModel());
+                scene = new Scene(root);
+                stage1.setScene(scene);
+                stage1.show();
+                stage.setTitle("New spare parts");
+            }
+
 
 
         }catch(IOException e){

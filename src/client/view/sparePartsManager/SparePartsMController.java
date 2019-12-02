@@ -60,7 +60,8 @@ public class SparePartsMController {
         viewHandler.openView("newModel");
     }
 
-    public void onLogOff(){
+    public void onLogOff()
+    {
         viewHandler.openView("LogIn");
     }
 
@@ -69,8 +70,9 @@ public class SparePartsMController {
 
     }
 
-    public void onNewSparePart(ActionEvent actionEvent) {
-//        viewModel.addSparePart(sparePartsList.getItems().get(0));
+    public void onNewSparePart()
+    {
+        viewHandler.openView("newsparepart");
     }
 
     public void onDeleteSparePart(ActionEvent actionEvent) {

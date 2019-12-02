@@ -11,12 +11,12 @@ import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 
-public class MSpareSpart implements IMSparePart {
+public class MSparePart implements IMSparePart {
     private ISparePart sparePart;
     private RemoteServer server;
     private PropertyChangeSupport support= new PropertyChangeSupport(this);
 
-    public MSpareSpart() throws RemoteException, NotBoundException {
+    public MSparePart() throws RemoteException, NotBoundException {
         UnicastRemoteObject.exportObject(this,0);
         Registry reg = LocateRegistry.getRegistry("Localhost",1099);
         server = (RemoteServer) reg.lookup("server");

@@ -16,13 +16,13 @@ public class SModelJDBC {
     }
 
     public void addModel(ISModel model) {
-        String statement = "INSERT INTO " + "\"SEP2\"" + ".model(mName) VALUES " +"( '" +model.getModelName() + "')";
+        String statement = "INSERT INTO " + "\"SEP2\"" + ".model(name) VALUES " +"( '" +model.getModelName() + "')";
         database.executeUpdate(statement);
 
     }
 
     public void removeModel(ISModel model) {
-        String statement= "DELETE FROM" + "\"SEP2\"" + ".model WHERE" + " mName in  (" + model.getModelName() + ")";
+        String statement= "DELETE FROM" + "\"SEP2\"" + ".model WHERE" + " name in  (" + model.getModelName() + ")";
         database.executeUpdate(statement);
     }
 
@@ -32,7 +32,7 @@ public class SModelJDBC {
         ResultSet rs=database.executeQuery(statement);
         while (rs.next())
         {
-            ISModel model= new SModel(rs.getString(1));
+            ISModel model= new SModel(rs.getString(2));
            models.add(model);
         }
         return models;

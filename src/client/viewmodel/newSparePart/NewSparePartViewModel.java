@@ -1,6 +1,7 @@
 package client.viewmodel.newSparePart;
 
 import client.model.SMModel.IMSparePart;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class NewSparePartViewModel
@@ -11,6 +12,7 @@ public class NewSparePartViewModel
     public NewSparePartViewModel(IMSparePart newSparePartModel)
     {
         this.newSparePartModel = newSparePartModel;
+        partName = new SimpleStringProperty();
     }
 
     public StringProperty getPartNameProperty()

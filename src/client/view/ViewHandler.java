@@ -6,7 +6,6 @@ import client.view.newSparePart.NewSparePartController;
 import client.view.scooterModel.NewSMController;
 import client.view.sparePartsManager.SparePartsMController;
 import client.viewmodel.ViewModelFactory;
-import client.viewmodel.newSparePart.NewSparePartViewModel;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -16,10 +15,10 @@ import java.io.IOException;
 
 public class ViewHandler {
     private Stage stage;
-    private ViewModelFactory vm;
+    private ViewModelFactory viewModelFactory;
 
-    public ViewHandler(ViewModelFactory vm, Stage stage){
-        this.vm=vm;
+    public ViewHandler(ViewModelFactory viewModelFactory, Stage stage){
+        this.viewModelFactory = viewModelFactory;
         this.stage=stage;
     }
 
@@ -32,7 +31,7 @@ public class ViewHandler {
                 Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("login/logIn.fxml"));
                 root = loader.load();
-                loader.<LoginController>getController().init(vm.getLoginViewModel(), this);
+                loader.<LoginController>getController().init(viewModelFactory.getLoginViewModel(), this);
                 scene = new Scene(root);
                 stage1.setScene(scene);
                 stage1.show();
@@ -42,7 +41,7 @@ public class ViewHandler {
                 Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("createaccount/createAccount.fxml"));
                 root = loader.load();
-                loader.<CreateAccountController>getController().init(this, vm.getCreateAccountVM());
+                loader.<CreateAccountController>getController().init(this, viewModelFactory.getCreateAccountVM());
                 scene = new Scene(root);
                 stage1.setScene(scene);
                 stage1.show();
@@ -52,7 +51,7 @@ public class ViewHandler {
                 Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("scooterModel/newScooterModel.fxml"));
                 root = loader.load();
-                loader.<NewSMController>getController().init(this,vm.getNewModelVM());
+                loader.<NewSMController>getController().init(this, viewModelFactory.getNewModelVM());
                 scene = new Scene(root);
                 stage1.setScene(scene);
                 stage1.show();
@@ -60,7 +59,7 @@ public class ViewHandler {
                 Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("sparePartsManager/sparePartsManager.fxml"));
                 root = loader.load();
-                loader.<SparePartsMController>getController().init(vm.getModelsListVM(), vm.getSparePartViewModel(), this);
+                loader.<SparePartsMController>getController().init(viewModelFactory.getModelsListVM(), viewModelFactory.getSparePartViewModel(), this);
                 scene = new Scene(root);
                 stage1.setScene(scene);
                 stage1.show();
@@ -68,9 +67,9 @@ public class ViewHandler {
             else if(viewToOpen.equals("newsparepart"))
             {
                 Stage stage1 = new Stage();
-                loader.setLocation(getClass().getResource("/view/newSparePart/newSparePart.fxml"));
+                loader.setLocation(getClass().getResource("newSparePart/newSparePart.fxml"));
                 root = loader.load();
-                loader.<NewSparePartController>getController().init(this,vm.getNewSparePartViewModel());
+                loader.<NewSparePartController>getController().init(this, viewModelFactory.getNewSparePartViewModel());
                 scene = new Scene(root);
                 stage1.setScene(scene);
                 stage1.show();

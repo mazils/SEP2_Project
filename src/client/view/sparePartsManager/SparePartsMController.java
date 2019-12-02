@@ -4,6 +4,7 @@ import client.model.SMModel.ISModel;
 import client.model.SMModel.ISparePart;
 import client.model.SMModel.SparePart;
 import client.view.ViewHandler;
+import client.viewmodel.sparePart.ModelsListMViewModel;
 import client.viewmodel.sparePart.SparePartViewModel;
 import javafx.application.Platform;
 import javafx.beans.Observable;
@@ -30,22 +31,22 @@ public class SparePartsMController {
     ComboBox modelList;
 
     private ViewHandler viewHandler;
-    private SparePartViewModel viewModel;
+    private ModelsListMViewModel modelsViewModel;
+    private SparePartViewModel sparePartsViewModel;
 
-
-    public void init(SparePartViewModel viewModel, ViewHandler viewHandler){
+    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartViewModel, ViewHandler viewHandler){
         this.viewHandler=viewHandler;
-        this.viewModel=viewModel;
+        this.modelsViewModel=modelsViewModel;
+        this.sparePartsViewModel=sparePartsViewModel;
         inittialLoad();
-        viewModel.updateAllModels();
+        modelsViewModel.updateAllModels();
 
     }
 
-    public void inittialLoad()
-    {
-        sparePartsList.setItems(viewModel.getSparePartsProperty());
+    public void inittialLoad() {
+        sparePartsList.setItems(sparePartsViewModel.getSparePartsProperty());
         sparePartsList.setPlaceholder(new Label("No Content In List"));
-        modelList.setItems(viewModel.getModelsProperty());
+        modelList.setItems(modelsViewModel.getModelsProperty());
         modelList.setPlaceholder(new Label("No models to show"));
         modelList.setValue("Choose");
 

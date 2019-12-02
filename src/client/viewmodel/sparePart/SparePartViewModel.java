@@ -17,27 +17,18 @@ import java.util.Iterator;
 
 
 public class SparePartViewModel {
-    private IMSModel model;
+    private IMSparePart model;
     private ObservableList<SparePart> spareParts;
-    private ObservableList<String> models;
 
-    public SparePartViewModel (IMSModel model)
+
+    public SparePartViewModel (IMSparePart model)
     {
         this.model= model;
         spareParts= FXCollections.observableArrayList();
-        models= FXCollections.observableArrayList();
-        try {
-            model.addListener("addedModel",evt -> updateModels(evt));
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+
     }
     public ObservableList<SparePart> getSparePartsProperty() {
         return spareParts;
-    }
-
-    public ObservableList<String> getModelsProperty() {
-        return models;
     }
 
     public void getList(ISModel scooterModel) throws RemoteException {
@@ -56,31 +47,7 @@ public class SparePartViewModel {
         model.addSparepart(sparePart.getName(),scootermodel);
     }
 
-    public void updateAllModels()
-    {
-            ArrayList<ISModel> modelcollection= new ArrayList<>();
-            try {
-                modelcollection= model.getAllModels();
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
 
-            for(int i=0;i<modelcollection.size();i++)
-            {
-                ISModel model= modelcollection.get(i);
-                if(!(models.contains(model.getModelName())))
-                {
-                    models.add(model.getModelName());
-                }
-            }
-    }
-
-    public void updateModels(PropertyChangeEvent evt)
-    {
-        Platform.runLater(() ->{
-            models.add((String) evt.getNewValue());
-        });
-    }
 
 
 }

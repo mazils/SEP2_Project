@@ -2,7 +2,7 @@ package client.model.SMModel;
 
 import java.io.Serializable;
 
-public class SparePart implements ISparePart {
+public class SparePart implements ISparePart, Serializable {
     private String name;
     private int quantity;
     //low STock Reminder;

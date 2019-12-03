@@ -50,7 +50,7 @@ public class ViewHandler {
                 stage.setTitle("Create-Account");
             }else if(viewToOpen.equals("newModel")){
                 Stage stage1 = new Stage();
-                loader.setLocation(getClass().getResource("scooterModel/newScooterModel.fxml"));
+                loader.setLocation(getClass().getResource("newScooterModel/newScooterModel.fxml"));
                 root = loader.load();
                 loader.<NewSMController>getController().init(this, viewModelFactory.getNewModelVM());
                 scene = new Scene(root);
@@ -70,6 +70,7 @@ public class ViewHandler {
                 Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("newSparePart/newSparePart.fxml"));
                 root = loader.load();
+                System.out.println("viewHandler init "+ viewModelFactory.getSparePartViewModel());
                 loader.<NewSparePartController>getController().init(this, viewModelFactory.getNewSparePartViewModel(), viewModelFactory.getModelsListVM());
                 scene = new Scene(root);
                 stage1.setScene(scene);

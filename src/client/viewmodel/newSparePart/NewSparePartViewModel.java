@@ -26,7 +26,7 @@ public class NewSparePartViewModel
 
     public NewSparePartViewModel(IMSparePart newSparePartModel)
     {
-//        System.out.println("++++++++++"+newSparePartModel);
+       System.out.println("constructor "+newSparePartModel);
         this.newSparePartModel = newSparePartModel;
         partName = new SimpleStringProperty();
         selectedModel = new SimpleStringProperty();
@@ -40,7 +40,7 @@ public class NewSparePartViewModel
     public void addPartButton()
     {
         try
-        {   System.out.println("SELECTED MODEL:"+ selectedModel.getValue()+"\n" +partName.getValue() + "newsparepartsmodel: " + newSparePartModel);
+        {   System.out.println(newSparePartModel);
             newSparePartModel.addSparepart(partName.getValue(),new SModel(selectedModel.getValue()));
 
         }

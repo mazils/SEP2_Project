@@ -11,28 +11,28 @@ import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
 public class ModelFactory {
-    private IAccountsModel dataModel;
-    private IMSModel modelModel;
+    private IAccountsModel accountsModel;
+    private IMSModel modelOfScooter;
     private IMSparePart sparePartModel;
 
-    public IAccountsModel getDataModel() throws RemoteException, NotBoundException {
-        if(dataModel==null)
+    public IAccountsModel getAccountsModel() throws RemoteException, NotBoundException {
+        if(accountsModel ==null)
         {
-            dataModel= new AccountModel();
+            accountsModel = new AccountModel();
         }
-        return dataModel;
+        return accountsModel;
     }
 
     public IMSModel getIMSModelModel() throws RemoteException, NotBoundException {
-        if(modelModel==null)
+        if(modelOfScooter ==null)
         {
-            modelModel= new MSModel();
+            modelOfScooter = new MSModel();
         }
-        return modelModel;
+        return modelOfScooter;
     }
 
     public IMSparePart getSparePartModel() throws RemoteException, NotBoundException {
-       if(dataModel==null) {
+       if(sparePartModel==null) {
             sparePartModel= new MSparePart();
        }
         return sparePartModel;

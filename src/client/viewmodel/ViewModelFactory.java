@@ -20,11 +20,12 @@ public class ViewModelFactory {
     private NewSparePartViewModel newSparePartViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) throws RemoteException, NotBoundException {
-        loginViewModel= new LoginViewModel(modelFactory.getDataModel());
-        createAccountViewModel = new CreateAccountViewModel(modelFactory.getDataModel());
+        loginViewModel= new LoginViewModel(modelFactory.getAccountsModel());
+        createAccountViewModel = new CreateAccountViewModel(modelFactory.getAccountsModel());
         newModelVM = new NewModelVM(modelFactory.getIMSModelModel());
         sparePartViewModel = new SparePartViewModel(modelFactory.getSparePartModel());
         modelsListMViewModel = new ModelsListMViewModel(modelFactory.getIMSModelModel());
+        System.out.println("VM factory constructor "+ modelFactory.getSparePartModel());
         newSparePartViewModel = new NewSparePartViewModel(modelFactory.getSparePartModel());
 
     }

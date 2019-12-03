@@ -17,12 +17,12 @@ public class SparePartsJDBC {
     }
 
     public void addSparePart(ISparePart sparePart, ISModel model) {
-         String statement = "INSERT INTO " + "\"SEP2\"" + ".sparePart(name,mName) VALUES " +"( '" +sparePart.getName() +   "', '" + model.getModelName() + "')";
+         String statement = "INSERT INTO " + "\"SEP2\"" + ".sparepart(name,mName) VALUES " +"( '" +sparePart.getName() +   "', '" + model.getModelName() + "')";
          database.executeUpdate(statement);
     }
 
     public void removeSparePart(ISparePart sparePart, ISModel model) {
-         String statement= "DELETE FROM" + "\"SEP2\"" + ".sparepart WHERE" + " mName in " + sparePart.getName() + " AND mName IN " +  "( '" + model.getModelName() + "')";
+         String statement= "DELETE FROM" + "\"SEP2\"" + ".sparepart WHERE" + " name = " +"'"+ sparePart.getName()+"'"+ " AND mName =" +  " '" + model.getModelName() + "' ";
          database.executeUpdate(statement);
     }
 
@@ -32,7 +32,7 @@ public class SparePartsJDBC {
         ArrayList<SparePart> spareParts= new ArrayList<>();
         while (rs.next())
         {
-            String name =rs.getString(1);
+            String name =rs.getString(2);
             SparePart part= new SparePart(name);
             spareParts.add(part);
 

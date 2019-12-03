@@ -46,7 +46,7 @@
                         <Font size="36.0" />
                      </font>
                   </Button>
-                  <ComboBox fx:id="modelList" prefWidth="150.0" GridPane.rowIndex="3" />
+                  <ComboBox fx:id="modelList" onAction="#onModelList" prefWidth="150.0" GridPane.rowIndex="3" />
                   <Button mnemonicParsing="false" onAction="#onLogOff" text="Log off" GridPane.rowIndex="5" />
                </children>
             </GridPane>

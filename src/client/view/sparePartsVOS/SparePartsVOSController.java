@@ -3,7 +3,11 @@ package client.view.sparePartsVOS;
 import client.model.SMModel.SparePart;
 import client.view.ViewHandler;
 import client.viewmodel.sparePartsList.ModelsListMViewModel;
+
+
 import client.viewmodel.sparePartsList.SparePartViewModel;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -11,9 +15,12 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 
+import javax.swing.*;
+import java.rmi.RemoteException;
+
 public class SparePartsVOSController {
     @FXML
-    ListView<SparePart> sparePartsList;
+    ListView<String> sparePartsList;
 
     @FXML
     TextArea textArea;
@@ -25,13 +32,16 @@ public class SparePartsVOSController {
     private ModelsListMViewModel modelsViewModel;
     private SparePartViewModel sparePartsViewModel;
 
+    private StringProperty currentModel;
+
     public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler){
         this.viewHandler=viewHandler;
         this.modelsViewModel=modelsViewModel;
         this.sparePartsViewModel=sparePartsViewModel;
+        currentModel = new SimpleStringProperty();
         initialLoad();
         modelsViewModel.updateAllModels();
-
+        currentModel.bindBidirectional(sparePartsViewModel.currentmodelProperty());
     }
 
     public void initialLoad() {
@@ -51,5 +61,14 @@ public class SparePartsVOSController {
     }
 
     public void onAdd(ActionEvent actionEvent) {
+    }
+
+    public void onModelList() {
+        currentModel.setValue((String) modelList.getValue());
+        try {
+            sparePartsViewModel.getList(currentModel.getValue());
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 }

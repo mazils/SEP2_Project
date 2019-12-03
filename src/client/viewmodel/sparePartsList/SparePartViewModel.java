@@ -1,4 +1,4 @@
-package client.viewmodel.sparePart;
+package client.viewmodel.sparePartsList;
 
 import client.model.SMModel.*;
 import javafx.application.Platform;
@@ -17,7 +17,7 @@ import java.util.Iterator;
 
 public class SparePartViewModel {
     private IMSparePart model;
-    private ObservableList<SparePart> spareParts;
+    private ObservableList<String> spareParts;
     private StringProperty currentmodel;
 
 
@@ -45,16 +45,18 @@ public class SparePartViewModel {
         return currentmodel;
     }
 
-    public ObservableList<SparePart> getSparePartsProperty() {
+    public ObservableList<String> getSparePartsProperty() {
         return spareParts;
     }
 
     public void getList(String name) throws RemoteException {
         SModel scooterModel= new SModel(name);
-        Iterator<SparePart> sparePartIterator= model.getAllSpareparts(scooterModel).iterator();
-        while (sparePartIterator.hasNext())
-        {
-            spareParts.add(sparePartIterator.next());
+        ArrayList<SparePart> parts= model.getAllSpareparts(scooterModel);
+        spareParts.clear();
+        if(model.getAllSpareparts(scooterModel)!=null) {
+            for (int i = 0; i < parts.size() ; i++) {
+                spareParts.add(parts.get(i).getName());
+            }
         }
     }
 
@@ -62,19 +64,19 @@ public class SparePartViewModel {
     {
         if(model.getModelName().equals(currentmodelProperty().getValue()))
         {
-            spareParts.add(part);
+            spareParts.add(part.getName());
         }
     }
 
-    public void removeSparePart(ISparePart sparePart,ISModel scootermodel) throws RemoteException {
-        model.removeSparepart(sparePart.getName(),scootermodel);
+    public void removeSparePart(String sparePart,ISModel scootermodel) throws RemoteException {
+        model.removeSparepart(sparePart,scootermodel);
     }
 
     public void addSparePart(PropertyChangeEvent evt) throws RemoteException {
         Platform.runLater(() ->{
             SparePart sparePart= (SparePart)evt.getOldValue();
-            ISModel model= (SModel)evt.getOldValue();
-            spareParts.add(sparePart);
+            ISModel model= (SModel)evt.getNewValue();
+            addToSpareParts(sparePart,model);
         });
     }
 

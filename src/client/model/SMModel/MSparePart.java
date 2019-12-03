@@ -26,7 +26,7 @@ public class MSparePart implements IMSparePart {
     public void addSparepart(String name,ISModel model) throws RemoteException {
         sparePart= new SparePart(name);
         server.addSparePart(sparePart,model);
-        support.firePropertyChange("addedsparepart",sparePart,(model));
+        support.firePropertyChange("addedsparepart",sparePart,model);
 
 
 

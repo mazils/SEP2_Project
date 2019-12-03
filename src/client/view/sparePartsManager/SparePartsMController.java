@@ -1,17 +1,9 @@
 package client.view.sparePartsManager;
 
-import client.model.SMModel.ISModel;
-import client.model.SMModel.ISparePart;
 import client.model.SMModel.SparePart;
 import client.view.ViewHandler;
-import client.viewmodel.sparePart.ModelsListMViewModel;
-import client.viewmodel.sparePart.SparePartViewModel;
-import javafx.application.Platform;
-import javafx.beans.Observable;
-import javafx.beans.binding.Bindings;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
+import client.viewmodel.sparePartsList.ModelsListMViewModel;
+import client.viewmodel.sparePartsList.SparePartViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
@@ -60,9 +52,8 @@ public class SparePartsMController {
         viewHandler.openView("newModel");
     }
 
-    public void onLogOff()
-    {
-        viewHandler.openView("LogIn");
+    public void onLogOff() {
+        viewHandler.openView("logIn");
     }
 
 

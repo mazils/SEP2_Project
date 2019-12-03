@@ -1,13 +1,12 @@
 package client.viewmodel;
 
 import client.model.ModelFactory;
-import client.view.ViewHandler;
 import client.viewmodel.createAccount.CreateAccountViewModel;
 import client.viewmodel.logIn.LoginViewModel;
 import client.viewmodel.newSparePart.NewSparePartViewModel;
 import client.viewmodel.scooterModel.NewModelVM;
-import client.viewmodel.sparePart.ModelsListMViewModel;
-import client.viewmodel.sparePart.SparePartViewModel;
+import client.viewmodel.sparePartsList.ModelsListMViewModel;
+import client.viewmodel.sparePartsList.SparePartViewModel;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;

@@ -1,15 +1,10 @@
-package client.viewmodel.sparePart;
+package client.viewmodel.sparePartsList;
 
 import client.model.SMModel.*;
-import javafx.application.Platform;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleListProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-import java.beans.PropertyChangeEvent;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 import java.util.Iterator;
 
 

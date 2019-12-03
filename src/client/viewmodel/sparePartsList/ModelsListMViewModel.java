@@ -1,4 +1,4 @@
-package client.viewmodel.sparePart;
+package client.viewmodel.sparePartsList;
 
 import client.model.SMModel.IMSModel;
 import client.model.SMModel.ISModel;

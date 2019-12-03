@@ -2,8 +2,8 @@ package client.view.sparePartsVOS;
 
 import client.model.SMModel.SparePart;
 import client.view.ViewHandler;
-import client.viewmodel.sparePart.ModelsListMViewModel;
-import client.viewmodel.sparePart.SparePartViewModel;
+import client.viewmodel.sparePartsList.ModelsListMViewModel;
+import client.viewmodel.sparePartsList.SparePartViewModel;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;

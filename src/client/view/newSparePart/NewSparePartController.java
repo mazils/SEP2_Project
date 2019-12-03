@@ -2,15 +2,13 @@ package client.view.newSparePart;
 
 import client.view.ViewHandler;
 import client.viewmodel.newSparePart.NewSparePartViewModel;
-import client.viewmodel.sparePart.ModelsListMViewModel;
+import client.viewmodel.sparePartsList.ModelsListMViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-
-import javax.print.DocFlavor;
 
 public class NewSparePartController
 {

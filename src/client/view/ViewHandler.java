@@ -3,7 +3,7 @@ package client.view;
 import client.view.createaccount.CreateAccountController;
 import client.view.login.LoginController;
 import client.view.newSparePart.NewSparePartController;
-import client.view.scooterModel.NewSMController;
+import client.view.newScooterModel.NewSMController;
 import client.view.sparePartsManager.SparePartsMController;
 import client.view.sparePartsVOS.SparePartsVOSController;
 import client.viewmodel.ViewModelFactory;

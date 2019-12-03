@@ -1,4 +1,4 @@
-package client.view.scooterModel;
+package client.view.newScooterModel;
 
 import client.view.ViewHandler;
 import client.viewmodel.scooterModel.NewModelVM;

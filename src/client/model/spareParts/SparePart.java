@@ -1,4 +1,4 @@
-package client.model.SMModel;
+package client.model.spareParts;
 
 import java.io.Serializable;
 

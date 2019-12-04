@@ -1,7 +1,7 @@
 package server.jdbc;
 
-import client.model.SMModel.ISModel;
-import client.model.SMModel.SModel;
+import client.model.ScooterModels.ISModel;
+import client.model.ScooterModels.SModel;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

@@ -1,11 +1,10 @@
-package client.model.SMModel;
+package client.model.ScooterModels;
 
 import server.RemoteServer;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.rmi.NotBoundException;
-import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;

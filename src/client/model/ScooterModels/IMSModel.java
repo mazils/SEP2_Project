@@ -1,4 +1,4 @@
-package client.model.SMModel;
+package client.model.ScooterModels;
 
 import Shared.PropertyChangeSubject;
 

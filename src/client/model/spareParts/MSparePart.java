@@ -1,5 +1,6 @@
-package client.model.SMModel;
+package client.model.spareParts;
 
+import client.model.ScooterModels.ISModel;
 import server.RemoteServer;
 
 import java.beans.PropertyChangeListener;
@@ -23,7 +24,7 @@ public class MSparePart implements IMSparePart {
         System.out.println("Connected to Server");
     }
 
-    public void addSparepart(String name,ISModel model) throws RemoteException {
+    public void addSparepart(String name, ISModel model) throws RemoteException {
         sparePart= new SparePart(name);
         server.addSparePart(sparePart,model);
         support.firePropertyChange("addedsparepart",sparePart,model);

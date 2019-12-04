@@ -1,4 +1,4 @@
-package client.model.SMModel;
+package client.model.spareParts;
 
 public interface ISparePart {
     void setQuantity(int quantity);

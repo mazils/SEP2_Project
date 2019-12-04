@@ -1,7 +1,7 @@
 package client.viewmodel.newSparePart;
 
-import client.model.SMModel.IMSparePart;
-import client.model.SMModel.SModel;
+import client.model.spareParts.IMSparePart;
+import client.model.ScooterModels.SModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -15,11 +15,6 @@ public class NewSparePartViewModel
     private StringProperty selectedModel;
 
     public StringProperty getSelectedModel()
-    {
-        return selectedModel;
-    }
-
-    public StringProperty selectedModelProperty()
     {
         return selectedModel;
     }

@@ -1,9 +1,9 @@
 package client.model;
 
-import client.model.SMModel.IMSModel;
-import client.model.SMModel.IMSparePart;
-import client.model.SMModel.MSModel;
-import client.model.SMModel.MSparePart;
+import client.model.ScooterModels.IMSModel;
+import client.model.spareParts.IMSparePart;
+import client.model.ScooterModels.MSModel;
+import client.model.spareParts.MSparePart;
 import client.model.modelaccount.AccountModel;
 import client.model.modelaccount.IAccountsModel;
 

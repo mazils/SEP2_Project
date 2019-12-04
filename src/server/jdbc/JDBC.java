@@ -1,7 +1,4 @@
 package server.jdbc;
-import client.model.SMModel.ISModel;
-import client.model.SMModel.ISparePart;
-import client.model.modelaccount.Account;
 
 import java.sql.*;
 import java.util.concurrent.locks.Lock;
@@ -65,14 +62,10 @@ public class JDBC implements  Runnable{
 
         try {
             Class.forName("org.postgresql.Driver");
-             con= DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","qwerty");
+             con= DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","admin");
              st= con.createStatement();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-        }
-        while (true)
-        {
-
         }
 
     }

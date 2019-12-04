@@ -66,7 +66,7 @@ class CreateAccountViewModelTest
         password.bindBidirectional(createAccountViewModel.getPassword());
 
         //act
-        username.setValue("artur");
+        username.setValue("arturas");
         password.setValue("password");
 
         try

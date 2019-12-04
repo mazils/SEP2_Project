@@ -1,6 +1,6 @@
 package client.viewmodel.scooterModel;
 
-import client.model.SMModel.IMSModel;
+import client.model.ScooterModels.IMSModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 

@@ -1,8 +1,8 @@
 package server.jdbc;
 
-import client.model.SMModel.ISModel;
-import client.model.SMModel.ISparePart;
-import client.model.SMModel.SparePart;
+import client.model.ScooterModels.ISModel;
+import client.model.spareParts.ISparePart;
+import client.model.spareParts.SparePart;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

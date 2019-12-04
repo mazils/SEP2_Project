@@ -1,6 +1,6 @@
 package client.view.sparePartsManager;
 
-import client.model.SMModel.*;
+import client.model.ScooterModels.*;
 import client.view.ViewHandler;
 import client.viewmodel.sparePartsList.ModelsListMViewModel;
 import client.viewmodel.sparePartsList.SparePartViewModel;

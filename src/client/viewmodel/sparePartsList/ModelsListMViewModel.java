@@ -1,7 +1,7 @@
 package client.viewmodel.sparePartsList;
 
-import client.model.SMModel.IMSModel;
-import client.model.SMModel.ISModel;
+import client.model.ScooterModels.IMSModel;
+import client.model.ScooterModels.ISModel;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;

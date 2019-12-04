@@ -1,6 +1,5 @@
 package client.view.sparePartsVOS;
 
-import client.model.SMModel.SparePart;
 import client.view.ViewHandler;
 import client.viewmodel.sparePartsList.ModelsListMViewModel;
 
@@ -15,7 +14,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 
-import javax.swing.*;
 import java.rmi.RemoteException;
 
 public class SparePartsVOSController {

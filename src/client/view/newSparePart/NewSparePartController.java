@@ -23,29 +23,22 @@ public class NewSparePartController
     private NewSparePartViewModel newSparePartViewModel;
     private ModelsListMViewModel modelsListMViewModel;
 
-
-    public void init(ViewHandler viewHandler, NewSparePartViewModel newSparePartViewModel, ModelsListMViewModel modelsListMViewModel)
-    {
-
+    public void init(ViewHandler viewHandler, NewSparePartViewModel newSparePartViewModel, ModelsListMViewModel modelsListMViewModel) {
         this.modelsListMViewModel = modelsListMViewModel;
         this.viewHandler = viewHandler;
         this.newSparePartViewModel = newSparePartViewModel;
-        System.out.println("*******"+ this.newSparePartViewModel);
+
         this.newSparePartViewModel.getPartNameProperty().bindBidirectional(partNameTextField.textProperty());
         modelList.setItems(modelsListMViewModel.getModelsProperty());
-
     }
 
-    public void onAddPartButton()
-    {
+    public void onAddPartButton() {
         String value = modelList.getValue();
         StringProperty modelList = new SimpleStringProperty(value);
-        System.out.println("onAddPArtButton controller: " + this.modelList.getValue());
-
 
         this.newSparePartViewModel.getSelectedModel().bindBidirectional(modelList);
         Stage stage = (Stage) partNameTextField.getScene().getWindow(); // getting the stage
-        newSparePartViewModel.addPartButton();
+        newSparePartViewModel.addPart();
         viewHandler.closeView(stage);
     }
 

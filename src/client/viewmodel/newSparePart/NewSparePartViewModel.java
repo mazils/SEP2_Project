@@ -32,7 +32,7 @@ public class NewSparePartViewModel
         return partName;
     }
 
-    public void addPartButton()
+    public void addPart()
     {
         try
         {   System.out.println(newSparePartModel);

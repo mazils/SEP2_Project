@@ -59,7 +59,7 @@ public class SparePartViewModel {
         }
     }
 
-    public void addToSpareParts(SparePart part,ISModel model)
+        public void addToSpareParts(SparePart part,ISModel model)
     {
         if(model.getModelName().equals(currentmodelProperty().getValue()))
         {

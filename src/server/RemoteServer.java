@@ -18,6 +18,6 @@ public interface RemoteServer extends Remote {
     void addSparePart(ISparePart sparePart,ISModel model)throws RemoteException;
     void removeSparePart(ISparePart sparePart,ISModel model)throws RemoteException;
     void removeModel(ISModel model)throws RemoteException;
-    ArrayList<SparePart> getAllSpareparts(ISModel model)throws RemoteException;
+    ArrayList<SparePart> getAllSpareParts(ISModel model)throws RemoteException;
     ArrayList<ISModel> getAllModels() throws RemoteException;
 }

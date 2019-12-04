@@ -83,7 +83,7 @@ public class Server implements RemoteServer
     }
 
     @Override
-    public ArrayList<SparePart> getAllSpareparts(ISModel model) {
+    public ArrayList<SparePart> getAllSpareParts(ISModel model) {
 
         ArrayList<SparePart> partArrayList= new ArrayList<>();
         try {

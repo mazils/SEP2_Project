@@ -40,7 +40,7 @@ public class MSparePart implements IMSparePart {
     }
 
     public ArrayList<SparePart> getAllSpareparts(ISModel model) throws RemoteException {
-        return server.getAllSpareparts(model);
+        return server.getAllSpareParts(model);
     }
     @Override
     public void addListener(String names, PropertyChangeListener listener) {

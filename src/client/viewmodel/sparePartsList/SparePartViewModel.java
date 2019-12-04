@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class SparePartViewModel {
     private IMSparePart model;
-    private ObservableList<String> spareParts;
+    private ObservableList<SparePart> spareParts;
     private StringProperty currentmodel;
 
 
@@ -44,7 +44,7 @@ public class SparePartViewModel {
         return currentmodel;
     }
 
-    public ObservableList<String> getSparePartsProperty() {
+    public ObservableList<SparePart> getSparePartsProperty() {
         return spareParts;
     }
 
@@ -54,7 +54,7 @@ public class SparePartViewModel {
         spareParts.clear();
         if(model.getAllSpareparts(scooterModel)!=null) {
             for (int i = 0; i < parts.size() ; i++) {
-                spareParts.add(parts.get(i).getName());
+                spareParts.add(parts.get(i));
             }
         }
     }
@@ -63,7 +63,7 @@ public class SparePartViewModel {
     {
         if(model.getModelName().equals(currentmodelProperty().getValue()))
         {
-            spareParts.add(part.getName());
+            spareParts.add(part);
         }
     }
 

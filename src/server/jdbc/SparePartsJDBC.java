@@ -17,7 +17,7 @@ public class SparePartsJDBC {
     }
 
     public void addSparePart(ISparePart sparePart, ISModel model) {
-         String statement = "INSERT INTO " + "\"SEP2\"" + ".sparepart(name,mName) VALUES " +"( '" +sparePart.getName() +   "', '" + model.getModelName() + "')";
+         String statement = "INSERT INTO " + "\"SEP2\"" + ".sparepart(name,mName, quantity) VALUES " +"( '" +sparePart.getName() +   "', '" + model.getModelName() + "', '"+0+"')";
          database.executeUpdate(statement);
     }
 
@@ -33,10 +33,13 @@ public class SparePartsJDBC {
         while (rs.next())
         {
             String name =rs.getString(2);
-            SparePart part= new SparePart(name);
+            int quantity = rs.getInt(4);
+            SparePart part= new SparePart(name, quantity);
             spareParts.add(part);
 
         }
         return spareParts;
     }
+
+
 }

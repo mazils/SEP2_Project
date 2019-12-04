@@ -1,5 +1,6 @@
 package client.view.sparePartsVOS;
 
+import client.model.spareParts.SparePart;
 import client.view.ViewHandler;
 import client.viewmodel.sparePartsList.ModelsListMViewModel;
 
@@ -9,16 +10,19 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 
 import java.rmi.RemoteException;
 
 public class SparePartsVOSController {
     @FXML
-    ListView<String> sparePartsList;
+    private TableView<SparePart> sparePartsList;
+
+    @FXML
+    private TableColumn<SparePart, String> nameColumn;
+
+    @FXML
+    private TableColumn<SparePart, Integer> quantityColumn;
 
     @FXML
     TextArea textArea;

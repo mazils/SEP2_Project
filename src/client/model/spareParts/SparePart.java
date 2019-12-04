@@ -9,6 +9,17 @@ public class SparePart implements ISparePart, Serializable {
     //amount received
     //amount needed
 
+
+    public SparePart(String name) {
+      this.name= name;
+      this.quantity= 0;
+    }
+
+    public SparePart(String name, int quantity){
+        this.name=name;
+        this.quantity=quantity;
+    }
+
     public String getName() {
         return name;
     }
@@ -21,11 +32,6 @@ public class SparePart implements ISparePart, Serializable {
         this.quantity = quantity;
     }
 
-    public SparePart(String name)
-    {
-      this.name= name;
-      quantity= 0;
-    }
 
 
 

@@ -1,6 +1,7 @@
 package client.view.sparePartsManager;
 
 import client.model.ScooterModels.*;
+import client.model.spareParts.SparePart;
 import client.view.ViewHandler;
 import client.viewmodel.sparePartsList.ModelsListMViewModel;
 import client.viewmodel.sparePartsList.SparePartViewModel;
@@ -8,22 +9,26 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 ;import java.rmi.RemoteException;
 
 public class SparePartsMController {
     @FXML
-    ListView<String> sparePartsList;
+    private TableView<SparePart> sparePartsList;
 
     @FXML
-    TextArea textArea;
+    private TableColumn<SparePart, String> nameColumn;
 
     @FXML
-    ComboBox modelList;
+    private TableColumn<SparePart, Integer> quantityColumn;
+
+    @FXML
+    private TextArea textArea;
+
+    @FXML
+    private ComboBox modelList;
 
     private ViewHandler viewHandler;
     private ModelsListMViewModel modelsViewModel;
@@ -44,6 +49,10 @@ public class SparePartsMController {
     public void inittialLoad() {
         sparePartsList.setItems(sparePartsViewModel.getSparePartsProperty());
         sparePartsList.setPlaceholder(new Label("No Content In List"));
+
+        nameColumn.setCellValueFactory(new PropertyValueFactory<SparePart, String>("name"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<SparePart, Integer>("quantity"));
+
         modelList.setItems(modelsViewModel.getModelsProperty());
         modelList.setPlaceholder(new Label("No models to show"));
         modelList.setValue("Choose");
@@ -84,7 +93,8 @@ public class SparePartsMController {
             currentModel.setValue((String) modelList.getValue());
             SModel model=  new SModel(currentModel.getValue());
             try {
-                sparePartsViewModel.removeSparePart(sparePartsList.getSelectionModel().getSelectedItem(),model);
+                sparePartsViewModel.removeSparePart(sparePartsList.getSelectionModel().getSelectedItem().getName(),model);// todo should take object of spare part instead of String
+
                 sparePartsViewModel.getList(model.getModelName());
             } catch (RemoteException e) {
                 e.printStackTrace();

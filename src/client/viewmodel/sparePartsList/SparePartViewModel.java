@@ -2,6 +2,7 @@ package client.viewmodel.sparePartsList;
 
 import client.model.ScooterModels.*;
 import client.model.spareParts.IMSparePart;
+import client.model.spareParts.ISparePart;
 import client.model.spareParts.SparePart;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleStringProperty;
@@ -36,8 +37,13 @@ public class SparePartViewModel {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-
-
+        try{
+            model.addListener("editSparePart", evt -> {
+                editSparePartEvt(evt);
+            });
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
     }
 
     public StringProperty currentmodelProperty() {
@@ -59,16 +65,32 @@ public class SparePartViewModel {
         }
     }
 
-        public void addToSpareParts(SparePart part,ISModel model)
-    {
-        if(model.getModelName().equals(currentmodelProperty().getValue()))
-        {
+    public void addToSpareParts(SparePart part,ISModel model) {
+        if(model.getModelName().equals(currentmodelProperty().getValue())) {
             spareParts.add(part);
         }
     }
 
     public void removeSparePart(String sparePart,ISModel scootermodel) throws RemoteException {
         model.removeSparepart(sparePart,scootermodel);
+    }
+    public void editSparePart(ISparePart part, ISModel model) {
+        if(model.getModelName().equals(currentmodelProperty().getValue())){
+            for (int i = 0; i <spareParts.size() ; i++) {
+                if (spareParts.get(i).equals(part.getName())){
+                    spareParts.get(i).setQuantity(part.getQuantity());
+                    spareParts.get(i).setAmountNeeded(part.getAmountNeeded());
+                }
+            }
+        }
+    }
+
+    public void editSparePartEvt(PropertyChangeEvent event) {
+        Platform.runLater(() ->{
+            SparePart sparePart= (SparePart)event.getOldValue();
+            ISModel model= (SModel)event.getNewValue();
+            editSparePart(sparePart, model);
+        });
     }
 
     public void addSparePart(PropertyChangeEvent evt) throws RemoteException {

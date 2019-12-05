@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 ;import java.rmi.RemoteException;
 
@@ -23,6 +24,9 @@ public class SparePartsMController {
 
     @FXML
     private TableColumn<SparePart, Integer> quantityColumn;
+
+    @FXML
+    private TableColumn<SparePart, Integer> amountNeededColumn;
 
     @FXML
     private TextArea textArea;
@@ -42,6 +46,7 @@ public class SparePartsMController {
         currentModel= new SimpleStringProperty();
         currentModel.bindBidirectional(sparePartsViewModel.currentmodelProperty());
         inittialLoad();
+        initCols();
         modelsViewModel.updateAllModels();
 
     }
@@ -52,12 +57,27 @@ public class SparePartsMController {
 
         nameColumn.setCellValueFactory(new PropertyValueFactory<SparePart, String>("name"));
         quantityColumn.setCellValueFactory(new PropertyValueFactory<SparePart, Integer>("quantity"));
+        amountNeededColumn.setCellValueFactory(new PropertyValueFactory<SparePart, Integer>("amountNeeded"));
 
         modelList.setItems(modelsViewModel.getModelsProperty());
         modelList.setPlaceholder(new Label("No models to show"));
         modelList.setValue("Choose");
 
     }
+
+    public void initCols(){
+        nameColumn.setCellValueFactory(new PropertyValueFactory<SparePart, String>("name"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<SparePart, Integer>("quantity"));
+        amountNeededColumn.setCellValueFactory(new PropertyValueFactory<SparePart, Integer>("amountNeeded"));
+
+//        editableCols();
+    }
+
+//    public void editableCols(){
+//        quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn());
+//
+//        nameColumn.setOnEditCommit();
+//    }
 
     public void onNewAccount(){
         viewHandler.openView("createAccount");

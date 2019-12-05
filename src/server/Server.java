@@ -1,5 +1,6 @@
 package server;
 
+import client.model.ScooterModels.IMSModel;
 import client.model.ScooterModels.ISModel;
 import client.model.spareParts.ISparePart;
 import client.model.spareParts.SparePart;
@@ -102,6 +103,11 @@ public class Server implements RemoteServer
             e.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException {
+        sparePartsJDBC.editSparePart(part, model, quantity, amountNeeded);
     }
 
     public static void main(String[] args) {

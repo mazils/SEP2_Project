@@ -1,5 +1,6 @@
 package server.jdbc;
 
+import client.model.ScooterModels.IMSModel;
 import client.model.ScooterModels.ISModel;
 import client.model.spareParts.ISparePart;
 import client.model.spareParts.SparePart;
@@ -17,7 +18,7 @@ public class SparePartsJDBC {
     }
 
     public void addSparePart(ISparePart sparePart, ISModel model) {
-         String statement = "INSERT INTO " + "\"SEP2\"" + ".sparepart(name,mName, quantity) VALUES " +"( '" +sparePart.getName() +   "', '" + model.getModelName() + "', '"+0+"')";
+         String statement = "INSERT INTO " + "\"SEP2\"" + ".sparepart(name,mName, quantity, amountNeeded) VALUES " +"( '" +sparePart.getName() +   "', '" + model.getModelName() + "', '"+0+"', '"+0+"')";
          database.executeUpdate(statement);
     }
 
@@ -34,11 +35,17 @@ public class SparePartsJDBC {
         {
             String name =rs.getString(2);
             int quantity = rs.getInt(4);
-            SparePart part= new SparePart(name, quantity);
+            int amountNeeded = rs.getInt(5);
+            SparePart part= new SparePart(name, quantity, amountNeeded);
             spareParts.add(part);
 
         }
         return spareParts;
+    }
+
+    public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded){
+        String statement = "UPDATE "+"\"SEP2\""+".sparepart SET quantity = "+quantity+", "+" amountNeeded = "+amountNeeded+" WHERE name = '"+part.getName()+"' AND mName = '"+model.getModelName()+"' ";
+        database.executeUpdate(statement);
     }
 
 

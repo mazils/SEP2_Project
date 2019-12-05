@@ -1,5 +1,6 @@
 package server;
 
+import client.model.ScooterModels.IMSModel;
 import client.model.ScooterModels.ISModel;
 import client.model.spareParts.ISparePart;
 import client.model.spareParts.SparePart;
@@ -20,4 +21,5 @@ public interface RemoteServer extends Remote {
     void removeModel(ISModel model)throws RemoteException;
     ArrayList<SparePart> getAllSpareParts(ISModel model)throws RemoteException;
     ArrayList<ISModel> getAllModels() throws RemoteException;
+    void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException;
 }

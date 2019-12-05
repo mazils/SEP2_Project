@@ -21,9 +21,10 @@
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.sparePartsManager.SparePartsMController">
    <children>
       <TableView fx:id="sparePartsList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="541.0">
-         <columns >
+         <columns>
             <TableColumn fx:id="nameColumn" prefWidth="101.0" text="Name" />
             <TableColumn fx:id="quantityColumn" prefWidth="71.0" text="Quantity" />
+            <TableColumn fx:id="amountNeededColumn" prefWidth="99.0" text="Amount Needed" />
          </columns></TableView>
       <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
          <children>

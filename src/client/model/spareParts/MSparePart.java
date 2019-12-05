@@ -33,6 +33,13 @@ public class MSparePart implements IMSparePart {
 
     }
 
+    @Override
+    public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException {
+        server.editSparePart(part, model, quantity, amountNeeded);
+        support.firePropertyChange("editSparePart", part, model);
+        // observer? im not sure
+    }
+
     public void removeSparepart(String name,ISModel model) throws RemoteException {
         sparePart= new SparePart(name);
         server.removeSparePart(sparePart,model);

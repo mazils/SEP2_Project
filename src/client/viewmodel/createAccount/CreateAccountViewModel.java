@@ -20,6 +20,7 @@ public class CreateAccountViewModel
     private StringProperty confirmPassword;
     private BooleanProperty managerAccount;
     private ViewHandler viewHandler;
+    private BooleanProperty isRightAccount;
 
     public CreateAccountViewModel(IAccountsModel iAccountsModel)
     {
@@ -29,6 +30,8 @@ public class CreateAccountViewModel
         password= new SimpleStringProperty();
         confirmPassword= new SimpleStringProperty();
         managerAccount= new SimpleBooleanProperty();
+        isRightAccount = new SimpleBooleanProperty();
+        isRightAccount.setValue(false);
     }
 
     public StringProperty getUsername()
@@ -46,6 +49,10 @@ public class CreateAccountViewModel
         return confirmPassword;
     }
 
+    public BooleanProperty isRightAccountProperty() {
+        return isRightAccount;
+    }
+
     public BooleanProperty getIsManagerProperty()
     {
         return managerAccount;
@@ -54,50 +61,45 @@ public class CreateAccountViewModel
     public void createAccount(Stage stage) throws RemoteException, SQLException//todo there shouldnt be exceptions thrown here
     {
 
-            //todo Troels : it’s the responsibility of your view/controller class, to show these alerts; not the ViewModel.
-            //check if empty
-            if (password.getValue().equals("") || confirmPassword.getValue().equals("") || username.getValue().equals(""))
-            {
-                System.out.println("this is empty");
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setContentText("Please fill in all fields");
-                alert.showAndWait();
-                managerAccount.setValue(false);
-                System.out.println("Fields are empty");
-            }
-            //checks if already in dbs
-            else if (iAccountsModel.checkUsername(username.getValue()))
-            {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setContentText("This account already exists");
-                alert.showAndWait();
-                username.setValue("");
-                password.setValue("");
-                confirmPassword.setValue("");
-                managerAccount.setValue(false);
-                System.out.println("Account allready exists in DBS");
-            }
+        //todo Troels : it’s the responsibility of your view/controller class, to show these alerts; not the ViewModel.
+        //check if empty
+        if (password.getValue().equals("") || confirmPassword.getValue().equals("") || username.getValue().equals("")) {
+            System.out.println("this is empty");
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Please fill in all fields");
+            alert.showAndWait();
+            managerAccount.setValue(false);
+            System.out.println("Fields are empty");
+        }
+        //checks if already in dbs
+        else if (iAccountsModel.checkUsername(username.getValue())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("This account already exists");
+            alert.showAndWait();
+            username.setValue("");
+            password.setValue("");
+            confirmPassword.setValue("");
+            managerAccount.setValue(false);
+            System.out.println("Account allready exists in DBS");
+        }
 
-            //checks if passwords match
-            else if (!password.getValue().equals(confirmPassword.getValue()))
-            {
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setContentText("The password doesn't match");
-                alert.showAndWait();
-                password.setValue("");
-                confirmPassword.setValue("");
-                System.out.println("passwords doesnt match");
-            } else
-            {
-                System.out.println(password.getValue() + " " + confirmPassword.getValue());
-                iAccountsModel.createAccount(username.getValue(), password.getValue(), managerAccount.getValue());
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setContentText("New account has been created");
-                alert.showAndWait();
-                viewHandler.closeView(stage);
+        //checks if passwords match
+        else if (!password.getValue().equals(confirmPassword.getValue())) {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setContentText("The password doesn't match");
+            alert.showAndWait();
+            password.setValue("");
+            confirmPassword.setValue("");
+            System.out.println("passwords doesnt match");
+        } else {
+            System.out.println(password.getValue() + " " + confirmPassword.getValue());
+            iAccountsModel.createAccount(username.getValue(), password.getValue(), managerAccount.getValue());
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setContentText("New account has been created");
+            alert.showAndWait();
+            isRightAccount.setValue(true);
+        }
 
-
-            }
 
     }
 }

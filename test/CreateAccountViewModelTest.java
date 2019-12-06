@@ -61,13 +61,16 @@ class CreateAccountViewModelTest
     {
         StringProperty username = new SimpleStringProperty();
         StringProperty password = new SimpleStringProperty();
+        StringProperty confPassword = new SimpleStringProperty();
 
         username.bindBidirectional(createAccountViewModel.getUsername());
         password.bindBidirectional(createAccountViewModel.getPassword());
+        confPassword.bindBidirectional(createAccountViewModel.getConfirmPassword());
 
         //act
         username.setValue("arturas");
         password.setValue("password");
+        confPassword.setValue("password");
 
         try
         {
@@ -81,7 +84,7 @@ class CreateAccountViewModelTest
 
         System.out.println(createAccountViewModel.getUsername());
         //assert
-        assertEquals("",createAccountViewModel.getUsername().getValue());
+        assertEquals("arturas",createAccountViewModel.getUsername().getValue());
 
 
     }

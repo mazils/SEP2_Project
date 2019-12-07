@@ -15,19 +15,28 @@ import java.sql.SQLException;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-//todo this
+
 class CreateAccountViewModelTest
 {
     IAccountsModel iAccountsModel ;
     CreateAccountViewModel createAccountViewModel;
+    StringProperty username;
+    StringProperty password;
+    StringProperty confPassword;
 
     @BeforeEach
-    void setUp() throws RemoteException, NotBoundException, SQLException
+    void setUp()
     {
         //arrange
         iAccountsModel = new AccountModelDummyClass();
         createAccountViewModel = new CreateAccountViewModel(iAccountsModel);
+        username = new SimpleStringProperty();
+        password = new SimpleStringProperty();
+        confPassword = new SimpleStringProperty();
 
+        username.bindBidirectional(createAccountViewModel.getUsername());
+        password.bindBidirectional(createAccountViewModel.getPassword());
+        confPassword.bindBidirectional(createAccountViewModel.getConfirmPassword());
     }
 
     @AfterEach
@@ -36,57 +45,52 @@ class CreateAccountViewModelTest
 
     }
 
-    @Test
-    void getUsername()
-    {
-    }
 
     @Test
-    void getPassword()
+    void createAccountPass() throws RemoteException, SQLException
     {
-    }
-
-    @Test
-    void getConfirmPassword()
-    {
-    }
-
-    @Test
-    void getIsManagerProperty()
-    {
-    }
-
-    @Test
-    void createAccount() throws RemoteException, SQLException
-    {
-        StringProperty username = new SimpleStringProperty();
-        StringProperty password = new SimpleStringProperty();
-        StringProperty confPassword = new SimpleStringProperty();
-
-        username.bindBidirectional(createAccountViewModel.getUsername());
-        password.bindBidirectional(createAccountViewModel.getPassword());
-        confPassword.bindBidirectional(createAccountViewModel.getConfirmPassword());
-
         //act
+            username.setValue("shouldBeCreatedAcc");
+            password.setValue("password");
+            confPassword.setValue("password");
+            boolean isCreated =createAccountViewModel.createAccount();
+            assertEquals(true,isCreated);
+    }
+
+    @Test void createAccountFailAlreadyExists() throws RemoteException, SQLException
+    {
         username.setValue("arturas");
         password.setValue("password");
         confPassword.setValue("password");
+        boolean isCreated =createAccountViewModel.createAccount();
+        assertEquals(false,isCreated);
+    }
 
-        try
-        {
-            createAccountViewModel.createAccount(new Stage());
-        }
-        catch (ExceptionInInitializerError e)
-        {
+    @Test void createAccountFailEmpty() throws RemoteException, SQLException
+    {
+        username.setValue("");
+        password.setValue("password");
+        confPassword.setValue("password");
+        boolean isCreated =createAccountViewModel.createAccount();
+        assertEquals(false,isCreated);
+    }
 
-        }
+    @Test void createAccountFailPasswDoesntMatch() throws RemoteException, SQLException
+    {
+        username.setValue("newusername1");
+        password.setValue("notpassword");
+        confPassword.setValue("password");
+        boolean isCreated =createAccountViewModel.createAccount();
+        assertEquals(false,isCreated);
+    }
 
-
-        System.out.println(createAccountViewModel.getUsername());
-        //assert
-        assertEquals("arturas",createAccountViewModel.getUsername().getValue());
-
-
+    @Test void createAccountFail() throws RemoteException, SQLException
+    {
+        username.setValue("arturas");
+        password.setValue("password");
+        confPassword.setValue("password");
+        boolean isCreated =createAccountViewModel.createAccount();
+        assertEquals(false,isCreated);
     }
 
 }

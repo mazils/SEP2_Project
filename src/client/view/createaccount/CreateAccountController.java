@@ -40,7 +40,7 @@ public class CreateAccountController {
 
     public void onCreateButton() throws RemoteException, SQLException {
         Stage stage = (Stage) userNameTextField.getScene().getWindow();
-        viewModel.createAccount(stage);
+        viewModel.createAccount();
         if(viewModel.isRightAccountProperty().getValue()) {
             handler.closeView(stage);
         }

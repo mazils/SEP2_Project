@@ -13,7 +13,9 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
-;import java.rmi.RemoteException;
+import javafx.util.StringConverter;
+import java.rmi.RemoteException;
+import java.util.ArrayList;
 
 public class SparePartsMController {
     @FXML
@@ -32,12 +34,14 @@ public class SparePartsMController {
     private TextArea textArea;
 
     @FXML
-    private ComboBox modelList;
+    private ComboBox<String> modelList;
 
     private ViewHandler viewHandler;
     private ModelsListMViewModel modelsViewModel;
     private SparePartViewModel sparePartsViewModel;
     private StringProperty currentModel;
+
+    private ArrayList<ISModel> models;
 
     public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler){
         this.viewHandler=viewHandler;
@@ -63,6 +67,8 @@ public class SparePartsMController {
         modelList.setPlaceholder(new Label("No models to show"));
         modelList.setValue("Choose");
 
+        initCols();
+
     }
 
     public void initCols(){
@@ -70,14 +76,44 @@ public class SparePartsMController {
         quantityColumn.setCellValueFactory(new PropertyValueFactory<SparePart, Integer>("quantity"));
         amountNeededColumn.setCellValueFactory(new PropertyValueFactory<SparePart, Integer>("amountNeeded"));
 
-//        editableCols();
+        editableCols();
     }
 
-//    public void editableCols(){
-//        quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn());
-//
-//        nameColumn.setOnEditCommit();
-//    }
+    public void editableCols(){
+        quantityColumn.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<Integer>() {
+            @Override
+            public String toString(Integer i) {
+                return Integer.toString(i);
+            }
+
+            @Override
+            public Integer fromString(String s) {
+                return Integer.parseInt(s);
+            }
+        }));
+
+        quantityColumn.setOnEditCommit(e -> {
+
+            e.getRowValue().setQuantity(e.getNewValue());
+
+            ISModel model=null;
+
+            try {
+                model = modelsViewModel.getModelObject()
+                        .stream()
+                        .filter(m -> m.getModelName().equals(currentModel.getValue()))
+                        .findAny().get();
+
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+
+            sparePartsViewModel.editSparePart(e.getRowValue(), model);// well we are using String instead of ISModel
+            // FIXME update model / lets stop using Strings everywhere
+            System.out.println("Controller object of part" +e.getRowValue().getQuantity());
+        });
+
+    }
 
     public void onNewAccount(){
         viewHandler.openView("createAccount");

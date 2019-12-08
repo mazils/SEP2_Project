@@ -18,6 +18,10 @@ public class ModelsListMViewModel {
         return models;
     }
 
+    public ArrayList<ISModel> getModelObject() throws RemoteException {
+        return model.getAllModels();
+    }
+
     public ModelsListMViewModel(IMSModel model){
         this.model=model;
         models= FXCollections.observableArrayList();

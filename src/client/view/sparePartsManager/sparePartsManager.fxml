@@ -20,14 +20,15 @@
 
 <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.sparePartsManager.SparePartsMController">
    <children>
-      <TableView fx:id="sparePartsList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="541.0">
+      <TableView fx:id="sparePartsList" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="541.0" HBox.hgrow="ALWAYS">
          <columns>
             <TableColumn fx:id="nameColumn" prefWidth="101.0" text="Name" />
             <TableColumn fx:id="quantityColumn" prefWidth="71.0" text="Quantity" />
             <TableColumn fx:id="amountNeededColumn" prefWidth="99.0" text="Amount Needed" />
          </columns></TableView>
-      <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308">
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
          <children>
+            <Label text="Comments" />
             <TextArea fx:id="textArea" prefHeight="188.0" prefWidth="183.0" />
             <GridPane prefHeight="411.0" prefWidth="234.0">
               <columnConstraints>
@@ -67,6 +68,9 @@
                </children>
             </GridPane>
          </children>
+         <padding>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </padding>
       </VBox>
    </children>
 </HBox>

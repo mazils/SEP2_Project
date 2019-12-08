@@ -44,7 +44,8 @@ public class SparePartsJDBC {
     }
 
     public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded){
-        String statement = "UPDATE "+"\"SEP2\""+".sparepart SET quantity = "+quantity+", "+" amountNeeded = "+amountNeeded+" WHERE name = '"+part.getName()+"' AND mName = '"+model.getModelName()+"' ";
+        String statement = "UPDATE \"SEP2\".sparepart SET quantity = "+quantity+", "+" amountNeeded = "+amountNeeded+" WHERE name = '"+part.getName()+"' AND mName = '"+model.getModelName()+"' ";
+
         database.executeUpdate(statement);
     }
 

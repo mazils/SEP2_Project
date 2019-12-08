@@ -37,13 +37,7 @@ public class SparePartViewModel {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-        try{
-            model.addListener("editSparePart", evt -> {
-                editSparePartEvt(evt);
-            });
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+
     }
 
     public StringProperty currentmodelProperty() {
@@ -75,23 +69,24 @@ public class SparePartViewModel {
         model.removeSparepart(sparePart,scootermodel);
     }
     public void editSparePart(ISparePart part, ISModel model) {
-        if(model.getModelName().equals(currentmodelProperty().getValue())){
-            for (int i = 0; i <spareParts.size() ; i++) {
-                if (spareParts.get(i).equals(part.getName())){
+        try {
+           ArrayList<SparePart> scooterSpareParts= this.model.getAllSpareparts(model);
+
+            for (int i = 0; i <scooterSpareParts.size() ; i++) {
+                if (scooterSpareParts.get(i).getName().equals(part.getName())){
                     spareParts.get(i).setQuantity(part.getQuantity());
                     spareParts.get(i).setAmountNeeded(part.getAmountNeeded());
+                    this.model.editSparePart(spareParts.get(i),model,spareParts.get(i).getQuantity(),spareParts.get(i).getAmountNeeded());
                 }
             }
+        } catch (RemoteException e) {
+            e.printStackTrace();
         }
+
+
     }
 
-    public void editSparePartEvt(PropertyChangeEvent event) {
-        Platform.runLater(() ->{
-            SparePart sparePart= (SparePart)event.getOldValue();
-            ISModel model= (SModel)event.getNewValue();
-            editSparePart(sparePart, model);
-        });
-    }
+
 
     public void addSparePart(PropertyChangeEvent evt) throws RemoteException {
         Platform.runLater(() ->{

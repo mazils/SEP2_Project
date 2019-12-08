@@ -19,7 +19,7 @@ public class MSparePart implements IMSparePart {
 
     public MSparePart() throws RemoteException, NotBoundException {
         UnicastRemoteObject.exportObject(this,0);
-        Registry reg = LocateRegistry.getRegistry("Localhost",1099);
+        Registry reg = LocateRegistry.getRegistry("localhost",1099);
         server = (RemoteServer) reg.lookup("server");
         System.out.println("Connected to Server");
     }
@@ -36,7 +36,6 @@ public class MSparePart implements IMSparePart {
     @Override
     public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException {
         server.editSparePart(part, model, quantity, amountNeeded);
-        support.firePropertyChange("editSparePart", part, model);
         // observer? im not sure
     }
 

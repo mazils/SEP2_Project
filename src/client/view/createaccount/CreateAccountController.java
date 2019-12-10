@@ -35,7 +35,6 @@ public class CreateAccountController {
         viewModel.getPassword().bindBidirectional(passwordTextField.textProperty());
         viewModel.getConfirmPassword().bindBidirectional(passwordConfTextField.textProperty());
         viewModel.getIsManagerProperty().bindBidirectional(isManager.selectedProperty());
-
     }
 
     public void onCreateButton() throws RemoteException, SQLException {

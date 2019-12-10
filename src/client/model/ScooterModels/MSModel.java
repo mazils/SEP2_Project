@@ -18,7 +18,7 @@ public class MSModel implements IMSModel {
 
 
     public MSModel() throws RemoteException, NotBoundException {
-        UnicastRemoteObject.exportObject(this,0);
+//        UnicastRemoteObject.exportObject(this,0);
         Registry reg = LocateRegistry.getRegistry("Localhost",1099);
         server = (RemoteServer) reg.lookup("server");
         System.out.println("Connected to Server");
@@ -45,5 +45,10 @@ public class MSModel implements IMSModel {
     @Override
     public void addListener(String names, PropertyChangeListener listener) {
             support.addPropertyChangeListener(names,listener);
+    }
+
+    @Override
+    public void removeListener(String names, PropertyChangeListener listener) {
+
     }
 }

@@ -1,16 +1,22 @@
 package server.jdbc;
 
+import Shared.PropertyChangeSubject;
 import client.model.ScooterModels.IMSModel;
 import client.model.ScooterModels.ISModel;
 import client.model.spareParts.ISparePart;
 import client.model.spareParts.SparePart;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+import java.rmi.RemoteException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class SparePartsJDBC {
+public class SparePartsJDBC implements PropertyChangeSubject {
     private JDBC database;
+
+    private PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public SparePartsJDBC()
     {
@@ -20,11 +26,15 @@ public class SparePartsJDBC {
     public void addSparePart(ISparePart sparePart, ISModel model) {
          String statement = "INSERT INTO " + "\"SEP2\"" + ".sparepart(name,mName, quantity, amountNeeded) VALUES " +"( '" +sparePart.getName() +   "', '" + model.getModelName() + "', '"+0+"', '"+0+"')";
          database.executeUpdate(statement);
+
+         support.firePropertyChange("change", null, model);
     }
 
     public void removeSparePart(ISparePart sparePart, ISModel model) {
          String statement= "DELETE FROM" + "\"SEP2\"" + ".sparepart WHERE" + " name = " +"'"+ sparePart.getName()+"'"+ " AND mName =" +  " '" + model.getModelName() + "' ";
          database.executeUpdate(statement);
+
+         support.firePropertyChange("change", null, model);
     }
 
     public ArrayList<SparePart> getAllSpareParts(ISModel model) throws SQLException {
@@ -41,13 +51,26 @@ public class SparePartsJDBC {
 
         }
         return spareParts;
+
     }
 
     public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded){
         String statement = "UPDATE \"SEP2\".sparepart SET quantity = "+quantity+", "+" amountNeeded = "+amountNeeded+" WHERE name = '"+part.getName()+"' AND mName = '"+model.getModelName()+"' ";
 
         database.executeUpdate(statement);
+
+        support.firePropertyChange("change", null, model);
     }
 
 
+    @Override
+    public void addListener(String names, PropertyChangeListener listener) throws RemoteException {
+        support.addPropertyChangeListener(names, listener);
+        System.out.println("SparePartJDBC adding listener");
+    }
+
+    @Override
+    public void removeListener(String names, PropertyChangeListener listener) {
+
+    }
 }

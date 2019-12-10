@@ -92,6 +92,8 @@ public class SparePartsMController {
             }
         }));
 
+
+
         quantityColumn.setOnEditCommit(e -> {
 
             e.getRowValue().setQuantity(e.getNewValue());
@@ -108,11 +110,40 @@ public class SparePartsMController {
                 e1.printStackTrace();
             }
 
-            sparePartsViewModel.editSparePart(e.getRowValue(), model);// well we are using String instead of ISModel
-            // FIXME update model / lets stop using Strings everywhere
-            System.out.println("Controller object of part" +e.getRowValue().getQuantity());
+            sparePartsViewModel.editSparePart(e.getRowValue(), model);
         });
 
+        amountNeededColumn.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<Integer>() {
+            @Override
+            public String toString(Integer integer) {
+                return Integer.toString(integer);
+            }
+
+            @Override
+            public Integer fromString(String s) {
+                return Integer.parseInt(s);
+            }
+        }));
+
+        amountNeededColumn.setOnEditCommit(e -> {
+
+            e.getRowValue().setAmountNeeded(e.getNewValue());
+
+            ISModel model=null;
+
+            try {
+                model = modelsViewModel.getModelObject()
+                        .stream()
+                        .filter(m -> m.getModelName().equals(currentModel.getValue()))
+                        .findAny().get();
+
+            } catch (RemoteException e1) {
+                e1.printStackTrace();
+            }
+
+            sparePartsViewModel.editSparePart(e.getRowValue(), model);
+            System.out.println("Controller object of part" +e.getRowValue().getAmountNeeded());
+        });
     }
 
     public void onNewAccount(){

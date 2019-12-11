@@ -201,6 +201,7 @@ public class SparePartsMController {
     {
         sparePartsViewModel.placeOrder();
         System.out.println("place order");
+        amountNeededColumn.setStyle("-fx-text-fill: red;");
     }
 
     public void onRecive(ActionEvent actionEvent) {

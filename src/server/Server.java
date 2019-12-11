@@ -128,4 +128,10 @@ public class Server implements RemoteServer
         sparePartsJDBC.addListener(names, new RPCLWrapper(listener));
     }
 
+    @Override
+    public void incrementSparePartQuantity(ISparePart part, String scooterModel) throws RemoteException
+    {
+        sparePartsJDBC.incrementSparePartQuantity(part,scooterModel);
+    }
+
 }

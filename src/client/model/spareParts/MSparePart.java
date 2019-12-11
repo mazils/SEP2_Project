@@ -42,6 +42,12 @@ public class MSparePart implements IMSparePart {
         server.editSparePart(part, model, quantity, amountNeeded);
     }
 
+    @Override
+    public void incrementSparePartQuantity(ISparePart part, String scooterModel) throws RemoteException
+    {
+        server.incrementSparePartQuantity(part,scooterModel);
+    }
+
     public void removeSparepart(String name,ISModel model) throws RemoteException {
         sparePart= new SparePart(name);
         server.removeSparePart(sparePart,model);

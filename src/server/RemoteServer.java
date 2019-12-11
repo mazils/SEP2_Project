@@ -23,4 +23,5 @@ public interface RemoteServer extends Remote {
     ArrayList<ISModel> getAllModels() throws RemoteException;
     void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException;
     void addListener(String names, RemotePropertyChangeListener listener) throws RemoteException;
+    void incrementSparePartQuantity(ISparePart part, String ScooterModel) throws RemoteException;
 }

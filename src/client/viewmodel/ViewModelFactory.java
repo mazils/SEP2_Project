@@ -7,6 +7,7 @@ import client.viewmodel.newSparePart.NewSparePartViewModel;
 import client.viewmodel.scooterModel.NewModelVM;
 import client.viewmodel.sparePartsList.ModelsListMViewModel;
 import client.viewmodel.sparePartsList.SparePartViewModel;
+import client.viewmodel.sparepartsVOS.SparePartsVOSViewModel;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -18,6 +19,7 @@ public class ViewModelFactory {
     private SparePartViewModel sparePartViewModel;
     private ModelsListMViewModel modelsListMViewModel;
     private NewSparePartViewModel newSparePartViewModel;
+    private SparePartsVOSViewModel sparePartsVOSViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) throws RemoteException, NotBoundException {
         loginViewModel= new LoginViewModel(modelFactory.getAccountsModel());
@@ -25,8 +27,8 @@ public class ViewModelFactory {
         newModelVM = new NewModelVM(modelFactory.getIMSModelModel());
         sparePartViewModel = new SparePartViewModel(modelFactory.getSparePartModel());
         modelsListMViewModel = new ModelsListMViewModel(modelFactory.getIMSModelModel());
-        System.out.println("VM factory constructor "+ modelFactory.getSparePartModel());
         newSparePartViewModel = new NewSparePartViewModel(modelFactory.getSparePartModel());
+        sparePartsVOSViewModel = new SparePartsVOSViewModel(modelFactory.getSparePartModel());
 
     }
 
@@ -53,5 +55,11 @@ public class ViewModelFactory {
     }
 
     public NewSparePartViewModel getNewSparePartViewModel() {
-        return newSparePartViewModel;}
+        return newSparePartViewModel;
+    }
+
+    public SparePartsVOSViewModel getSparePartsVOSViewModel()
+    {
+        return sparePartsVOSViewModel;
+    }
 }

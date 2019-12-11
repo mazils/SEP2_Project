@@ -1,5 +1,6 @@
 package client.viewmodel.sparePartsList;
 
+import client.RPCLImpl;
 import client.model.ScooterModels.*;
 import client.model.spareParts.IMSparePart;
 import client.model.spareParts.ISparePart;
@@ -9,8 +10,6 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import java.beans.PropertyChangeEvent;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -26,10 +25,12 @@ public class SparePartViewModel {
         this.model= model;
         currentmodel= new SimpleStringProperty();
         spareParts= FXCollections.observableArrayList();
+
         try {
-            model.addListener("addedsparepart", evt -> {
+            model.addListener("change", evt -> {
                 try {
-                    addSparePart(evt);
+                    System.out.println("lambda in MSparePart: ");
+                    getList(currentmodel.getValue());
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -37,7 +38,6 @@ public class SparePartViewModel {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-
     }
 
     public StringProperty currentmodelProperty() {
@@ -84,16 +84,6 @@ public class SparePartViewModel {
         }
 
 
-    }
-
-
-
-    public void addSparePart(PropertyChangeEvent evt) throws RemoteException {
-        Platform.runLater(() ->{
-            SparePart sparePart= (SparePart)evt.getOldValue();
-            ISModel model= (SModel)evt.getNewValue();
-            addToSpareParts(sparePart,model);
-        });
     }
 
 

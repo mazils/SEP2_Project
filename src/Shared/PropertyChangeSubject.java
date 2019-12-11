@@ -5,6 +5,6 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 public interface PropertyChangeSubject extends Remote {
-    public void addListener(String names,PropertyChangeListener listener) throws RemoteException;
-
+    void addListener(String names,PropertyChangeListener listener) throws RemoteException;
+    void removeListener(String names,PropertyChangeListener listener)throws RemoteException;
 }

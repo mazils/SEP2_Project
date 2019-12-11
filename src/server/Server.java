@@ -1,6 +1,6 @@
 package server;
 
-import client.model.ScooterModels.IMSModel;
+import Shared.RemotePropertyChangeListener;
 import client.model.ScooterModels.ISModel;
 import client.model.spareParts.ISparePart;
 import client.model.spareParts.SparePart;
@@ -10,6 +10,7 @@ import server.jdbc.JDBC;
 import server.jdbc.SModelJDBC;
 import server.jdbc.SparePartsJDBC;
 
+import java.beans.PropertyChangeSupport;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -20,13 +21,12 @@ import java.util.ArrayList;
 
 public class Server implements RemoteServer
 {
-    // private ISM sparePartsModel
-    // private IMM modelsModel
-   private AccountsJDBC accountsJDBC;
+    private AccountsJDBC accountsJDBC;
     private SModelJDBC sModelJDBC;
-   private SparePartsJDBC sparePartsJDBC;
+    private SparePartsJDBC sparePartsJDBC;
 
 
+    private PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public Server() {
        accountsJDBC= new AccountsJDBC();
@@ -124,5 +124,8 @@ public class Server implements RemoteServer
         }
     }
 
+    public void addListener(String names, RemotePropertyChangeListener listener) throws RemoteException {
+        sparePartsJDBC.addListener(names, new RPCLWrapper(listener));
+    }
 
 }

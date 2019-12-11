@@ -1,16 +1,18 @@
 package server;
 
 import Shared.RemotePropertyChangeListener;
+import Shared.remoteServer.AccountsRServer;
+import Shared.remoteServer.SModelsRServer;
+import Shared.remoteServer.SparePartsServer;
 import client.model.ScooterModels.ISModel;
 import client.model.spareParts.ISparePart;
 import client.model.spareParts.SparePart;
 import client.model.modelaccount.Account;
-import server.jdbc.AccountsJDBC;
 import server.jdbc.JDBC;
-import server.jdbc.SModelJDBC;
-import server.jdbc.SparePartsJDBC;
+import server.serverManager.AccountsSManager;
+import server.serverManager.SModelsSMnagaer;
+import server.serverManager.SparePartsSManager;
 
-import java.beans.PropertyChangeSupport;
 import java.rmi.AlreadyBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -19,19 +21,17 @@ import java.rmi.server.UnicastRemoteObject;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class Server implements RemoteServer
-{
-    private AccountsJDBC accountsJDBC;
-    private SModelJDBC sModelJDBC;
-    private SparePartsJDBC sparePartsJDBC;
+public class Server implements AccountsRServer, SparePartsServer, SModelsRServer {
+    private AccountsSManager accountsSManager;
+    private SModelsSMnagaer sModelsSMnagaer;
+    private SparePartsSManager sparePartsSManager;
 
-
-    private PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public Server() {
-       accountsJDBC= new AccountsJDBC();
-       sModelJDBC= new SModelJDBC();
-       sparePartsJDBC= new SparePartsJDBC();
+        accountsSManager = new AccountsSManager();
+        sModelsSMnagaer = new SModelsSMnagaer();
+        sparePartsSManager = new SparePartsSManager();
+
         try{
             UnicastRemoteObject.exportObject(this,0);
             System.out.println("Server started");
@@ -42,72 +42,53 @@ public class Server implements RemoteServer
 
     @Override
     public synchronized boolean checkIfExists(String userName, String password) {
-        try {
-            return accountsJDBC.checkAccExists(userName,password);
-        }
-        catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return false;
+        return accountsSManager.checkIfExists(userName,password);
     }
 
     @Override
     public boolean checkUsername(String username)throws SQLException {
-        return accountsJDBC.checkUsername(username);
+        return accountsSManager.checkUsername(username);
     }
 
     @Override
     public void addAccount(Account acc,boolean isManager){
-        accountsJDBC.addAccount(acc,isManager);
+        accountsSManager.addAccount(acc, isManager);
 
     }
 
     @Override
     public void addModel(ISModel model) {
-        sModelJDBC.addModel(model);
-
+        sModelsSMnagaer.addModel(model);
     }
 
     @Override
     public void addSparePart(ISparePart sparePart, ISModel model) {
-        sparePartsJDBC.addSparePart(sparePart,model);
+        sparePartsSManager.addSparePart(sparePart,model);
     }
 
     @Override
     public void removeSparePart(ISparePart sparePart, ISModel model) {
-        sparePartsJDBC.removeSparePart(sparePart,model);
+        sparePartsSManager.removeSparePart(sparePart,model);
     }
 
     @Override
     public void removeModel(ISModel model) {
-        sModelJDBC.removeModel(model);
+        sModelsSMnagaer.removeModel(model);
     }
 
     @Override
     public ArrayList<SparePart> getAllSpareParts(ISModel model) {
-
-        ArrayList<SparePart> partArrayList= new ArrayList<>();
-        try {
-           partArrayList= sparePartsJDBC.getAllSpareParts(model);
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return partArrayList;
+        return sparePartsSManager.getAllSpareParts(model);
     }
 
     @Override
     public ArrayList<ISModel> getAllModels() throws RemoteException {
-        try {
-            return sModelJDBC.getAllModels();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return null;
+        return sModelsSMnagaer.getAllModels();
     }
 
     @Override
     public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException {
-        sparePartsJDBC.editSparePart(part, model, quantity, amountNeeded);
+        sparePartsSManager.editSparePart(part, model, quantity, amountNeeded);
     }
 
     public static void main(String[] args) {
@@ -124,23 +105,18 @@ public class Server implements RemoteServer
         }
     }
 
-    public void addListener(String names, RemotePropertyChangeListener listener) throws RemoteException {
-        sparePartsJDBC.addListener(names, new RPCLWrapper(listener));
+    public void wrappListener(String names, RemotePropertyChangeListener listener) throws RemoteException {
+        sparePartsSManager.addListener(names, new RPCLWrapper(listener));
     }
 
     @Override
-    public void incrementSparePartQuantity(ISparePart part, String scooterModel)
-    {
-        sparePartsJDBC.incrementSparePartQuantity(part,scooterModel);
+    public void incrementSparePartQuantity(ISparePart part, String scooterModel) {
+        sparePartsSManager.incrementSparePartQuantity(part,scooterModel);
     }
 
     @Override
-    public void decrementSparePartQuantity(ISparePart part, String scooterModel)
-    {
-
-
-            sparePartsJDBC.decrementSparePartQuantity(part,scooterModel);
-
+    public void decrementSparePartQuantity(ISparePart part, String scooterModel) {
+        sparePartsSManager.decrementSparePartQuantity(part,scooterModel);
     }
 
 }

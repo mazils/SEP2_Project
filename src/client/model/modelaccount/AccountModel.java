@@ -1,6 +1,6 @@
 package client.model.modelaccount;
 
-import server.RemoteServer;
+import Shared.remoteServer.AccountsRServer;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -8,15 +8,14 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.sql.SQLException;
-import java.util.ArrayList;
 
 public class AccountModel implements IAccountsModel {
-    private RemoteServer rmi;
+    private AccountsRServer rmi;
     private Account acc;
     public AccountModel() throws RemoteException, NotBoundException {
         UnicastRemoteObject.exportObject(this,0);
         Registry reg = LocateRegistry.getRegistry("Localhost",1099);
-        rmi = (RemoteServer) reg.lookup("server");
+        rmi = (AccountsRServer) reg.lookup("server");
         System.out.println("Connected to Server");
 
     }

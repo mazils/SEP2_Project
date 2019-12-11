@@ -1,4 +1,4 @@
-package server;
+package Shared.remoteServer;
 
 import Shared.RemotePropertyChangeListener;
 import client.model.ScooterModels.ISModel;
@@ -11,18 +11,13 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public interface RemoteServer extends Remote {
-    boolean checkIfExists(String userName,String password)throws RemoteException;
-    boolean checkUsername(String username) throws  SQLException,RemoteException;
-    void addAccount(Account acc,boolean isManager)throws RemoteException;
-    void addModel(ISModel model)throws RemoteException;
+public interface SparePartsServer extends Remote {
+
     void addSparePart(ISparePart sparePart,ISModel model)throws RemoteException;
     void removeSparePart(ISparePart sparePart,ISModel model)throws RemoteException;
-    void removeModel(ISModel model)throws RemoteException;
     ArrayList<SparePart> getAllSpareParts(ISModel model)throws RemoteException;
-    ArrayList<ISModel> getAllModels() throws RemoteException;
     void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException;
-    void addListener(String names, RemotePropertyChangeListener listener) throws RemoteException;
+    void wrappListener(String names, RemotePropertyChangeListener listener) throws RemoteException;
     void incrementSparePartQuantity(ISparePart part, String scooterModel)throws RemoteException;
     void decrementSparePartQuantity(ISparePart part,String scooterModel)throws RemoteException;
 }

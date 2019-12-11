@@ -11,7 +11,7 @@ import server.RemoteServer;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
-import java.io.Serializable;
+import java.io.*;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -22,12 +22,14 @@ import java.util.ArrayList;
 public class MSparePart implements IMSparePart {
     private ISparePart sparePart;
     private RemoteServer server;
+    private BufferedWriter order;
 
 
     public MSparePart() throws RemoteException, NotBoundException {
         Registry reg = LocateRegistry.getRegistry("localhost",1099);
         server = (RemoteServer) reg.lookup("server");
         System.out.println("Connected to Server");
+
 
     }
 
@@ -64,6 +66,37 @@ public class MSparePart implements IMSparePart {
         {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    public void placeOrder(ISModel model,String comments)
+    {
+        try
+        {
+            order = new BufferedWriter(new FileWriter("order.txt",true));
+            System.out.println("write file");
+            order.write("      SCOOTER MODEL : "+model.getModelName() + "\n");
+            for(ISparePart i : getAllSpareparts(model))
+            {
+                if(i.getAmountNeeded() != 0)
+                {
+                    order.write( " spare part : " +i.getName() + " ammount needed : "+i.getAmountNeeded() + "\n");
+                }
+
+            }
+            order.write("COMMENTS : " + "\n"+comments);
+            System.out.println("done writing order");
+            order.close();
+
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
     }
 
     public void removeSparepart(String name,ISModel model) throws RemoteException {

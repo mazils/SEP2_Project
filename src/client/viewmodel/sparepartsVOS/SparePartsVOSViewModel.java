@@ -101,4 +101,5 @@ public class SparePartsVOSViewModel
             spareParts.add(part);
         }
     }
+
 }

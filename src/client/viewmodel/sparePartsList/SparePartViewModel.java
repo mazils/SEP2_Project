@@ -18,6 +18,7 @@ public class SparePartViewModel {
     private IMSparePart model;
     private ObservableList<SparePart> spareParts;
     private StringProperty currentmodel;
+    private StringProperty comments;
 
 
     public SparePartViewModel (IMSparePart model) {
@@ -25,6 +26,7 @@ public class SparePartViewModel {
         this.model= model;
         currentmodel= new SimpleStringProperty();
         spareParts= FXCollections.observableArrayList();
+        comments = new SimpleStringProperty();
 
         try {
             model.addListener("change", evt -> {
@@ -86,7 +88,15 @@ public class SparePartViewModel {
 
     }
 
+    public void placeOrder()
+    {
+        model.placeOrder(new SModel(currentmodel.getValue()),comments.getValue());
+       comments.setValue("");
+    }
 
 
-
+    public StringProperty commentsProperty()
+    {
+        return comments;
+    }
 }

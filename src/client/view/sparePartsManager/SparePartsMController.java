@@ -31,7 +31,7 @@ public class SparePartsMController {
     private TableColumn<SparePart, Integer> amountNeededColumn;
 
     @FXML
-    private TextArea textArea;
+    private TextArea commentArea;
 
     @FXML
     private ComboBox<String> modelList;
@@ -49,9 +49,11 @@ public class SparePartsMController {
         this.sparePartsViewModel=sparePartsViewModel;
         currentModel= new SimpleStringProperty();
         currentModel.bindBidirectional(sparePartsViewModel.currentmodelProperty());
+        commentArea.textProperty().bindBidirectional(sparePartsViewModel.commentsProperty());
         inittialLoad();
         initCols();
         modelsViewModel.updateAllModels();
+
 
     }
 
@@ -155,7 +157,7 @@ public class SparePartsMController {
     }
 
     public void onLogOff(){
-        Stage stage = (Stage)textArea.getScene().getWindow();
+        Stage stage = (Stage)sparePartsList.getScene().getWindow();
         viewHandler.closeView(stage);
         viewHandler.openView("logIn");
     }
@@ -195,7 +197,10 @@ public class SparePartsMController {
     public void onAdd(ActionEvent actionEvent) {
     }
 
-    public void onPlace(ActionEvent actionEvent) {
+    public void onPlaceOrder()
+    {
+        sparePartsViewModel.placeOrder();
+        System.out.println("place order");
     }
 
     public void onRecive(ActionEvent actionEvent) {

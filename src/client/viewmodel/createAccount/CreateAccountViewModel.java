@@ -58,14 +58,14 @@ public class CreateAccountViewModel
 
     public boolean createAccount() throws RemoteException, SQLException//todo there shouldnt be exceptions thrown here
     {
-
+        //todo the alerts
         //todo Troels : it’s the responsibility of your view/controller class, to show these alerts; not the ViewModel.
         //check if empty
         if (password.getValue().equals("") || confirmPassword.getValue().equals("") || username.getValue().equals("")) {
             System.out.println("this is empty");
             alertType.set(Alert.AlertType.ERROR.ordinal());
 
-            //            Alert alert = new Alert(Alert.AlertType.ERROR);
+            // Alert alert = new Alert(Alert.AlertType.ERROR);
 //            alert.setContentText("Please fill in all fields");
 //            alert.showAndWait();
             managerAccount.setValue(false);
@@ -76,6 +76,8 @@ public class CreateAccountViewModel
 //            Alert alert = new Alert(Alert.AlertType.WARNING);
 //            alert.setContentText("This account already exists");
 //            alert.showAndWait();
+
+            alertType.set(Alert.AlertType.WARNING.ordinal());
             username.setValue("");
             password.setValue("");
             confirmPassword.setValue("");
@@ -88,6 +90,7 @@ public class CreateAccountViewModel
 //            Alert alert = new Alert(Alert.AlertType.WARNING);
 //            alert.setContentText("The password doesn't match");
 //            alert.showAndWait();
+            alertType.set(Alert.AlertType.WARNING.ordinal());
             password.setValue("");
             confirmPassword.setValue("");
             System.out.println("passwords doesnt match");

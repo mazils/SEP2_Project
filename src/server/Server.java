@@ -129,9 +129,18 @@ public class Server implements RemoteServer
     }
 
     @Override
-    public void incrementSparePartQuantity(ISparePart part, String scooterModel) throws RemoteException
+    public void incrementSparePartQuantity(ISparePart part, String scooterModel)
     {
         sparePartsJDBC.incrementSparePartQuantity(part,scooterModel);
+    }
+
+    @Override
+    public void decrementSparePartQuantity(ISparePart part, String scooterModel)
+    {
+
+
+            sparePartsJDBC.decrementSparePartQuantity(part,scooterModel);
+
     }
 
 }

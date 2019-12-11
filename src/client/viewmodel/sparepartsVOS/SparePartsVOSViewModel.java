@@ -56,11 +56,16 @@ public class SparePartsVOSViewModel
         });
     }
 
-    public void incrementPart(ISparePart iSparePart, String scooterModel) throws RemoteException
+    public void incrementPart(ISparePart iSparePart, String scooterModel)
     {
         imSparePart.incrementSparePartQuantity(iSparePart, scooterModel);//todo here
 
     }
+    public void decrementPart(ISparePart iSparePart, String scooterModel)
+    {
+        imSparePart.decrementSparePartQuantity(iSparePart,scooterModel);
+    }
+
 
     public void getList(String name) throws RemoteException
     {

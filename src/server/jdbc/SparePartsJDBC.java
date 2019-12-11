@@ -26,7 +26,6 @@ public class SparePartsJDBC implements PropertyChangeSubject {
     public void addSparePart(ISparePart sparePart, ISModel model) {
          String statement = "INSERT INTO " + "\"SEP2\"" + ".sparepart(name,mName, quantity, amountNeeded) VALUES " +"( '" +sparePart.getName() +   "', '" + model.getModelName() + "', '"+0+"', '"+0+"')";
          database.executeUpdate(statement);
-
          support.firePropertyChange("change", null, model);
     }
 
@@ -64,14 +63,30 @@ public class SparePartsJDBC implements PropertyChangeSubject {
 
     public void incrementSparePartQuantity(ISparePart part, String scooterModel)
     {
-        int quantity = part.getQuantity()+1 ;
-        System.out.println("quantity from spare parts jdbc" + quantity);
-        String statement = "UPDATE \"SEP2\".sparepart SET quantity = " + quantity + "WHERE name = '"+part.getName()+"' AND mName = '"+scooterModel+"' ";
-                //todo fire event
-
-        database.executeUpdate(statement);
-        support.firePropertyChange("change",null,scooterModel);
+        if (part != null && scooterModel != null)
+        {
+            int quantity = part.getQuantity() + 1;
+            System.out.println("quantity from spare parts jdbc" + quantity);
+            String statement = "UPDATE \"SEP2\".sparepart SET quantity = " + quantity + "WHERE name = '" + part.getName() + "' AND mName = '" + scooterModel + "' ";
+            database.executeUpdate(statement);
+            support.firePropertyChange("change", null, scooterModel);
+        }
+        System.out.println("no part is selected to incr : Spareparts JDBC");
     }
+    public void decrementSparePartQuantity(ISparePart part, String scooterModel)
+    {
+        if(part != null && scooterModel != null)
+        {
+            int quantity = part.getQuantity()-1 ;
+            System.out.println("quantity from spare parts jdbc" + quantity);
+            String statement = "UPDATE \"SEP2\".sparepart SET quantity = " + quantity + "WHERE name = '"+part.getName()+"' AND mName = '"+scooterModel+"' ";
+            database.executeUpdate(statement);
+            support.firePropertyChange("change",null,scooterModel);
+        }
+        System.out.println("no part is selected to decr : Spareparts JDBC");
+
+    }
+
 
     @Override
     public void addListener(String names, PropertyChangeListener listener) throws RemoteException {

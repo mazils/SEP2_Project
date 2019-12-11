@@ -70,10 +70,12 @@ public class SparePartsVOSController {
         viewHandler.openView("logIn");
     }
 
-    public void onSubtract(ActionEvent actionEvent) {
+    public void onSubtract()
+    {
+        sparePartsVOSViewModel.decrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
     }
 
-    public void onAdd() throws RemoteException
+    public void onAdd()
     {
         sparePartsVOSViewModel.incrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
         System.out.println(sparePartsList.getSelectionModel().getSelectedItem());

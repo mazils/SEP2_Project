@@ -42,6 +42,7 @@ public class CreateAccountController
         viewModel.getIsManagerProperty().bindBidirectional(isManager.selectedProperty());
         viewModel.alertTypeProperty().addListener((observableValue, number, type) -> showAlert(type));
     }
+    //todo the alerts
 
     private void showAlert(Number type)
     {

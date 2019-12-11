@@ -43,9 +43,27 @@ public class MSparePart implements IMSparePart {
     }
 
     @Override
-    public void incrementSparePartQuantity(ISparePart part, String scooterModel) throws RemoteException
+    public void incrementSparePartQuantity(ISparePart part, String scooterModel)
     {
-        server.incrementSparePartQuantity(part,scooterModel);
+        try
+        {
+            server.incrementSparePartQuantity(part,scooterModel);
+        } catch (RemoteException e)
+        {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void decrementSparePartQuantity(ISparePart part, String scooterModel)
+    {
+        try
+        {
+            server.decrementSparePartQuantity(part,scooterModel);
+        } catch (RemoteException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public void removeSparepart(String name,ISModel model) throws RemoteException {

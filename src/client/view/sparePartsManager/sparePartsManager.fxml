@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.sparePartsManager.SparePartsMController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.sparePartsManager.SparePartsMController">
    <children>
       <TableView fx:id="sparePartsList" editable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="541.0" HBox.hgrow="ALWAYS">
          <columns>
@@ -37,6 +37,7 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPlaceOrder" prefHeight="25.0" prefWidth="121.0" text="Place an order" />
@@ -57,10 +58,11 @@
                   </Button>
                   <ComboBox fx:id="modelList" onAction="#onModelList" prefWidth="150.0" GridPane.rowIndex="2" />
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNewModel" text="New Model" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Button fx:id="newSparePart" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNewSparePart" text="New spare part" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDeleteSparePart" text="Delete spare part" GridPane.rowIndex="3" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNewAccount" text="New Account" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                  <Button mnemonicParsing="false" onAction="#onLogOff" text="Log off" GridPane.rowIndex="4" />
+                  <Button fx:id="newSparePart" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNewSparePart" text="New spare part" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onDeleteSparePart" text="Delete spare part" GridPane.rowIndex="4" />
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onNewAccount" text="New Account" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                  <Button mnemonicParsing="false" onAction="#onLogOff" text="Log off" GridPane.rowIndex="5" />
+                  <Button mnemonicParsing="false" onAction="#onLogAction" text="view Log" GridPane.rowIndex="3" />
                </children>
             </GridPane>
          </children>

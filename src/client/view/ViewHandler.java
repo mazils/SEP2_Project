@@ -1,6 +1,8 @@
 package client.view;
 
+import client.view.amountReceived.AmountReceivedController;
 import client.view.createaccount.CreateAccountController;
+import client.view.log.LogController;
 import client.view.login.LoginController;
 import client.view.newSparePart.NewSparePartController;
 import client.view.newScooterModel.NewSMController;
@@ -85,6 +87,28 @@ public class ViewHandler {
                 stage1.setScene(scene);
                 stage1.show();
                 stage.setTitle("sparepartsVOS");
+            }
+            else if(viewToOpen.equals("amountReceived"))
+            {
+                Stage stage1 = new Stage();
+                loader.setLocation(getClass().getResource("amountReceived/amountReceived.fxml"));
+                root = loader.load();
+                loader.<AmountReceivedController>getController().init(this,viewModelFactory.getAmountReceivedViewModel(),viewModelFactory.getSparePartViewModel());
+                scene = new Scene(root);
+                stage1.setScene(scene);
+                stage1.show();
+                stage.setTitle("Amount Received");
+            }
+            else if(viewToOpen.equals("viewLog"))
+            {
+                Stage stage1 = new Stage();
+                loader.setLocation(getClass().getResource("log/log.fxml"));
+                root = loader.load();
+                loader.<LogController>getController().init(this,viewModelFactory.getLogViewModel(),viewModelFactory.getSparePartViewModel());
+                scene = new Scene(root);
+                stage1.setScene(scene);
+                stage1.show();
+                stage.setTitle("View Log");
             }
 
 

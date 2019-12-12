@@ -32,4 +32,13 @@ public class AccountsSManager {
     }
 
 
+    public boolean accountIsManager(String username, String password) {
+        try {
+            System.out.println(accountsJDBC.accountIsManager(username,password) + "accountsManager");
+            return accountsJDBC.accountIsManager(username,password);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
 }

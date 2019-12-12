@@ -2,6 +2,7 @@ package client.model.spareParts;
 
 import Shared.PropertyChangeSubject;
 import client.model.ScooterModels.ISModel;
+import client.model.ScooterModels.SModel;
 
 import java.rmi.Remote;
 import java.rmi.RemoteException;
@@ -15,5 +16,5 @@ public interface IMSparePart extends Remote, PropertyChangeSubject {
     void incrementSparePartQuantity(ISparePart part,String scooterModel);
     void decrementSparePartQuantity(ISparePart part,String scooterModel);
     void placeOrder(ISModel model,String comments);
-
+    void receivedAmount(SparePart part, SModel model, int amount) throws RemoteException;
 }

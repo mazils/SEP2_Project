@@ -41,4 +41,9 @@ public class AccountModelDummyClass implements IAccountsModel
     {
         System.out.println("account created in dummy class!");
     }
+
+
+    public boolean accountIsManager(String username, String password) {
+        return false;
+    }
 }

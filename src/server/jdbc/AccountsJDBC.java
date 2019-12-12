@@ -37,7 +37,7 @@ public class AccountsJDBC {
     }
 
     public boolean checkUsername(String username) throws SQLException {
-        String statement = "SELECT * FROM " + "\"SEP2\""+ ".account WHERE userName = " + "'" + username+ "'";
+        String statement = "SELECT * FROM " + "\"SEP2\""+ ".account WHERE userName = " + "'" + username+ "'" ;
         System.out.println(statement);
         ResultSet rs= database.executeQuery(statement);
         while (rs.next())
@@ -51,4 +51,17 @@ public class AccountsJDBC {
 
     }
 
+    public boolean accountIsManager(String username, String password) throws SQLException {
+        String statement = "SELECT isManager FROM " + "\"SEP2\""+ ".account WHERE userName = " + "'" + username+ "'" + " AND password =" + "'" + password + "'";
+        ResultSet rs= database.executeQuery(statement);
+        while (rs.next())
+        {
+            if(rs.getBoolean(1))
+            {
+                System.out.println(rs.getBoolean(1) + "1");
+                return true;
+            }
+        }
+        return false;
+    }
 }

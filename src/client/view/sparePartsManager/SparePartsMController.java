@@ -205,5 +205,16 @@ public class SparePartsMController {
     }
 
     public void onRecive(ActionEvent actionEvent) {
+        if(!(sparePartsList.getSelectionModel().isEmpty())) {
+            sparePartsViewModel.setCurrentSparepart(sparePartsList.getSelectionModel().getSelectedItem());
+            viewHandler.openView("amountReceived");
+        }
+    }
+
+    public void onLogAction() {
+        if(!(sparePartsList.getSelectionModel().isEmpty())) {
+            sparePartsViewModel.setCurrentSparepart(sparePartsList.getSelectionModel().getSelectedItem());
+            viewHandler.openView("viewLog");
+        }
     }
 }

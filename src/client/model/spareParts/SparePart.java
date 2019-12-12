@@ -37,9 +37,18 @@ public class SparePart implements ISparePart, Serializable {
     }
 
     @Override
-    public void increment()
-    {
+    public void increment() {
         quantity++;
+    }
+
+    @Override
+    public void receivedAmount(int amount) {
+        quantity= quantity + amount;
+        amountNeeded = amountNeeded - amount;
+        if(amountNeeded< 0)
+        {
+            amountNeeded= 0;
+        }
     }
 
     public void setQuantity(int quantity) {

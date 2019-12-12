@@ -1,6 +1,7 @@
 package client.model.modelaccount;
 
 import Shared.remoteServer.AccountsRServer;
+import client.model.logModel.Logger;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -12,6 +13,7 @@ import java.sql.SQLException;
 public class AccountModel implements IAccountsModel {
     private AccountsRServer rmi;
     private Account acc;
+    private Logger log= Logger.getInstance();
     public AccountModel() throws RemoteException, NotBoundException {
         UnicastRemoteObject.exportObject(this,0);
         Registry reg = LocateRegistry.getRegistry("Localhost",1099);
@@ -29,9 +31,22 @@ public class AccountModel implements IAccountsModel {
      */
     public boolean accountExists( String username, String password) throws RemoteException {
 
+        if(rmi.checkIfExists(username, password)) {
+            log.setUsername(username);
+        }
 
-           return rmi.checkIfExists(username, password);
+        return rmi.checkIfExists(username, password);
 
+    }
+
+    public boolean accountIsManager(String username, String password)
+    {
+        try {
+           return rmi.accountIsManager(username,password);
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     /**

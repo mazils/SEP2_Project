@@ -1,6 +1,8 @@
 package client.model;
 
 import client.model.ScooterModels.IMSModel;
+import client.model.logModel.ILogger;
+import client.model.logModel.Logger;
 import client.model.spareParts.IMSparePart;
 import client.model.ScooterModels.MSModel;
 import client.model.spareParts.MSparePart;
@@ -14,6 +16,7 @@ public class ModelFactory {
     private IAccountsModel accountsModel;
     private IMSModel modelOfScooter;
     private IMSparePart sparePartModel;
+    private ILogger loggerModel;
 
     public IAccountsModel getAccountsModel() throws RemoteException, NotBoundException {
         if(accountsModel ==null)
@@ -36,5 +39,13 @@ public class ModelFactory {
             sparePartModel= new MSparePart();
        }
         return sparePartModel;
+    }
+
+    public ILogger getLogModel() {
+        if(loggerModel==null)
+        {
+            loggerModel= Logger.getInstance();
+        }
+        return loggerModel;
     }
 }

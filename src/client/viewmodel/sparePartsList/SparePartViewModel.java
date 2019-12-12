@@ -18,6 +18,7 @@ public class SparePartViewModel {
     private IMSparePart model;
     private ObservableList<SparePart> spareParts;
     private StringProperty currentmodel;
+    private StringProperty currentSparePart;
     private StringProperty comments;
 
 
@@ -25,6 +26,7 @@ public class SparePartViewModel {
 
         this.model= model;
         currentmodel= new SimpleStringProperty();
+        currentSparePart= new SimpleStringProperty();
         spareParts= FXCollections.observableArrayList();
         comments = new SimpleStringProperty();
 
@@ -51,14 +53,20 @@ public class SparePartViewModel {
     }
 
     public void getList(String name) throws RemoteException {
-        SModel scooterModel= new SModel(name);
-        ArrayList<SparePart> parts= model.getAllSpareparts(scooterModel);
-        spareParts.clear();
-        if(model.getAllSpareparts(scooterModel)!=null) {
-            for (int i = 0; i < parts.size() ; i++) {
-                spareParts.add(parts.get(i));
+        Platform.runLater(() ->{
+            try {
+                SModel scooterModel = new SModel(name);
+                ArrayList<SparePart> parts = model.getAllSpareparts(scooterModel);
+                spareParts.clear();
+                if (model.getAllSpareparts(scooterModel) != null) {
+                    for (int i = 0; i < parts.size(); i++) {
+                        spareParts.add(parts.get(i));
+                    }
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
-        }
+        });
     }
 
     public void addToSpareParts(SparePart part,ISModel model) {
@@ -98,5 +106,14 @@ public class SparePartViewModel {
     public StringProperty commentsProperty()
     {
         return comments;
+    }
+
+    public SparePart getCurrentSparePart() {
+        SparePart part= new SparePart(currentSparePart.getValue());
+        return  part;
+    }
+
+    public void setCurrentSparepart(SparePart selectedItem) {
+        currentSparePart.setValue(selectedItem.getName());
     }
 }

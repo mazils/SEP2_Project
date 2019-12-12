@@ -1,6 +1,7 @@
 package server.serverManager;
 
 import Shared.RemotePropertyChangeListener;
+import Shared.remoteServer.SparePartsServer;
 import client.model.ScooterModels.ISModel;
 import client.model.spareParts.ISparePart;
 import client.model.spareParts.SparePart;
@@ -12,7 +13,7 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class SparePartsSManager {
+public class SparePartsSManager  {
     private SparePartsJDBC sparePartsJDBC;
 
     public SparePartsSManager() {

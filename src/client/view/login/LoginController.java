@@ -36,9 +36,20 @@ public class LoginController {
      */
     public void onLogInButton() throws RemoteException {
         Stage stage= (Stage) passwordTextField.getScene().getWindow();
-        loginViewModel.checkIfExists();
-        viewHandler.closeView(stage);
-        viewHandler.openView("sparePartsManager");
+
+        if(loginViewModel.checkIfExists()) {
+            System.out.println("dkdbdj");
+            viewHandler.closeView(stage);
+            System.out.println(loginViewModel.isManager() + "ddfsgs");
+            if(loginViewModel.isManager()) {
+                viewHandler.openView("sparePartsManager");
+            }else
+                viewHandler.openView("sparepartsVOS");
+        }
+        else {
+            passwordTextField.textProperty().setValue("");
+            userNameTextField.textProperty().setValue("");
+        }
     }
 
 

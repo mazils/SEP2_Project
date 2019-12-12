@@ -3,6 +3,8 @@ package client.model.spareParts;
 import client.RPCLImpl;
 import client.model.ScooterModels.ISModel;
 import Shared.remoteServer.SparePartsServer;
+import client.model.ScooterModels.SModel;
+import client.model.logModel.Logger;
 
 import java.beans.PropertyChangeListener;
 import java.io.*;
@@ -16,6 +18,7 @@ public class MSparePart implements IMSparePart {
     private ISparePart sparePart;
     private SparePartsServer server;
     private BufferedWriter order;
+    private Logger log= Logger.getInstance();
 
 
     public MSparePart() throws RemoteException, NotBoundException {
@@ -32,6 +35,7 @@ public class MSparePart implements IMSparePart {
     @Override
     public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException {
         server.editSparePart(part, model, quantity, amountNeeded);
+        log.log("edited sparepart" + part.getName() +  "in model::" + model.getModelName() + "quantity =" + quantity + "amount needed =" + amountNeeded );
     }
 
     @Override
@@ -40,6 +44,7 @@ public class MSparePart implements IMSparePart {
         try
         {
             server.incrementSparePartQuantity(part,scooterModel);
+            log.log("incremented sparepart " + part.getName() + "in model::" + scooterModel);
         } catch (RemoteException e)
         {
             e.printStackTrace();
@@ -52,6 +57,8 @@ public class MSparePart implements IMSparePart {
         try
         {
             server.decrementSparePartQuantity(part,scooterModel);
+            log.log(" decremented sparepart " + part.getName() + " in model::" + scooterModel);
+
         } catch (RemoteException e)
         {
             e.printStackTrace();
@@ -87,6 +94,12 @@ public class MSparePart implements IMSparePart {
             e.printStackTrace();
         }
 
+    }
+
+    @Override
+    public void receivedAmount(SparePart part, SModel model, int amount) throws RemoteException {
+        part.receivedAmount(amount);
+        server.editSparePart(part,model,part.getQuantity(),part.getAmountNeeded());
     }
 
     public void removeSparepart(String name,ISModel model) throws RemoteException {

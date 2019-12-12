@@ -1,7 +1,9 @@
 package client.viewmodel;
 
 import client.model.ModelFactory;
+import client.viewmodel.amountReceived.AmountReceivedViewModel;
 import client.viewmodel.createAccount.CreateAccountViewModel;
+import client.viewmodel.log.LogViewModel;
 import client.viewmodel.logIn.LoginViewModel;
 import client.viewmodel.newSparePart.NewSparePartViewModel;
 import client.viewmodel.scooterModel.NewModelVM;
@@ -20,6 +22,8 @@ public class ViewModelFactory {
     private ModelsListMViewModel modelsListMViewModel;
     private NewSparePartViewModel newSparePartViewModel;
     private SparePartsVOSViewModel sparePartsVOSViewModel;
+    private AmountReceivedViewModel amountReceivedViewModel;
+    private LogViewModel logViewModel;
 
     public ViewModelFactory(ModelFactory modelFactory) throws RemoteException, NotBoundException {
         loginViewModel= new LoginViewModel(modelFactory.getAccountsModel());
@@ -29,6 +33,8 @@ public class ViewModelFactory {
         modelsListMViewModel = new ModelsListMViewModel(modelFactory.getIMSModelModel());
         newSparePartViewModel = new NewSparePartViewModel(modelFactory.getSparePartModel());
         sparePartsVOSViewModel = new SparePartsVOSViewModel(modelFactory.getSparePartModel());
+        amountReceivedViewModel= new AmountReceivedViewModel(modelFactory.getSparePartModel());
+        logViewModel = new LogViewModel(modelFactory.getLogModel());
 
     }
 
@@ -61,5 +67,13 @@ public class ViewModelFactory {
     public SparePartsVOSViewModel getSparePartsVOSViewModel()
     {
         return sparePartsVOSViewModel;
+    }
+
+    public AmountReceivedViewModel getAmountReceivedViewModel() {
+        return amountReceivedViewModel;
+    }
+
+    public LogViewModel getLogViewModel() {
+        return logViewModel;
     }
 }

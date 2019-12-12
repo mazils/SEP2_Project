@@ -2,6 +2,10 @@ package client.view.createaccount;
 
 import client.view.ViewHandler;
 import client.viewmodel.createAccount.CreateAccountViewModel;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -30,26 +34,35 @@ public class CreateAccountController
 
     private ViewHandler handler;
     private CreateAccountViewModel viewModel;
+    private StringProperty alertText;
+    private IntegerProperty alertType;
 
     public void init(ViewHandler viewHandler, CreateAccountViewModel createAccountViewModel)
     {
+        alertText = new SimpleStringProperty();
+        alertType = new SimpleIntegerProperty();
         handler = viewHandler;
         viewModel = createAccountViewModel;
-
         viewModel.getUsername().bindBidirectional(userNameTextField.textProperty());
         viewModel.getPassword().bindBidirectional(passwordTextField.textProperty());
         viewModel.getConfirmPassword().bindBidirectional(passwordConfTextField.textProperty());
         viewModel.getIsManagerProperty().bindBidirectional(isManager.selectedProperty());
-        viewModel.alertTypeProperty().addListener((observableValue, number, type) -> showAlert(type));
+
+        viewModel.alertTypeProperty().bindBidirectional(alertType);//whenever something changes it executes showalert
+        viewModel.alertTextProperty().bindBidirectional(alertText);
+        alertText.addListener((observableValue, number, type) -> showAlert());
     }
     //todo the alerts
 
-    private void showAlert(Number type)
+    private void showAlert()
     {
-        int value = type.intValue();
-        Alert.AlertType t = (Alert.AlertType.values()[value]) ;
+        System.out.println("here");
+        if (alertText.get() == null || alertText.get().equals("")) return;
+
+        Alert.AlertType t = (Alert.AlertType.values()[alertType.getValue()]) ;
         Alert alert = new Alert(t);
-        alert.setContentText("Please fill in all fields");
+        alert.setContentText(alertText.get());
+        alertText.setValue("");
         alert.showAndWait();
     }
 

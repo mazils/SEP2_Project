@@ -3,6 +3,7 @@ package client.viewmodel.createAccount;
 import client.model.modelaccount.IAccountsModel;
 import client.view.ViewHandler;
 import javafx.beans.property.*;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
@@ -15,16 +16,16 @@ public class CreateAccountViewModel
     private StringProperty username ;
     private StringProperty password;
     private StringProperty confirmPassword;
+    private StringProperty alertText;
     private BooleanProperty managerAccount;
-    private ViewHandler viewHandler;
     private BooleanProperty isRightAccount;
     private IntegerProperty alertType;
     public CreateAccountViewModel(IAccountsModel iAccountsModel)
     {
-        this.viewHandler = viewHandler;
         this.iAccountsModel = iAccountsModel;
         username= new SimpleStringProperty();
         password= new SimpleStringProperty();
+        alertText= new SimpleStringProperty();
         confirmPassword= new SimpleStringProperty();
         managerAccount= new SimpleBooleanProperty();
         isRightAccount = new SimpleBooleanProperty();
@@ -58,49 +59,49 @@ public class CreateAccountViewModel
 
     public boolean createAccount() throws RemoteException, SQLException//todo there shouldnt be exceptions thrown here
     {
-        //todo the alerts
         //todo Troels : it’s the responsibility of your view/controller class, to show these alerts; not the ViewModel.
         //check if empty
-        if (password.getValue().equals("") || confirmPassword.getValue().equals("") || username.getValue().equals("")) {
+        if (password.getValue().equals("") || confirmPassword.getValue().equals("") || username.getValue().equals(""))
+        {
             System.out.println("this is empty");
+            System.out.println(alertText.getValue() + "1");
             alertType.set(Alert.AlertType.ERROR.ordinal());
-
-            // Alert alert = new Alert(Alert.AlertType.ERROR);
-//            alert.setContentText("Please fill in all fields");
-//            alert.showAndWait();
+            alertText.set("Please fill in all fields");
             managerAccount.setValue(false);
             System.out.println("Fields are empty");
+
+
         }
         //checks if already in dbs
-        else if (iAccountsModel.checkUsername(username.getValue())) {
-//            Alert alert = new Alert(Alert.AlertType.WARNING);
-//            alert.setContentText("This account already exists");
-//            alert.showAndWait();
-
+        else if (iAccountsModel.checkUsername(username.getValue()))
+        {
+            alertText.set("This account already exists");
             alertType.set(Alert.AlertType.WARNING.ordinal());
             username.setValue("");
             password.setValue("");
             confirmPassword.setValue("");
             managerAccount.setValue(false);
-            System.out.println("Account allready exists in DBS");
+            System.out.println("Account already exists in DBS");
         }
 
         //checks if passwords match
-        else if (!password.getValue().equals(confirmPassword.getValue())) {
-//            Alert alert = new Alert(Alert.AlertType.WARNING);
-//            alert.setContentText("The password doesn't match");
-//            alert.showAndWait();
-            alertType.set(Alert.AlertType.WARNING.ordinal());
+        else if (!password.getValue().equals(confirmPassword.getValue()))
+        {
+
+             alertType.set(Alert.AlertType.WARNING.ordinal());
+            alertText.set("The password doesn't match");
             password.setValue("");
             confirmPassword.setValue("");
             System.out.println("passwords doesnt match");
-        } else {
+        }
+        else
+            {
             System.out.println(password.getValue() + " " + confirmPassword.getValue());
             System.out.println("Account has been created");
             iAccountsModel.createAccount(username.getValue(), password.getValue(), managerAccount.getValue());
-//            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-//            alert.setContentText("New account has been created");
-//            alert.showAndWait();
+             alertType.set(Alert.AlertType.INFORMATION.ordinal());
+             alertText.set("New account has been created");
+
             isRightAccount.setValue(true);
             return true;
         }
@@ -112,5 +113,11 @@ public class CreateAccountViewModel
     public IntegerProperty alertTypeProperty()
     {
         return alertType;
+    }
+
+
+    public StringProperty alertTextProperty()
+    {
+        return alertText;
     }
 }

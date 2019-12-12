@@ -5,4 +5,5 @@ public interface ISparePart {
     int getQuantity();
     String getName();
     int getAmountNeeded();
+    void increment();
 }

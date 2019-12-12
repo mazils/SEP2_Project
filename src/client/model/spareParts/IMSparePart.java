@@ -12,5 +12,8 @@ public interface IMSparePart extends Remote, PropertyChangeSubject {
     ArrayList<SparePart> getAllSpareparts(ISModel model)throws RemoteException;
     void addSparepart(String name,ISModel model)throws RemoteException;
     void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException;
+    void incrementSparePartQuantity(ISparePart part,String scooterModel);
+    void decrementSparePartQuantity(ISparePart part,String scooterModel);
+    void placeOrder(ISModel model,String comments);
 
 }

@@ -1,6 +1,6 @@
 package client.model.ScooterModels;
 
-import server.RemoteServer;
+import Shared.remoteServer.SModelsRServer;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
@@ -13,14 +13,14 @@ import java.util.ArrayList;
 
 public class MSModel implements IMSModel {
     private ISModel scooterModel;
-    private RemoteServer server;
+    private SModelsRServer server;
     private PropertyChangeSupport support= new PropertyChangeSupport(this);
 
 
     public MSModel() throws RemoteException, NotBoundException {
-//        UnicastRemoteObject.exportObject(this,0);
+        UnicastRemoteObject.exportObject(this,0);
         Registry reg = LocateRegistry.getRegistry("Localhost",1099);
-        server = (RemoteServer) reg.lookup("server");
+        server = (SModelsRServer) reg.lookup("server");
         System.out.println("Connected to Server");
     };
 
@@ -48,7 +48,7 @@ public class MSModel implements IMSModel {
     }
 
     @Override
-    public void removeListener(String names, PropertyChangeListener listener) {
+    public void removeListener(String names, PropertyChangeListener listener) throws RemoteException {
 
     }
 }

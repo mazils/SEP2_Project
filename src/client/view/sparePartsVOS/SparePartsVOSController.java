@@ -6,11 +6,13 @@ import client.viewmodel.sparePartsList.ModelsListMViewModel;
 
 
 import client.viewmodel.sparePartsList.SparePartViewModel;
+import client.viewmodel.sparepartsVOS.SparePartsVOSViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 
 import java.rmi.RemoteException;
 
@@ -28,30 +30,39 @@ public class SparePartsVOSController {
     TextArea textArea;
 
     @FXML
-    ComboBox modelList;
+    ComboBox <String>modelList;
 
     private ViewHandler viewHandler;
     private ModelsListMViewModel modelsViewModel;
-    private SparePartViewModel sparePartsViewModel;
+    private SparePartsVOSViewModel sparePartsVOSViewModel;
 
     private StringProperty currentModel;
 
-    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler){
+    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler, SparePartsVOSViewModel sparePartsVOSViewModel){
         this.viewHandler=viewHandler;
         this.modelsViewModel=modelsViewModel;
-        this.sparePartsViewModel=sparePartsViewModel;
+        this.sparePartsVOSViewModel= sparePartsVOSViewModel;
+
         currentModel = new SimpleStringProperty();
         initialLoad();
         modelsViewModel.updateAllModels();
-        currentModel.bindBidirectional(sparePartsViewModel.currentmodelProperty());
+        currentModel.bindBidirectional(sparePartsViewModel.currentmodelProperty());//todo
+        currentModel.bindBidirectional(sparePartsVOSViewModel.modelProperty());
     }
 
     public void initialLoad() {
-        sparePartsList.setItems(sparePartsViewModel.getSparePartsProperty());
+        sparePartsList.setItems(sparePartsVOSViewModel.getSpareParts());
         sparePartsList.setPlaceholder(new Label("No content in list"));
         modelList.setItems(modelsViewModel.getModelsProperty());
         modelList.setPlaceholder(new Label("No models to show"));
         modelList.setValue("Choose");
+        initCols();
+    }
+
+    public void initCols(){
+        nameColumn.setCellValueFactory(new PropertyValueFactory<SparePart, String>("name"));
+        quantityColumn.setCellValueFactory(new PropertyValueFactory<SparePart, Integer>("quantity"));
+
     }
 
     public void onLogOff()
@@ -59,18 +70,24 @@ public class SparePartsVOSController {
         viewHandler.openView("logIn");
     }
 
-    public void onSubtract(ActionEvent actionEvent) {
+    public void onSubtract()
+    {
+        sparePartsVOSViewModel.decrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
     }
 
-    public void onAdd(ActionEvent actionEvent) {
+    public void onAdd()
+    {
+        sparePartsVOSViewModel.incrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
+        System.out.println(sparePartsList.getSelectionModel().getSelectedItem());
     }
 
     public void onModelList() {
-        currentModel.setValue((String) modelList.getValue());
+        currentModel.setValue(modelList.getValue());
         try {
-            sparePartsViewModel.getList(currentModel.getValue());
+            sparePartsVOSViewModel.getList(currentModel.getValue());
         } catch (RemoteException e) {
             e.printStackTrace();
         }
     }
+
 }

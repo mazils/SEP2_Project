@@ -36,8 +36,8 @@ public class ViewHandler {
                 scene = new Scene(root);
                 stage1.setScene(scene);
                 stage1.show();
-
                 stage.setTitle("Log-in");
+
             }else if (viewToOpen.equals("createAccount")){
                 Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("createaccount/createAccount.fxml"));
@@ -46,8 +46,8 @@ public class ViewHandler {
                 scene = new Scene(root);
                 stage1.setScene(scene);
                 stage1.show();
-
                 stage.setTitle("Create-Account");
+
             }else if(viewToOpen.equals("newModel")){
                 Stage stage1 = new Stage();
                 loader.setLocation(getClass().getResource("newScooterModel/newScooterModel.fxml"));
@@ -76,15 +76,15 @@ public class ViewHandler {
                 stage1.setScene(scene);
                 stage1.show();
                 stage.setTitle("New spare parts");
-            }else if(viewToOpen.equals("sparePartsVOS")){
+            }else if(viewToOpen.equals("sparepartsVOS")){
                 Stage stage1 = new Stage();
-                loader.setLocation(getClass().getResource("sparePartsVOS/sparePartsVOS.fxml"));
+                loader.setLocation(getClass().getResource("sparepartsVOS/sparePartsVOS.fxml"));
                 root = loader.load();
-                loader.<SparePartsVOSController>getController().init(viewModelFactory.getModelsListVM(), viewModelFactory.getSparePartViewModel(), this);
+                loader.<SparePartsVOSController>getController().init(viewModelFactory.getModelsListVM(), viewModelFactory.getSparePartViewModel(), this,viewModelFactory.getSparePartsVOSViewModel());
                 scene = new Scene(root);
                 stage1.setScene(scene);
                 stage1.show();
-                stage.setTitle("sparePartsVOS");
+                stage.setTitle("sparepartsVOS");
             }
 
 

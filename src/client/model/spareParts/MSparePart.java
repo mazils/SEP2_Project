@@ -3,6 +3,7 @@ package client.model.spareParts;
 import client.RPCLImpl;
 import client.model.ScooterModels.ISModel;
 import Shared.remoteServer.SparePartsServer;
+import client.model.logModel.Logger;
 import client.model.ScooterModels.SModel;
 import client.model.logModel.Logger;
 
@@ -17,7 +18,8 @@ import java.util.ArrayList;
 public class MSparePart implements IMSparePart {
     private ISparePart sparePart;
     private SparePartsServer server;
-    private BufferedWriter order;
+
+    private IFileWriter fileWrite;
     private Logger log= Logger.getInstance();
 
 
@@ -70,26 +72,10 @@ public class MSparePart implements IMSparePart {
     {
         try
         {
-            order = new BufferedWriter(new FileWriter("order.txt",true));
-            System.out.println("write file");
-            order.write("      SCOOTER MODEL : "+model.getModelName() + "\n");
-            for(ISparePart i : getAllSpareparts(model))
-            {
-                if(i.getAmountNeeded() != 0)
-                {
-                    order.write( " spare part : " +i.getName() + " ammount needed : "+i.getAmountNeeded() + "\n");
-                }
-
-            }
-            order.write("COMMENTS : " + "\n"+comments);
-            System.out.println("done writing order");
-            order.close();
-
+            fileWrite = new FileWrite(getAllSpareparts(model));
+            fileWrite.createOrder(model,comments);
         }
-        catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
-        } catch (IOException e)
+        catch (RemoteException e)
         {
             e.printStackTrace();
         }

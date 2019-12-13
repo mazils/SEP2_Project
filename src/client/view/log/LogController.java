@@ -16,13 +16,11 @@ public class LogController {
 
     private ViewHandler viewHandler;
     private LogViewModel logViewModel;
-    private SparePartViewModel sparePartViewModel;
 
     public void init(ViewHandler viewHandler, LogViewModel logviewmodel, SparePartViewModel sparePartViewModel)
     {
         this.viewHandler= viewHandler;
         this.logViewModel= logviewmodel;
-        this.sparePartViewModel= sparePartViewModel;
         listView.setItems(logviewmodel.getLogs());
         try {
             this.logViewModel.getList(sparePartViewModel.getCurrentSparePart(),new SModel(sparePartViewModel.currentmodelProperty().getValue()));

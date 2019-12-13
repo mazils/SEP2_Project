@@ -2,7 +2,7 @@ package client.view.newSparePart;
 
 import client.view.ViewHandler;
 import client.viewmodel.newSparePart.NewSparePartViewModel;
-import client.viewmodel.sparePartsList.ModelsListMViewModel;
+import client.viewmodel.sparePartsList.ModelsListViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
@@ -21,15 +21,13 @@ public class NewSparePartController
     private ViewHandler viewHandler;
 
     private NewSparePartViewModel newSparePartViewModel;
-    private ModelsListMViewModel modelsListMViewModel;
 
-    public void init(ViewHandler viewHandler, NewSparePartViewModel newSparePartViewModel, ModelsListMViewModel modelsListMViewModel) {
-        this.modelsListMViewModel = modelsListMViewModel;
+    public void init(ViewHandler viewHandler, NewSparePartViewModel newSparePartViewModel, ModelsListViewModel modelsListViewModel) {
         this.viewHandler = viewHandler;
         this.newSparePartViewModel = newSparePartViewModel;
 
         this.newSparePartViewModel.getPartNameProperty().bindBidirectional(partNameTextField.textProperty());
-        modelList.setItems(modelsListMViewModel.getModelsProperty());
+        modelList.setItems(modelsListViewModel.getModelsProperty());
     }
 
     public void onAddPartButton() {

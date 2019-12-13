@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class SModelJDBC {
-    JDBC database;
+    private JDBC database;
 
     public SModelJDBC()
     {

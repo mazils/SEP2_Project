@@ -1,12 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd02163f-1365-4303-bacb-4870413b5ac6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/server/jdbc/AccountsJDBC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/jdbc/SModelJDBC.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/server/jdbc/SparePartsJDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/JDBC.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/jdbc/JDBC.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server/Server.java" afterDir="false" />
+    <list default="true" id="fd02163f-1365-4303-bacb-4870413b5ac6" name="Default Changelist" comment="Add scooter">
+      <change beforePath="$PROJECT_DIR$/.idea/SEP2_Project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/SEP2_Project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/ChatApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/ChatApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/HelloWorld.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/StartApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/StartApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/client/model/modelaccount/AccountModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/client/model/modelaccount/AccountModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/client/model/modelaccount/IAccountsModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/client/model/modelaccount/IAccountsModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/client/view/ViewHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/client/view/ViewHandler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/client/view/createaccount/CreateAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/client/view/createaccount/CreateAccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/client/view/login/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/client/view/login/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/client/viewmodel/ViewModelFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/client/viewmodel/ViewModelFactory.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/client/viewmodel/createAccount/CreateAccountViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/client/viewmodel/createAccount/CreateAccountViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/client/viewmodel/logIn/LoginViewModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/client/viewmodel/logIn/LoginViewModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/server/RemoteServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SEP2_Project/server/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SEP2_Project/server/Server.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/client/view/log/LogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/client/view/log/LogController.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,36 +40,330 @@
     <expand />
     <select />
   </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/server/Server.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="38" selection-start-line="38" selection-end-line="38" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2360#2361#0" expanded="true" />
+                <element signature="e#2407#2408#0" expanded="true" />
+                <element signature="e#2490#2491#0" expanded="true" />
+                <element signature="e#2554#2555#0" expanded="true" />
+                <element signature="e#2767#2768#0" expanded="true" />
+                <element signature="e#2817#2818#0" expanded="true" />
+                <element signature="e#2898#2899#0" expanded="true" />
+                <element signature="e#2963#2964#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/view/ViewHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/view/sparePartsVOS/SparePartsVOSController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-137">
+              <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/viewmodel/amountReceived/AmountReceivedViewModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/view/amountReceived/AmountReceivedController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="18" column="128" selection-start-line="18" selection-start-column="110" selection-end-line="18" selection-end-column="128" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/view/newSparePart/NewSparePartController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="234">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/client/view/log/LogController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/viewmodel/newSparePart/NewSparePartViewModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/viewmodel/log/LogViewModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="46" column="33" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/client/view/sparePartsManager/SparePartsMController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="678">
+              <caret line="122" selection-start-line="122" selection-end-line="122" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>`</find>
+    </findStrings>
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/client/view/newScooterModel/NewSMController.java" />
+        <option value="$PROJECT_DIR$/src/client/view/ViewHandler.java" />
+        <option value="$PROJECT_DIR$/src/client/model/ModelFactory.java" />
+        <option value="$PROJECT_DIR$/src/client/model/SMModel/SparePart.java" />
+        <option value="$PROJECT_DIR$/src/client/viewmodel/ViewModelFactory.java" />
+        <option value="$PROJECT_DIR$/src/client/view/sparePartsVOS/SparePartViewModel.java" />
+        <option value="$PROJECT_DIR$/src/client/model/SMModel/MSparePart.java" />
+        <option value="$PROJECT_DIR$/src/client/model/modelaccount/Manager.java" />
+        <option value="$PROJECT_DIR$/src/client/viewmodel/newSparePart/NewSparePartViewModel.java" />
+        <option value="$PROJECT_DIR$/src/server/jdbc/JDBC.java" />
+        <option value="$PROJECT_DIR$/src/client/view/sparePartsManager/sparePartsManager.fxml" />
+        <option value="$PROJECT_DIR$/src/client/view/sparePartsVOS/SparePartsVOSController.java" />
+        <option value="$PROJECT_DIR$/src/client/view/sparePartsVOS/sparePartsVOS.fxml" />
+        <option value="$PROJECT_DIR$/src/client/model/spareParts/ISparePart.java" />
+        <option value="$PROJECT_DIR$/src/client/view/sparePartsManager/SparePartsMController.java" />
+        <option value="$PROJECT_DIR$/src/client/viewmodel/logIn/LoginViewModel.java" />
+        <option value="$PROJECT_DIR$/src/client/view/login/LoginController.java" />
+        <option value="$PROJECT_DIR$/src/ChatApplication.java" />
+        <option value="$PROJECT_DIR$/src/client/model/spareParts/SparePart.java" />
+        <option value="$PROJECT_DIR$/src/server/SerializablePropertyChangeListener.java" />
+        <option value="$PROJECT_DIR$/src/Shared/SerializablePropertyChangeListener.java" />
+        <option value="$PROJECT_DIR$/src/Shared/PropertyChangeListener.java" />
+        <option value="$PROJECT_DIR$/src/Shared/PropertyChangeSubject.java" />
+        <option value="$PROJECT_DIR$/src/server/RemoteServer.java" />
+        <option value="$PROJECT_DIR$/src/client/RPCLImpl.java" />
+        <option value="$PROJECT_DIR$/src/Shared/RemotePropertyChangeListener.java" />
+        <option value="$PROJECT_DIR$/src/StartApp.java" />
+        <option value="$PROJECT_DIR$/src/client/viewmodel/sparePartsList/SparePartViewModel.java" />
+        <option value="$PROJECT_DIR$/src/client/model/spareParts/IMSparePart.java" />
+        <option value="$PROJECT_DIR$/src/client/viewmodel/sparePartsList/ModelsListMViewModel.java" />
+        <option value="$PROJECT_DIR$/src/server/jdbc/SModelJDBC.java" />
+        <option value="$PROJECT_DIR$/src/client/model/ScooterModels/IMSModel.java" />
+        <option value="$PROJECT_DIR$/src/server/RPCLWrapper.java" />
+        <option value="$PROJECT_DIR$/src/server/serverManager/AccountsSManager.java" />
+        <option value="$PROJECT_DIR$/src/server/serverManager/SModelsSMnagaer.java" />
+        <option value="$PROJECT_DIR$/src/server/AccountsRServer.java" />
+        <option value="$PROJECT_DIR$/src/server/SparePartsServer.java" />
+        <option value="$PROJECT_DIR$/src/server/SModelsRServer.java" />
+        <option value="$PROJECT_DIR$/src/client/model/modelaccount/AccountModel.java" />
+        <option value="$PROJECT_DIR$/src/client/model/ScooterModels/MSModel.java" />
+        <option value="$PROJECT_DIR$/src/client/model/spareParts/MSparePart.java" />
+        <option value="$PROJECT_DIR$/src/server/Server.java" />
+        <option value="$PROJECT_DIR$/src/server/jdbc/SparePartsJDBC.java" />
+        <option value="$PROJECT_DIR$/src/server/serverManager/SparePartsSManager.java" />
+        <option value="$PROJECT_DIR$/src/client/model/logModel/Logger.java" />
+        <option value="$PROJECT_DIR$/src/server/jdbc/LogJDBC.java" />
+        <option value="$PROJECT_DIR$/src/server/serverManager/LogsManager.java" />
+        <option value="$PROJECT_DIR$/src/client/view/amountReceived/AmountReceivedController.java" />
+        <option value="$PROJECT_DIR$/src/client/view/newSparePart/NewSparePartController.java" />
+        <option value="$PROJECT_DIR$/src/client/view/log/LogController.java" />
+      </list>
+    </option>
+  </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="676" />
+    <option name="x" value="-955" />
+    <option name="y" value="105" />
     <option name="width" value="697" />
-    <option name="height" value="775" />
+    <option name="height" value="661" />
   </component>
   <component name="ProjectId" id="1Tq6rW1IO6yUb2bs6kknc8eFuw2" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="model" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="amountReceived" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="newSparePart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="sparePartsManager" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="sparePartsVOS" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
+              <item name="viewmodel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="server" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SEP2_Project" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SEP2_Project" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Shared" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="postgresql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1574857016859" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Java/SDJ_2/SecoundAssignment/Burger-Shack" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576238979084" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/postgresql-42.2.8.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.17152658" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="client.view.sparePartsVOS" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -71,7 +377,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.StartApp">
+    <configuration name="ChatApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ChatApplication" />
+      <module name="SEP2_Project" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="JDBC" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="server.jdbc.JDBC" />
       <module name="SEP2_Project" />
@@ -98,17 +411,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StartApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="StartApp" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="StartApp" />
       <module name="SEP2_Project" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.ChatApplication" />
+      <item itemvalue="Application.JDBC" />
+      <item itemvalue="Application.Server" />
+      <item itemvalue="Application.StartApp" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
         <item itemvalue="Application.StartApp" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.ChatApplication" />
         <item itemvalue="Application.JDBC" />
       </list>
     </recent_temporary>
@@ -148,6 +468,10 @@
       <workItem from="1574760504585" duration="2308000" />
       <workItem from="1574855613571" duration="1390000" />
       <workItem from="1574866374500" duration="7681000" />
+      <workItem from="1575803240740" duration="6629000" />
+      <workItem from="1575974757171" duration="216000" />
+      <workItem from="1575975896847" duration="40383000" />
+      <workItem from="1576144472041" duration="23851000" />
     </task>
     <task id="LOCAL-00001" summary="push hard">
       <created>1574168557393</created>
@@ -289,8 +613,205 @@
       <option name="project" value="LOCAL" />
       <updated>1574945613541</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Add scooter">
+      <created>1575295431725</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1575295431725</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Add scooter">
+      <created>1575295529341</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1575295529341</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Add scooter">
+      <created>1575374431689</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1575374431689</updated>
+    </task>
+    <task id="LOCAL-00024" summary="new spare part is working">
+      <created>1575375986515</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1575375986515</updated>
+    </task>
+    <task id="LOCAL-00025" summary="delate button and new spare part works">
+      <created>1575391423394</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1575391423394</updated>
+    </task>
+    <task id="LOCAL-00026" summary="renaming">
+      <created>1575481169350</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1575481169350</updated>
+    </task>
+    <task id="LOCAL-00027" summary="User story with quantity for manager done, List view changed to tableView">
+      <created>1575492178885</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1575492178885</updated>
+    </task>
+    <task id="LOCAL-00028" summary="Add scooter">
+      <created>1575551000026</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1575551000026</updated>
+    </task>
+    <task id="LOCAL-00029" summary="editable colls works">
+      <created>1575811459118</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1575811459118</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Add scooter">
+      <created>1575974876331</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1575974876331</updated>
+    </task>
+    <task id="LOCAL-00031" summary="SparePartsList Manager full observer">
+      <created>1576007200372</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1576007200372</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Add scooter">
+      <created>1576007809881</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1576007809881</updated>
+    </task>
+    <task id="LOCAL-00033" summary="- spiting remote server and refactoring&#10;- server manager package with classes">
+      <created>1576100074002</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1576100074002</updated>
+    </task>
+    <task id="LOCAL-00034" summary="ja pierdole kurwa refactoring log to not violate SOLID p.">
+      <created>1576232333264</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1576232333264</updated>
+    </task>
+    <task id="LOCAL-00035" summary="refactoring change form &quot;ModelListsMViewModel&quot; to &quot;ModelsListViewModel&quot;">
+      <created>1576237790275</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1576237790275</updated>
+    </task>
+    <task id="LOCAL-00036" summary="In NewSparePartController ModelsListViewModel changes from private field to local variable in init(). It used just once while init is called to load list of models.">
+      <created>1576238089579</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1576238089579</updated>
+    </task>
+    <task id="LOCAL-00037" summary="modelsListViewModel not even need as a local variable, its passed as a method parameter">
+      <created>1576238321326</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1576238321326</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="141596000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-1374" y="124" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49827588" visible="true" weight="0.23903178" />
+      <window_info id="Structure" order="1" sideWeight="0.5017241" side_tool="true" weight="0.23567335" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.11827957" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.14439324" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32872504" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49924356" weight="0.32718894" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32872504" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50226927" side_tool="true" weight="0.29800308" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.3231162" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24886535" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.11827957" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4977307" visible="true" weight="0.22427036" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32872504" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.49924356" weight="0.32718894" />
+      <window_info anchor="bottom" id="Database Changes" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32872504" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50226927" side_tool="true" weight="0.29800308" />
+      <window_info anchor="bottom" id="Messages" order="12" weight="0.32411674" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Maven" order="6" />
+      <window_info anchor="right" id="Capture Analysis" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -311,6 +832,12 @@
         <entry key="MAIN">
           <value>
             <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
               <option name="COLUMN_ORDER" />
             </State>
           </value>
@@ -340,8 +867,433 @@
     <MESSAGE value="Master of quotes" />
     <MESSAGE value="last login" />
     <MESSAGE value="Add account" />
+    <MESSAGE value="new spare part is working" />
+    <MESSAGE value="delate button and new spare part works" />
+    <MESSAGE value="renaming" />
+    <MESSAGE value="User story with quantity for manager done, List view changed to tableView" />
+    <MESSAGE value="editable colls works" />
+    <MESSAGE value="SparePartsList Manager full observer" />
     <MESSAGE value="Add scooter" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add scooter" />
+    <MESSAGE value="- spiting remote server and refactoring&#10;- server manager package with classes" />
+    <MESSAGE value="ja pierdole kurwa refactoring log to not violate SOLID p." />
+    <MESSAGE value="refactoring change form &quot;ModelListsMViewModel&quot; to &quot;ModelsListViewModel&quot;" />
+    <MESSAGE value="In NewSparePartController ModelsListViewModel changes from private field to local variable in init(). It used just once while init is called to load list of models." />
+    <MESSAGE value="modelsListViewModel not even need as a local variable, its passed as a method parameter" />
+    <option name="LAST_COMMIT_MESSAGE" value="modelsListViewModel not even need as a local variable, its passed as a method parameter" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/client/model/ModelFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="79">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shared/PropertyChangeListener.java" />
+    <entry file="file://$PROJECT_DIR$/src/server/jdbc/AccountsJDBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.base/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="264" column="12" selection-start-line="264" selection-start-column="12" selection-end-line="264" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/newScooterModel/NewSMController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/jdbc/SModelJDBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="15" column="5" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/sparePartsManager/sparePartsManager.fxml">
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="27" column="31" selection-start-line="27" selection-start-column="31" selection-end-line="27" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Documents/openjfx-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.controls.jar!/javafx/scene/control/ControlUtils.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="2" lean-forward="true" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/java/beans/PropertyChangeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.rmi/java/rmi/Remote.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="50" column="17" selection-start-line="50" selection-start-column="17" selection-end-line="50" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/spareParts/ISparePart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shared/remoteServer/AccountsRServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shared/remoteServer/SparePartsServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shared/remoteServer/SModelsRServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/java/beans/PropertyChangeSupport.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="884">
+          <caret line="81" column="34" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/serverManager/SModelsSMnagaer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/spareParts/IMSparePart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/modelaccount/IAccountsModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/modelaccount/AccountModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/ScooterModels/ISModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="10" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/spareParts/MSparePart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="14" column="38" selection-start-line="14" selection-start-column="38" selection-end-line="14" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shared/PropertyChangeSubject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="8" column="68" selection-start-line="8" selection-start-column="24" selection-end-line="8" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/order.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" selection-start-line="9" selection-end-line="13" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/viewmodel/sparePartsList/ModelsListViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="32" column="5" selection-start-line="32" selection-start-column="5" selection-end-line="32" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#512#513#0" expanded="true" />
+            <element signature="e#541#542#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shared/RemotePropertyChangeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="23" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/StartApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Shared/remoteServer/LogServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/logModel/ILogger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/logModel/Logger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-663">
+          <caret line="26" column="28" selection-start-line="26" selection-start-column="28" selection-end-line="26" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/RPCLImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="19" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/RPCLWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/ScooterModels/IMSModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="22" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/model/ScooterModels/MSModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/serverManager/SparePartsSManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/jdbc/SparePartsJDBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="27" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/serverManager/AccountsSManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="42" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#240#241#0" expanded="true" />
+            <element signature="e#289#290#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/jdbc/JDBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1054">
+          <caret line="64" column="108" selection-start-line="64" selection-start-column="102" selection-end-line="64" selection-end-column="108" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/jdbc/LogJDBC.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="35" column="8" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/serverManager/LogsManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="34" column="5" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/viewmodel/sparePartsList/SparePartViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-120">
+          <caret line="57" column="23" selection-start-line="57" selection-start-column="23" selection-end-line="57" selection-end-column="23" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/viewmodel/sparepartsVOS/SparePartsVOSViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/viewmodel/log/LogViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="46" column="33" selection-start-line="46" selection-start-column="11" selection-end-line="46" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/viewmodel/amountReceived/AmountReceivedViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/amountReceived/AmountReceivedController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="18" column="128" selection-start-line="18" selection-start-column="110" selection-end-line="18" selection-end-column="128" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/newSparePart/NewSparePartController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/sparePartsVOS/SparePartsVOSController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-137">
+          <caret line="37" column="22" selection-start-line="37" selection-start-column="22" selection-end-line="37" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/viewmodel/newSparePart/NewSparePartViewModel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/sparePartsManager/SparePartsMController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="678">
+          <caret line="122" selection-start-line="122" selection-end-line="122" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/server/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="38" selection-start-line="38" selection-end-line="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2360#2361#0" expanded="true" />
+            <element signature="e#2407#2408#0" expanded="true" />
+            <element signature="e#2490#2491#0" expanded="true" />
+            <element signature="e#2554#2555#0" expanded="true" />
+            <element signature="e#2767#2768#0" expanded="true" />
+            <element signature="e#2817#2818#0" expanded="true" />
+            <element signature="e#2898#2899#0" expanded="true" />
+            <element signature="e#2963#2964#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/ViewHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/client/view/log/LogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>

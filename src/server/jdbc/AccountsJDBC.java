@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AccountsJDBC {
-    JDBC database;
+    private JDBC database;
 
     public AccountsJDBC()
     {

@@ -6,8 +6,10 @@ import client.viewmodel.sparePartsList.ModelsListMViewModel;
 
 
 import client.viewmodel.sparePartsList.SparePartViewModel;
+import client.viewmodel.sparepartsVOS.SparePartsVOSViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -33,7 +35,7 @@ public class SparePartsVOSController {
 
     private StringProperty currentModel;
 
-    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler, SparePartViewModel sparePartsVOSViewModel){
+    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler, SparePartsVOSViewModel sparePartsVOSViewModel){
         this.viewHandler=viewHandler;
         this.modelsViewModel=modelsViewModel;
         this.sparePartsViewModel = sparePartsVOSViewModel;

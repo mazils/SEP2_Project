@@ -1,6 +1,7 @@
 package client.model.modelaccount;
 
 import Shared.remoteServer.AccountsRServer;
+import client.model.logModel.ILogger;
 import client.model.logModel.Logger;
 
 import java.rmi.NotBoundException;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 public class AccountModel implements IAccountsModel {
     private AccountsRServer rmi;
     private Account acc;
-    private Logger log= Logger.getInstance();
+    private ILogger log= Logger.getInstance();
     public AccountModel() throws RemoteException, NotBoundException {
         UnicastRemoteObject.exportObject(this,0);
         Registry reg = LocateRegistry.getRegistry("Localhost",1099);

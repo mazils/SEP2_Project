@@ -2,14 +2,13 @@ package client.view.sparePartsVOS;
 
 import client.model.spareParts.SparePart;
 import client.view.ViewHandler;
-import client.viewmodel.sparePartsList.ModelsListMViewModel;
+import client.viewmodel.sparePartsList.ModelsListViewModel;
 
 
 import client.viewmodel.sparePartsList.SparePartViewModel;
 import client.viewmodel.sparepartsVOS.SparePartsVOSViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -33,12 +32,12 @@ public class SparePartsVOSController {
     ComboBox <String>modelList;
 
     private ViewHandler viewHandler;
-    private ModelsListMViewModel modelsViewModel;
+    private ModelsListViewModel modelsViewModel;
     private SparePartsVOSViewModel sparePartsVOSViewModel;
 
     private StringProperty currentModel;
 
-    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler, SparePartsVOSViewModel sparePartsVOSViewModel){
+    public void init(ModelsListViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler, SparePartsVOSViewModel sparePartsVOSViewModel){
         this.viewHandler=viewHandler;
         this.modelsViewModel=modelsViewModel;
         this.sparePartsVOSViewModel= sparePartsVOSViewModel;

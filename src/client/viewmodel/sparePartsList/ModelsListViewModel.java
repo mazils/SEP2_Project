@@ -10,7 +10,7 @@ import java.beans.PropertyChangeEvent;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-public class ModelsListMViewModel {
+public class ModelsListViewModel {
     private IMSModel model;
     private ObservableList<String> models;
 
@@ -22,7 +22,7 @@ public class ModelsListMViewModel {
         return model.getAllModels();
     }
 
-    public ModelsListMViewModel(IMSModel model){
+    public ModelsListViewModel(IMSModel model){
         this.model=model;
         models= FXCollections.observableArrayList();
         try {

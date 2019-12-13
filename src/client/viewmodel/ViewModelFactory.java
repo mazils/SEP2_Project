@@ -7,7 +7,7 @@ import client.viewmodel.log.LogViewModel;
 import client.viewmodel.logIn.LoginViewModel;
 import client.viewmodel.newSparePart.NewSparePartViewModel;
 import client.viewmodel.scooterModel.NewModelVM;
-import client.viewmodel.sparePartsList.ModelsListMViewModel;
+import client.viewmodel.sparePartsList.ModelsListViewModel;
 import client.viewmodel.sparePartsList.SparePartViewModel;
 import client.viewmodel.sparepartsVOS.SparePartsVOSViewModel;
 
@@ -19,7 +19,7 @@ public class ViewModelFactory {
     private CreateAccountViewModel createAccountViewModel;
     private NewModelVM newModelVM;
     private SparePartViewModel sparePartViewModel;
-    private ModelsListMViewModel modelsListMViewModel;
+    private ModelsListViewModel modelsListViewModel;
     private NewSparePartViewModel newSparePartViewModel;
     private SparePartsVOSViewModel sparePartsVOSViewModel;
     private AmountReceivedViewModel amountReceivedViewModel;
@@ -30,7 +30,7 @@ public class ViewModelFactory {
         createAccountViewModel = new CreateAccountViewModel(modelFactory.getAccountsModel());
         newModelVM = new NewModelVM(modelFactory.getIMSModelModel());
         sparePartViewModel = new SparePartViewModel(modelFactory.getSparePartModel());
-        modelsListMViewModel = new ModelsListMViewModel(modelFactory.getIMSModelModel());
+        modelsListViewModel = new ModelsListViewModel(modelFactory.getIMSModelModel());
         newSparePartViewModel = new NewSparePartViewModel(modelFactory.getSparePartModel());
         sparePartsVOSViewModel = new SparePartsVOSViewModel(modelFactory.getSparePartModel());
         amountReceivedViewModel= new AmountReceivedViewModel(modelFactory.getSparePartModel());
@@ -56,8 +56,8 @@ public class ViewModelFactory {
         return sparePartViewModel;
     }
 
-    public ModelsListMViewModel getModelsListVM() {
-        return modelsListMViewModel;
+    public ModelsListViewModel getModelsListVM() {
+        return modelsListViewModel;
     }
 
     public NewSparePartViewModel getNewSparePartViewModel() {

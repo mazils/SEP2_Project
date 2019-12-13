@@ -3,7 +3,7 @@ package client.view.sparePartsManager;
 import client.model.ScooterModels.*;
 import client.model.spareParts.SparePart;
 import client.view.ViewHandler;
-import client.viewmodel.sparePartsList.ModelsListMViewModel;
+import client.viewmodel.sparePartsList.ModelsListViewModel;
 import client.viewmodel.sparePartsList.SparePartViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
@@ -37,13 +37,13 @@ public class SparePartsMController {
     private ComboBox<String> modelList;
 
     private ViewHandler viewHandler;
-    private ModelsListMViewModel modelsViewModel;
+    private ModelsListViewModel modelsViewModel;
     private SparePartViewModel sparePartsViewModel;
     private StringProperty currentModel;
 
     private ArrayList<ISModel> models;
 
-    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler){
+    public void init(ModelsListViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler){
         this.viewHandler=viewHandler;
         this.modelsViewModel=modelsViewModel;
         this.sparePartsViewModel=sparePartsViewModel;

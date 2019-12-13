@@ -21,6 +21,6 @@ public class VOS implements Account, Serializable {
 
     @Override
     public String getUsername() {
-        return password;
+        return username;
     }
 }

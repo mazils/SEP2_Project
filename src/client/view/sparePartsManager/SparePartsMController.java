@@ -102,18 +102,7 @@ public class SparePartsMController {
 
             e.getRowValue().setQuantity(e.getNewValue());
 
-            ISModel model=null;
-
-            try {
-                model = modelsViewModel.getModelObject()
-                        .stream()
-                        .filter(m -> m.getModelName().equals(currentModel.getValue()))
-                        .findAny().get();
-
-            } catch (RemoteException e1) {
-                e1.printStackTrace();
-            }
-
+            ISModel model= new SModel(currentModel.getValue());
             sparePartsViewModel.editSparePart(e.getRowValue(), model);
         });
 
@@ -133,18 +122,7 @@ public class SparePartsMController {
 
             e.getRowValue().setAmountNeeded(e.getNewValue());
 
-            ISModel model=null;
-
-            try {
-                model = modelsViewModel.getModelObject()
-                        .stream()
-                        .filter(m -> m.getModelName().equals(currentModel.getValue()))
-                        .findAny().get();
-
-            } catch (RemoteException e1) {
-                e1.printStackTrace();
-            }
-
+            ISModel model= new SModel(currentModel.getValue());
             sparePartsViewModel.editSparePart(e.getRowValue(), model);
             System.out.println("Controller object of part" +e.getRowValue().getAmountNeeded());
         });

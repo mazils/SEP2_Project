@@ -12,6 +12,7 @@ import javafx.beans.property.StringProperty;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 
 import java.rmi.RemoteException;
 
@@ -63,6 +64,8 @@ public class SparePartsVOSController {
 
     public void onLogOff()
     {
+        Stage stage = (Stage) sparePartsList.getScene().getWindow();
+        viewHandler.closeView(stage);
         viewHandler.openView("logIn");
     }
 

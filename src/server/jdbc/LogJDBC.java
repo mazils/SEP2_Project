@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class LogJDBC {
-    JDBC database;
+    private JDBC database;
 
     public LogJDBC()
     {

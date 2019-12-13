@@ -21,10 +21,9 @@ public class NewSparePartController
     private ViewHandler viewHandler;
 
     private NewSparePartViewModel newSparePartViewModel;
-    private ModelsListViewModel modelsListViewModel;
 
     public void init(ViewHandler viewHandler, NewSparePartViewModel newSparePartViewModel, ModelsListViewModel modelsListViewModel) {
-        this.modelsListViewModel = modelsListViewModel;
+        ModelsListViewModel modelsListViewModel1 = modelsListViewModel;
         this.viewHandler = viewHandler;
         this.newSparePartViewModel = newSparePartViewModel;
 

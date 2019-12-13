@@ -20,7 +20,6 @@ public class Logger implements ILogger {
     private static Logger log;
     private static Lock lock = new ReentrantLock();
     private String username;
-    private String event;
     private String time;
     private LogServer server;
 

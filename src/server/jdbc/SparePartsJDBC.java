@@ -13,10 +13,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public class SparePartsJDBC implements PropertyChangeSubject {
+public class SparePartsJDBC {
     private JDBC database;
 
-    private PropertyChangeSupport support = new PropertyChangeSupport(this);
 
     public SparePartsJDBC()
     {
@@ -26,14 +25,11 @@ public class SparePartsJDBC implements PropertyChangeSubject {
     public void addSparePart(ISparePart sparePart, ISModel model) {
          String statement = "INSERT INTO " + "\"SEP2\"" + ".sparepart(name,mName, quantity, amountNeeded) VALUES " +"( '" +sparePart.getName() +   "', '" + model.getModelName() + "', '"+0+"', '"+0+"')";
          database.executeUpdate(statement);
-         support.firePropertyChange("change", null, model);
     }
 
     public void removeSparePart(ISparePart sparePart, ISModel model) {
          String statement= "DELETE FROM" + "\"SEP2\"" + ".sparepart WHERE" + " name = " +"'"+ sparePart.getName()+"'"+ " AND mName =" +  " '" + model.getModelName() + "' ";
          database.executeUpdate(statement);
-
-         support.firePropertyChange("change", null, model);
     }
 
     public ArrayList<SparePart> getAllSpareParts(ISModel model) throws SQLException {
@@ -57,19 +53,15 @@ public class SparePartsJDBC implements PropertyChangeSubject {
         String statement = "UPDATE \"SEP2\".sparepart SET quantity = "+quantity+", "+" amountNeeded = "+amountNeeded+" WHERE name = '"+part.getName()+"' AND mName = '"+model.getModelName()+"' ";
 
         database.executeUpdate(statement);
-
-        support.firePropertyChange("change", null, model);
     }
 
     public void incrementSparePartQuantity(ISparePart part, String scooterModel)
     {
-        if (part != null && scooterModel != null)
-        {
+        if (part != null && scooterModel != null) {
             int quantity = part.getQuantity() + 1;
             System.out.println("quantity from spare parts jdbc" + quantity);
             String statement = "UPDATE \"SEP2\".sparepart SET quantity = " + quantity + "WHERE name = '" + part.getName() + "' AND mName = '" + scooterModel + "' ";
             database.executeUpdate(statement);
-            support.firePropertyChange("change", null, scooterModel);
         }
         System.out.println("no part is selected to incr : Spareparts JDBC");
     }
@@ -81,23 +73,8 @@ public class SparePartsJDBC implements PropertyChangeSubject {
             System.out.println("quantity from spare parts jdbc" + quantity);
             String statement = "UPDATE \"SEP2\".sparepart SET quantity = " + quantity + "WHERE name = '"+part.getName()+"' AND mName = '"+scooterModel+"' ";
             database.executeUpdate(statement);
-            support.firePropertyChange("change",null,scooterModel);
         }
         System.out.println("no part is selected to decr : Spareparts JDBC");
 
     }
-
-
-    @Override
-    public void addListener(String names, PropertyChangeListener listener) throws RemoteException {
-        support.addPropertyChangeListener(names, listener);
-        System.out.println("SparePartJDBC adding listener");
-    }
-
-    @Override
-    public void removeListener(String names, PropertyChangeListener listener) {
-
-    }
-
-
 }

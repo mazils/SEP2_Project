@@ -7,15 +7,19 @@ import server.RPCLWrapper;
 import server.jdbc.LogJDBC;
 
 import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
 import java.util.ArrayList;
 
 public class LogsManager  {
     private LogJDBC logJDBC;
+    private PropertyChangeSupport support = new PropertyChangeSupport(this);
+
 
     public LogsManager()
     {
         logJDBC= new LogJDBC();
     }
+
     public  ArrayList<String> getLogList(ISparePart part, SModel model) {
       return   logJDBC.getDatabaseLogs((SparePart) part,model);
     }
@@ -23,9 +27,10 @@ public class LogsManager  {
 
     public void logToDatabase(String log) {
         logJDBC.logToDatabase(log);
+        support.firePropertyChange("change", null, log);
     }
 
     public void addListener(String names, PropertyChangeListener listener) {
-        logJDBC.addListener(names, listener);
+        support.addPropertyChangeListener(names, listener);
     }
 }

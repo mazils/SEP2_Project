@@ -6,10 +6,8 @@ import client.viewmodel.sparePartsList.ModelsListMViewModel;
 
 
 import client.viewmodel.sparePartsList.SparePartViewModel;
-import client.viewmodel.sparepartsVOS.SparePartsVOSViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -27,31 +25,28 @@ public class SparePartsVOSController {
     private TableColumn<SparePart, Integer> quantityColumn;
 
     @FXML
-    TextArea textArea;
-
-    @FXML
     ComboBox <String>modelList;
 
     private ViewHandler viewHandler;
     private ModelsListMViewModel modelsViewModel;
-    private SparePartsVOSViewModel sparePartsVOSViewModel;
+    private SparePartViewModel sparePartsViewModel;
 
     private StringProperty currentModel;
 
-    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler, SparePartsVOSViewModel sparePartsVOSViewModel){
+    public void init(ModelsListMViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler, SparePartViewModel sparePartsVOSViewModel){
         this.viewHandler=viewHandler;
         this.modelsViewModel=modelsViewModel;
-        this.sparePartsVOSViewModel= sparePartsVOSViewModel;
+        this.sparePartsViewModel = sparePartsVOSViewModel;
 
         currentModel = new SimpleStringProperty();
         initialLoad();
         modelsViewModel.updateAllModels();
         currentModel.bindBidirectional(sparePartsViewModel.currentmodelProperty());//todo
-        currentModel.bindBidirectional(sparePartsVOSViewModel.modelProperty());
+        currentModel.bindBidirectional(sparePartsVOSViewModel.currentmodelProperty());
     }
 
     public void initialLoad() {
-        sparePartsList.setItems(sparePartsVOSViewModel.getSpareParts());
+        sparePartsList.setItems(sparePartsViewModel.getSpareParts());
         sparePartsList.setPlaceholder(new Label("No content in list"));
         modelList.setItems(modelsViewModel.getModelsProperty());
         modelList.setPlaceholder(new Label("No models to show"));
@@ -72,19 +67,19 @@ public class SparePartsVOSController {
 
     public void onSubtract()
     {
-        sparePartsVOSViewModel.decrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
+        sparePartsViewModel.decrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
     }
 
     public void onAdd()
     {
-        sparePartsVOSViewModel.incrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
+        sparePartsViewModel.incrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
         System.out.println(sparePartsList.getSelectionModel().getSelectedItem());
     }
 
     public void onModelList() {
         currentModel.setValue(modelList.getValue());
         try {
-            sparePartsVOSViewModel.getList(currentModel.getValue());
+            sparePartsViewModel.getList(currentModel.getValue());
         } catch (RemoteException e) {
             e.printStackTrace();
         }

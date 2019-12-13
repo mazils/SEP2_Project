@@ -112,8 +112,23 @@ public class SparePartViewModel {
         SparePart part= new SparePart(currentSparePart.getValue());
         return  part;
     }
+    public ObservableList<SparePart> getSpareParts()
+    {
+        return spareParts;
+    }
+
 
     public void setCurrentSparepart(SparePart selectedItem) {
         currentSparePart.setValue(selectedItem.getName());
+    }
+
+    public void incrementPart(ISparePart iSparePart, String scooterModel)
+    {
+        model.incrementSparePartQuantity(iSparePart, scooterModel);//todo here
+
+    }
+    public void decrementPart(ISparePart iSparePart, String scooterModel)
+    {
+        model.decrementSparePartQuantity(iSparePart,scooterModel);
     }
 }

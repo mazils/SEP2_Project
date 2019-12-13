@@ -33,6 +33,7 @@ public class AccountModel implements IAccountsModel {
 
         if(rmi.checkIfExists(username, password)) {
             log.setUsername(username);
+            System.out.println( "username is    "+username);
         }
 
         return rmi.checkIfExists(username, password);

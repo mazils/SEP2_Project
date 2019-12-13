@@ -5,10 +5,7 @@ import client.model.ScooterModels.ISModel;
 import Shared.remoteServer.SparePartsServer;
 import client.model.logModel.Logger;
 import client.model.ScooterModels.SModel;
-import client.model.logModel.Logger;
-
 import java.beans.PropertyChangeListener;
-import java.io.*;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
@@ -45,8 +42,12 @@ public class MSparePart implements IMSparePart {
     {
         try
         {
-            server.incrementSparePartQuantity(part,scooterModel);
-            log.log("incremented sparepart " + part.getName() + "in model::" + scooterModel);
+            if (part != null && scooterModel != scooterModel)
+            {
+                server.incrementSparePartQuantity(part,scooterModel);
+                log.log("incremented sparepart " + part.getName() + "in model::" + scooterModel);
+            }
+
         } catch (RemoteException e)
         {
             e.printStackTrace();
@@ -58,8 +59,11 @@ public class MSparePart implements IMSparePart {
     {
         try
         {
-            server.decrementSparePartQuantity(part,scooterModel);
-            log.log(" decremented sparepart " + part.getName() + " in model::" + scooterModel);
+            if (part != null && scooterModel != scooterModel)
+            {
+                server.decrementSparePartQuantity(part, scooterModel);
+                log.log(" decremented sparepart " + part.getName() + " in model::" + scooterModel);
+            }
 
         } catch (RemoteException e)
         {
@@ -110,7 +114,7 @@ public class MSparePart implements IMSparePart {
     }
 
     @Override
-    public void removeListener(String names, PropertyChangeListener listener) throws RemoteException {
+    public void removeListener(String names, PropertyChangeListener listener) {
 
     }
 }

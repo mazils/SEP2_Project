@@ -191,10 +191,12 @@ public class SparePartsMController {
         }
     }
 
-    public void onSubtract(ActionEvent actionEvent) {
+    public void onSubtract() {
+        sparePartsViewModel.decrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
     }
 
-    public void onAdd(ActionEvent actionEvent) {
+    public void onAdd() {
+        sparePartsViewModel.incrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
     }
 
     public void onPlaceOrder()

@@ -5,6 +5,8 @@ import client.viewmodel.logIn.LoginViewModel;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
 
 import java.rmi.RemoteException;
@@ -32,15 +34,21 @@ public class LoginController {
         loginViewModel.getPasswordProperty().bindBidirectional(passwordTextField.textProperty());
     }
 
+    public void buttonPressed(KeyEvent e) throws RemoteException
+    {
+        if(e.getCode() == KeyCode.ENTER)
+        {
+            onLogInButton();
+        }
+    }
+
     /** execute the login function by view model
      */
     public void onLogInButton() throws RemoteException {
         Stage stage= (Stage) passwordTextField.getScene().getWindow();
 
         if(loginViewModel.checkIfExists()) {
-            System.out.println("dkdbdj");
             viewHandler.closeView(stage);
-            System.out.println(loginViewModel.isManager() + "ddfsgs");
             if(loginViewModel.isManager()) {
                 viewHandler.openView("sparePartsManager");
             }else

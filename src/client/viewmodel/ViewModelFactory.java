@@ -9,7 +9,6 @@ import client.viewmodel.newSparePart.NewSparePartViewModel;
 import client.viewmodel.scooterModel.NewModelVM;
 import client.viewmodel.sparePartsList.ModelsListMViewModel;
 import client.viewmodel.sparePartsList.SparePartViewModel;
-import client.viewmodel.sparepartsVOS.SparePartsVOSViewModel;
 
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
@@ -21,7 +20,6 @@ public class ViewModelFactory {
     private SparePartViewModel sparePartViewModel;
     private ModelsListMViewModel modelsListMViewModel;
     private NewSparePartViewModel newSparePartViewModel;
-    private SparePartsVOSViewModel sparePartsVOSViewModel;
     private AmountReceivedViewModel amountReceivedViewModel;
     private LogViewModel logViewModel;
 
@@ -32,7 +30,6 @@ public class ViewModelFactory {
         sparePartViewModel = new SparePartViewModel(modelFactory.getSparePartModel());
         modelsListMViewModel = new ModelsListMViewModel(modelFactory.getIMSModelModel());
         newSparePartViewModel = new NewSparePartViewModel(modelFactory.getSparePartModel());
-        sparePartsVOSViewModel = new SparePartsVOSViewModel(modelFactory.getSparePartModel());
         amountReceivedViewModel= new AmountReceivedViewModel(modelFactory.getSparePartModel());
         logViewModel = new LogViewModel(modelFactory.getLogModel());
 
@@ -62,11 +59,6 @@ public class ViewModelFactory {
 
     public NewSparePartViewModel getNewSparePartViewModel() {
         return newSparePartViewModel;
-    }
-
-    public SparePartsVOSViewModel getSparePartsVOSViewModel()
-    {
-        return sparePartsVOSViewModel;
     }
 
     public AmountReceivedViewModel getAmountReceivedViewModel() {

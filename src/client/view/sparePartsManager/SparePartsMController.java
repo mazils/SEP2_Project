@@ -14,6 +14,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
+import org.w3c.dom.ls.LSOutput;
+
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
@@ -170,6 +172,18 @@ public class SparePartsMController {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
+
+            sparePartsList.setRowFactory(tv -> new TableRow<>() {
+                @Override
+                public void updateItem(SparePart item, boolean empty) {
+                    super.updateItem(item, empty);
+                     if(item==null){setStyle("");}
+                     else if(item.getQuantity() <= 10) {
+                        setStyle("-fx-background-color: tomato;");
+                    }
+                }
+            });
+
     }
 
     public void onNewSparePart() {
@@ -179,6 +193,7 @@ public class SparePartsMController {
     public void onDeleteSparePart() {
 
         if(!sparePartsList.getSelectionModel().isEmpty()) {
+
             currentModel.setValue((String) modelList.getValue());
             SModel model=  new SModel(currentModel.getValue());
             try {
@@ -204,10 +219,11 @@ public class SparePartsMController {
     {
         sparePartsViewModel.placeOrder();
         System.out.println("place order");
-        amountNeededColumn.setStyle("-fx-text-fill: red;");
     }
 
-    public void onRecive(ActionEvent actionEvent) {
+    public void onRecive() {
+
+
         if(!(sparePartsList.getSelectionModel().isEmpty())) {
             sparePartsViewModel.setCurrentSparepart(sparePartsList.getSelectionModel().getSelectedItem());
             viewHandler.openView("amountReceived");

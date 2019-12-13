@@ -197,6 +197,7 @@ public class SparePartsMController {
 
     public void onAdd() {
         sparePartsViewModel.incrementPart(sparePartsList.getSelectionModel().getSelectedItem(),modelList.getValue());
+
     }
 
     public void onPlaceOrder()

@@ -42,11 +42,13 @@ public class MSparePart implements IMSparePart {
     {
         try
         {
-            if (part != null && scooterModel != scooterModel)
+            if (part != null )
             {
                 server.incrementSparePartQuantity(part,scooterModel);
                 log.log("incremented sparepart " + part.getName() + "in model::" + scooterModel);
             }
+            else { System.out.println("nothin is selected");}
+
 
         } catch (RemoteException e)
         {
@@ -59,11 +61,14 @@ public class MSparePart implements IMSparePart {
     {
         try
         {
-            if (part != null && scooterModel != scooterModel)
+            if (part != null )
             {
                 server.decrementSparePartQuantity(part, scooterModel);
                 log.log(" decremented sparepart " + part.getName() + " in model::" + scooterModel);
             }
+            else
+            {System.out.println("nothin is selected");}
+
 
         } catch (RemoteException e)
         {

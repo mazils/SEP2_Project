@@ -38,7 +38,7 @@ public class Server implements AccountsRServer, SparePartsServer, SModelsRServer
         logsManager= new LogsManager();
 
         try{
-            UnicastRemoteObject.exportObject(this,0);
+            UnicastRemoteObject.exportObject(this,1099);
             System.out.println("Server started");
         }catch (RemoteException e){
             e.printStackTrace();

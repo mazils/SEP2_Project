@@ -124,7 +124,7 @@ public class SparePartViewModel {
 
     public void incrementPart(ISparePart iSparePart, String scooterModel)
     {
-        model.incrementSparePartQuantity(iSparePart, scooterModel);//todo here
+        model.incrementSparePartQuantity(iSparePart, scooterModel);
 
     }
     public void decrementPart(ISparePart iSparePart, String scooterModel)

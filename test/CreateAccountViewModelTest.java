@@ -92,5 +92,46 @@ class CreateAccountViewModelTest
         boolean isCreated =createAccountViewModel.createAccount();
         assertEquals(false,isCreated);
     }
+    //Boundry partitioning
+    @Test void createAccountUsernameToLong() throws RemoteException, SQLException
+    {
+        //21 chars
+        username.setValue("aaaaaaaaaaaaaaaaaaaaa");
+        password.setValue("aaaaaaaaaaaaaaaaaaaaa");
+        confPassword.setValue("aaaaaaaaaaaaaaaaaaaaa");
+        boolean isCreated =createAccountViewModel.createAccount();
+        assertEquals(false,isCreated);
+    }
 
-}
+    @Test void createAccountUsername() throws RemoteException, SQLException
+    {
+        //19 chars
+        username.setValue("aaaaaaaaaaaaaaaaaaa");
+        password.setValue("aaaaaaaaaaaaaaaaaaa");
+        confPassword.setValue("aaaaaaaaaaaaaaaaaaa");
+        boolean isCreated =createAccountViewModel.createAccount();
+        assertEquals(true,isCreated);
+    }
+
+    @Test void createAccountUsernameTest() throws RemoteException, SQLException
+    {
+        //20 chars
+        username.setValue("aaaaaaaaaaaaaaaaaaaa");
+        password.setValue("aaaaaaaaaaaaaaaaaaaa");
+        confPassword.setValue("aaaaaaaaaaaaaaaaaaaa");
+        boolean isCreated =createAccountViewModel.createAccount();
+        assertEquals(true,isCreated);
+    }
+
+    @Test void createAccountUsernameDigitAndSymbols() throws RemoteException, SQLException
+    {
+        //characters
+        username.setValue("...1");
+        password.setValue("...1");
+        confPassword.setValue("...1");
+        boolean isCreated =createAccountViewModel.createAccount();
+        assertEquals(true,isCreated);
+    }
+
+
+    }

@@ -43,6 +43,7 @@ public class SparePartsMController {
     private SparePartViewModel sparePartsViewModel;
     private StringProperty currentModel;
 
+
     private ArrayList<ISModel> models;
 
     public void init(ModelsListViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler){
@@ -51,10 +52,13 @@ public class SparePartsMController {
         this.sparePartsViewModel=sparePartsViewModel;
         currentModel= new SimpleStringProperty();
         currentModel.bindBidirectional(sparePartsViewModel.currentmodelProperty());
+        currentModel.bindBidirectional(modelsViewModel.getCurrentModelProperty());
         commentArea.textProperty().bindBidirectional(sparePartsViewModel.commentsProperty());
+        modelsViewModel.updateAllModels();
         inittialLoad();
         initCols();
-        modelsViewModel.updateAllModels();
+
+
 
 
     }
@@ -214,4 +218,9 @@ public class SparePartsMController {
             viewHandler.openView("viewLog");
         }
     }
+    public void onDeleteModel()
+    {
+        modelsViewModel.deleteModel();
+    }
+
 }

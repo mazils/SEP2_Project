@@ -32,8 +32,15 @@ public class MSModel implements IMSModel {
     }
 
     @Override
-    public void removeModel(SModel scooterModel) throws RemoteException {
-        server.removeModel(scooterModel);
+    public void removeModel(SModel scooterModel)  {
+        try
+        {
+            server.removeModel(scooterModel);
+            support.firePropertyChange("deletedModel",null,scooterModel.getModelName());
+        } catch (RemoteException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     @Override

@@ -22,7 +22,7 @@ public class SModelJDBC {
     }
 
     public void removeModel(ISModel model) {
-        String statement= "DELETE FROM" + "\"SEP2\"" + ".model WHERE" + " name in  (" + model.getModelName() + ")";
+        String statement= "DELETE FROM" + "\"SEP2\"" + ".model WHERE" + " name =  '" + model.getModelName() + "'";
         database.executeUpdate(statement);
     }
 

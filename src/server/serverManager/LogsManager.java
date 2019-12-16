@@ -1,5 +1,6 @@
 package server.serverManager;
 
+import Shared.PropertyChangeSubject;
 import client.model.ScooterModels.SModel;
 import client.model.spareParts.ISparePart;
 import client.model.spareParts.SparePart;
@@ -8,9 +9,10 @@ import server.jdbc.LogJDBC;
 
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-public class LogsManager  {
+public class LogsManager implements PropertyChangeSubject {
     private LogJDBC logJDBC;
     private PropertyChangeSupport support = new PropertyChangeSupport(this);
 
@@ -32,5 +34,10 @@ public class LogsManager  {
 
     public void addListener(String names, PropertyChangeListener listener) {
         support.addPropertyChangeListener(names, listener);
+    }
+
+    @Override
+    public void removeListener(String names, PropertyChangeListener listener) throws RemoteException {
+
     }
 }

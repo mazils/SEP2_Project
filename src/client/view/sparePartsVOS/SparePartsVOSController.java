@@ -9,6 +9,7 @@ import client.viewmodel.sparePartsList.SparePartViewModel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -89,4 +90,10 @@ public class SparePartsVOSController {
         }
     }
 
+    public void onViewLogAction(ActionEvent actionEvent) {
+        if(!(sparePartsList.getSelectionModel().isEmpty())) {
+            sparePartsViewModel.setCurrentSparepart(sparePartsList.getSelectionModel().getSelectedItem());
+            viewHandler.openView("viewLog");
+        }
+    }
 }

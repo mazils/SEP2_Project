@@ -51,6 +51,12 @@ public class Server implements AccountsRServer, SparePartsServer, SModelsRServer
     }
 
     @Override
+    public boolean accountIsManager(String username, String password) {
+        System.out.println(accountsSManager.accountIsManager( username,password) + "Server");
+        return accountsSManager.accountIsManager( username,password);
+    }
+
+    @Override
     public boolean checkUsername(String username)throws SQLException {
         return accountsSManager.checkUsername(username);
     }
@@ -59,12 +65,6 @@ public class Server implements AccountsRServer, SparePartsServer, SModelsRServer
     public void addAccount(Account acc,boolean isManager){
         accountsSManager.addAccount(acc, isManager);
 
-    }
-
-    @Override
-    public boolean accountIsManager(String username, String password) {
-        System.out.println(accountsSManager.accountIsManager( username,password) + "Server");
-        return accountsSManager.accountIsManager( username,password);
     }
 
     @Override

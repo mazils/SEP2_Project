@@ -41,8 +41,13 @@ public class AccountModel implements IAccountsModel {
 
     }
 
-    public boolean accountIsManager(String username, String password)
-    {
+    /**
+     * Check if account is owned by a manager
+     * @param username
+     * @param password
+     * @return true or false
+     */
+    public boolean accountIsManager(String username, String password) {
         try {
            return rmi.accountIsManager(username,password);
         } catch (RemoteException e) {

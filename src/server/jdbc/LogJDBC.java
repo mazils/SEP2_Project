@@ -2,9 +2,6 @@ package server.jdbc;
 
 import client.model.ScooterModels.SModel;
 import client.model.spareParts.SparePart;
-
-import java.beans.PropertyChangeListener;
-import java.beans.PropertyChangeSupport;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -12,11 +9,11 @@ import java.util.ArrayList;
 public class LogJDBC {
     private JDBC database;
 
-    public LogJDBC()
-    {
+    public LogJDBC() {
         database= JDBC.getInstance();
 
     }
+
     public void logToDatabase(String log) {
         String statement = "INSERT INTO " + "\"SEP2\"" + ".log(logstamp) VALUES " +"( '" +log + "')";
         database.executeUpdate(statement);

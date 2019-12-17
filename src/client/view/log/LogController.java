@@ -27,7 +27,6 @@ public class LogController {
         } catch (RemoteException e) {
             e.printStackTrace();
         }
-
     }
 
     public void onBackAction() {

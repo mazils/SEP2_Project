@@ -6,8 +6,6 @@ import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
@@ -48,8 +46,8 @@ public class CreateAccountController
         viewModel.getConfirmPassword().bindBidirectional(passwordConfTextField.textProperty());
         viewModel.getIsManagerProperty().bindBidirectional(isManager.selectedProperty());
 
-        viewModel.alertTypeProperty().bindBidirectional(alertType);//whenever something changes it executes showalert
-        viewModel.alertTextProperty().bindBidirectional(alertText);
+        viewModel.getAlertTypeProperty().bindBidirectional(alertType);//whenever something changes it executes showalert
+        viewModel.getAlertTextProperty().bindBidirectional(alertText);
         alertText.addListener((observableValue, number, type) -> showAlert());
     }
 

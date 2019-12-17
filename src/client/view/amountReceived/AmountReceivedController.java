@@ -24,14 +24,10 @@ public class AmountReceivedController {
        textField.textProperty().bindBidirectional(amountReceivedViewModel.getAmount());
     }
 
-
-
-
     public void onSaveAction() {
         SModel model= new SModel(sparePartViewModel.currentmodelProperty().getValue());
         amountReceivedViewModel.receivedAmount(sparePartViewModel.getCurrentSparePart(),model);
         Stage stage= (Stage) textField.getScene().getWindow();
         handler.closeView(stage);
-
     }
 }

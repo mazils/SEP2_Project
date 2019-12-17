@@ -28,7 +28,7 @@ public class SparePartsVOSController {
     private TableColumn<SparePart, Integer> quantityColumn;
 
     @FXML
-    ComboBox <String>modelList;
+    ComboBox <String> modelList;
 
     private ViewHandler viewHandler;
     private ModelsListViewModel modelsViewModel;
@@ -63,8 +63,7 @@ public class SparePartsVOSController {
 
     }
 
-    public void onLogOff()
-    {
+    public void onLogOff() {
         Stage stage = (Stage) sparePartsList.getScene().getWindow();
         viewHandler.closeView(stage);
         viewHandler.openView("logIn");
@@ -89,16 +88,9 @@ public class SparePartsVOSController {
             e.printStackTrace();
         }
     }
+
     public void onViewLog()
     {
-        if(!(sparePartsList.getSelectionModel().isEmpty())) {
-            sparePartsViewModel.setCurrentSparepart(sparePartsList.getSelectionModel().getSelectedItem());
-            viewHandler.openView("viewLog");
-        }
-    }
-
-
-    public void onViewLogAction(ActionEvent actionEvent) {
         if(!(sparePartsList.getSelectionModel().isEmpty())) {
             sparePartsViewModel.setCurrentSparepart(sparePartsList.getSelectionModel().getSelectedItem());
             viewHandler.openView("viewLog");

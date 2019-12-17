@@ -13,6 +13,7 @@ import java.sql.SQLException;
 public class CreateAccountViewModel
 {
     private IAccountsModel iAccountsModel;
+
     private StringProperty username;
     private StringProperty password;
     private StringProperty confirmPassword;
@@ -59,7 +60,7 @@ public class CreateAccountViewModel
         return managerAccount;
     }
 
-    public boolean createAccount() throws RemoteException, SQLException//todo there shouldnt be exceptions thrown here
+    public boolean createAccount() throws RemoteException, SQLException
     {
         //check if empty
         if (password.getValue().equals("") || confirmPassword.getValue().equals("") || username.getValue().equals(""))
@@ -120,13 +121,13 @@ public class CreateAccountViewModel
 
     }
 
-    public IntegerProperty alertTypeProperty()
+    public IntegerProperty getAlertTypeProperty()
     {
         return alertType;
     }
 
 
-    public StringProperty alertTextProperty()
+    public StringProperty getAlertTextProperty()
     {
         return alertText;
     }

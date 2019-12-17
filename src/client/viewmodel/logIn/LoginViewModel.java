@@ -4,9 +4,6 @@ import client.model.modelaccount.IAccountsModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.scene.control.Alert;
-import javafx.stage.Stage;
-
-import javax.swing.*;
 import java.rmi.RemoteException;
 
 public class LoginViewModel {
@@ -56,11 +53,6 @@ public class LoginViewModel {
             alert.setContentText("Invalid user name or password");
             alert.showAndWait();
             return false;
-
-
         }
     }
-
-
-
 }

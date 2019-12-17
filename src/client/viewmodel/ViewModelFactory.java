@@ -23,15 +23,24 @@ public class ViewModelFactory {
     private AmountReceivedViewModel amountReceivedViewModel;
     private LogViewModel logViewModel;
 
-    public ViewModelFactory(ModelFactory modelFactory) throws RemoteException, NotBoundException {
-        loginViewModel= new LoginViewModel(modelFactory.getAccountsModel());
-        createAccountViewModel = new CreateAccountViewModel(modelFactory.getAccountsModel());
-        newModelVM = new NewModelVM(modelFactory.getIMSModelModel());
-        sparePartViewModel = new SparePartViewModel(modelFactory.getSparePartModel());
-        modelsListViewModel = new ModelsListViewModel(modelFactory.getIMSModelModel());
-        newSparePartViewModel = new NewSparePartViewModel(modelFactory.getSparePartModel());
-        amountReceivedViewModel= new AmountReceivedViewModel(modelFactory.getSparePartModel());
-        logViewModel = new LogViewModel(modelFactory.getLogModel());
+    public ViewModelFactory(ModelFactory modelFactory)  {
+        try
+        {
+            loginViewModel= new LoginViewModel(modelFactory.getAccountsModel());
+            createAccountViewModel = new CreateAccountViewModel(modelFactory.getAccountsModel());
+            newModelVM = new NewModelVM(modelFactory.getIMSModelModel());
+            sparePartViewModel = new SparePartViewModel(modelFactory.getSparePartModel());
+            modelsListViewModel = new ModelsListViewModel(modelFactory.getIMSModelModel());
+            newSparePartViewModel = new NewSparePartViewModel(modelFactory.getSparePartModel());
+            amountReceivedViewModel= new AmountReceivedViewModel(modelFactory.getSparePartModel());
+            logViewModel = new LogViewModel(modelFactory.getLogModel());
+        } catch (RemoteException e)
+        {
+            e.printStackTrace();
+        } catch (NotBoundException e)
+        {
+            e.printStackTrace();
+        }
 
     }
 

@@ -163,13 +163,8 @@ public class SparePartsMController {
 
             currentModel.setValue((String) modelList.getValue());
             SModel model=  new SModel(currentModel.getValue());
-            try {
-                sparePartsViewModel.removeSparePart(sparePartsList.getSelectionModel().getSelectedItem().getName(),model);// todo should take object of spare part instead of String
-
-                sparePartsViewModel.getList(model.getModelName());
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
+            sparePartsViewModel.removeSparePart(sparePartsList.getSelectionModel().getSelectedItem().getName(),model);
+            sparePartsViewModel.getList(model.getModelName());
         }
     }
 
@@ -194,7 +189,12 @@ public class SparePartsMController {
         }
     }
 
-    public void onLogAction() {
+    public void onLogAction()
+    {
+        if(!(sparePartsList.getSelectionModel().isEmpty())) {
+            sparePartsViewModel.setCurrentSparepart(sparePartsList.getSelectionModel().getSelectedItem());
+            viewHandler.openView("viewLog");
+        }
     }
     public void onDeleteModel()
     {

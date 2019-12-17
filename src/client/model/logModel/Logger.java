@@ -77,7 +77,7 @@ public class Logger implements ILogger {
 
     public void log(String event)
     {
-        String log= "The user: " + username + " " + event + " : at Time :" + time;
+        String log=  "Time :" + time +", user: " + username + " , " + event;
         try {
             server.logToDatabase(log);
         } catch (RemoteException e) {

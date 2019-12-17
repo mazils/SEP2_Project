@@ -22,8 +22,15 @@ public class AccountsSManager {
         return false;
     }
 
-    public boolean checkUsername(String username)throws SQLException {
-        return accountsJDBC.checkUsername(username);
+    public boolean checkUsername(String username){
+        try
+        {
+            return accountsJDBC.checkUsername(username);
+        } catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     public void addAccount(Account acc, boolean isManager){

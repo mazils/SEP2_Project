@@ -74,9 +74,15 @@ public class SparePartViewModel
         });
     }
 
-    public void removeSparePart(String sparePart, ISModel scootermodel) throws RemoteException
+    public void removeSparePart(String sparePart, ISModel scootermodel)
     {
-        model.removeSparepart(sparePart, scootermodel);
+        try
+        {
+            model.removeSparepart(sparePart, scootermodel);
+        } catch (RemoteException e)
+        {
+            e.printStackTrace();
+        }
     }
 
     public void editSparePart(ISparePart part, ISModel model)

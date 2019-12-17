@@ -46,7 +46,8 @@ public class SparePartsSManager implements PropertyChangeSubject {
         return partArrayList;
     }
 
-    public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException {
+    public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded)
+    {
         sparePartsJDBC.editSparePart(part, model, quantity, amountNeeded);
         support.firePropertyChange("change", null, model);
     }
@@ -62,12 +63,14 @@ public class SparePartsSManager implements PropertyChangeSubject {
     }
 
     @Override
-    public void addListener(String names, PropertyChangeListener listener) throws RemoteException {
+    public void addListener(String names, PropertyChangeListener listener)
+    {
         support.addPropertyChangeListener(names,listener);
     }
 
     @Override
-    public void removeListener(String names, PropertyChangeListener listener) throws RemoteException {
+    public void removeListener(String names, PropertyChangeListener listener)
+    {
 
     }
 

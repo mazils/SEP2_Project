@@ -34,7 +34,7 @@ public class MSparePart implements IMSparePart {
     @Override
     public void editSparePart(ISparePart part, ISModel model, int quantity, int amountNeeded) throws RemoteException {
         server.editSparePart(part, model, quantity, amountNeeded);
-        log.log("edited sparepart" + part.getName() +  "in model::" + model.getModelName() + "quantity =" + quantity + "amount needed =" + amountNeeded );
+        log.log("edited sparepart" + part.getName() +  "in model:" + model.getModelName() + "quantity =" + quantity + "amount needed =" + amountNeeded );
     }
 
     @Override
@@ -45,9 +45,9 @@ public class MSparePart implements IMSparePart {
             if (part != null )
             {
                 server.incrementSparePartQuantity(part,scooterModel);
-                log.log("incremented sparepart " + part.getName() + "in model::" + scooterModel);
+                log.log("incremented sparepart " + part.getName() + "in model:" + scooterModel);
             }
-            else { System.out.println("nothin is selected");}
+            else { System.out.println("nothing is selected");}
 
 
         } catch (RemoteException e)
@@ -64,7 +64,7 @@ public class MSparePart implements IMSparePart {
             if (part != null )
             {
                 server.decrementSparePartQuantity(part, scooterModel);
-                log.log(" decremented sparepart " + part.getName() + " in model::" + scooterModel);
+                log.log(" decremented sparepart " + part.getName() + " in model:" + scooterModel);
             }
             else
             {System.out.println("nothin is selected");}

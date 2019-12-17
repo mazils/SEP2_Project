@@ -23,7 +23,8 @@ public class SModelsSMnagaer {
         sModelJDBC.removeModel(model);
     }
 
-    public ArrayList<ISModel> getAllModels() throws RemoteException {
+    public ArrayList<ISModel> getAllModels()
+    {
         try {
             return sModelJDBC.getAllModels();
         } catch (SQLException e) {

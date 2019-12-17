@@ -21,8 +21,14 @@ public class NewModelVM  {
         return modelName;
     }
 
-    public void addScooterModel() throws RemoteException {
-        model.addModel(modelName.getValue());
+    public void addScooterModel()  {
+        try
+        {
+            model.addModel(modelName.getValue());
+        } catch (RemoteException e)
+        {
+            e.printStackTrace();
+        }
     }
 
 

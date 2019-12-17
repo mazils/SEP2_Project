@@ -63,7 +63,7 @@ public class JDBC implements  Runnable{
 
         try {
             Class.forName("org.postgresql.Driver");
-             con= DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","qwerty");
+             con= DriverManager.getConnection("jdbc:postgresql://localhost:5432/postgres","postgres","admin");
              st= con.createStatement();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

@@ -23,7 +23,7 @@ public void init(ViewHandler viewHandler, NewModelVM viewModel){
     viewModel.getModelNameProperty().bindBidirectional(newModelName.textProperty());
 }
 
-public void onSaveButton() throws RemoteException {
+public void onSaveButton()  {
     viewModel.addScooterModel();
     Stage stage = (Stage)newModelName.getScene().getWindow();
     viewHandler.closeView(stage);

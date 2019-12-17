@@ -28,11 +28,7 @@ public class LogViewModel {
         logs= FXCollections.observableArrayList();
         try {
             model.addListener("change", evt -> {
-                try {
-                    getList(new SparePart(currentpart.getValue()),new SModel(smodel.getValue()));
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
+                getList(new SparePart(currentpart.getValue()),new SModel(smodel.getValue()));
             });
         } catch (RemoteException e) {
             e.printStackTrace();
@@ -44,7 +40,7 @@ public class LogViewModel {
         return logs;
     }
 
-    public void getList(ISparePart part, SModel model) throws RemoteException
+    public void getList(ISparePart part, SModel model)
     {
         Platform.runLater(() ->{
             try {

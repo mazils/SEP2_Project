@@ -37,7 +37,8 @@ public class LogsManager implements PropertyChangeSubject {
     }
 
     @Override
-    public void removeListener(String names, PropertyChangeListener listener) throws RemoteException {
+    public void removeListener(String names, PropertyChangeListener listener)
+    {
 
     }
 }

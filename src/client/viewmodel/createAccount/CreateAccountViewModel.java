@@ -60,65 +60,66 @@ public class CreateAccountViewModel
         return managerAccount;
     }
 
-    public boolean createAccount() throws RemoteException, SQLException
+    public boolean createAccount()
     {
-        //check if empty
-        if (password.getValue().equals("") || confirmPassword.getValue().equals("") || username.getValue().equals(""))
+        try
         {
-            System.out.println("this is empty");
-            alertType.set(Alert.AlertType.ERROR.ordinal());
-            alertText.set("Please fill in all fields");
-            managerAccount.setValue(false);
-            System.out.println("Fields are empty");
-            return false;
+            //check if empty
+            if (password.getValue().equals("") || confirmPassword.getValue().equals("") || username.getValue().equals(""))
+            {
+                System.out.println("this is empty");
+                alertType.set(Alert.AlertType.ERROR.ordinal());
+                alertText.set("Please fill in all fields");
+                managerAccount.setValue(false);
+                System.out.println("Fields are empty");
+                return false;
 
+            }
+            //checks if already in dbs
+            else if (iAccountsModel.checkUsername(username.getValue()))
+            {
+                alertType.set(Alert.AlertType.WARNING.ordinal());
+                alertText.set("This account already exists");
+                managerAccount.setValue(false);
+                System.out.println("Account already exists in DBS");
+                return false;
+            }
+
+            //checks if passwords match
+            else if (!password.getValue().equals(confirmPassword.getValue()))
+            {
+                alertType.set(Alert.AlertType.WARNING.ordinal());
+                alertText.set("The password doesn't match");
+                System.out.println("passwords doesnt match");
+                return false;
+            }
+            else if(username.getValue().length() >20 || password.getValue().length() > 20)
+            {
+                System.out.printf("fields are to long max is 20 chars");
+                alertType.set(Alert.AlertType.ERROR.ordinal());
+                alertText.set("The max length is 20 chars");
+                password.setValue("");
+                confirmPassword.setValue("");
+                return false;
+
+            }
+            else
+            {
+                System.out.println(password.getValue() + " " + confirmPassword.getValue());
+                System.out.println("Account has been created");
+                iAccountsModel.createAccount(username.getValue(), password.getValue(), managerAccount.getValue());
+                alertType.set(Alert.AlertType.INFORMATION.ordinal());
+                alertText.set("New account has been created");
+
+                isRightAccount.setValue(true);
+                return true;
+            }
         }
-        //checks if already in dbs
-        else if (iAccountsModel.checkUsername(username.getValue()))
+        catch (RemoteException e)
         {
-            alertText.set("This account already exists");
-            alertType.set(Alert.AlertType.WARNING.ordinal());
-            username.setValue("");
-            password.setValue("");
-            confirmPassword.setValue("");
-            managerAccount.setValue(false);
-            System.out.println("Account already exists in DBS");
-            return false;
+            e.printStackTrace();
         }
-
-        //checks if passwords match
-        else if (!password.getValue().equals(confirmPassword.getValue()))
-        {
-
-            alertType.set(Alert.AlertType.WARNING.ordinal());
-            alertText.set("The password doesn't match");
-            password.setValue("");
-            confirmPassword.setValue("");
-            System.out.println("passwords doesnt match");
-            return false;
-        }
-        else if(username.getValue().length() >20 || password.getValue().length() > 20)
-        {
-            System.out.printf("fields are to long max is 20 chars");
-            alertType.set(Alert.AlertType.ERROR.ordinal());
-            alertText.set("The max length is 20 chars");
-            password.setValue("");
-            confirmPassword.setValue("");
-            return false;
-
-        }
-        else
-        {
-            System.out.println(password.getValue() + " " + confirmPassword.getValue());
-            System.out.println("Account has been created");
-            iAccountsModel.createAccount(username.getValue(), password.getValue(), managerAccount.getValue());
-            alertType.set(Alert.AlertType.INFORMATION.ordinal());
-            alertText.set("New account has been created");
-
-            isRightAccount.setValue(true);
-            return true;
-        }
-
+    return false;
     }
 
     public IntegerProperty getAlertTypeProperty()

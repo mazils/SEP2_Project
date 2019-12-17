@@ -39,17 +39,8 @@ class CreateAccountViewModelTest
         confPassword.bindBidirectional(createAccountViewModel.getConfirmPassword());
     }
 
-    @AfterEach
-    void tearDown()
-    {
-        username.setValue("");
-        password.setValue("");
-        confPassword.setValue("");
-    }
-
-
     @Test
-    void createAccountPass() throws RemoteException, SQLException
+    void createAccountPass()
     {
             //act
             username.setValue("shouldBeCreatedAcc");
@@ -60,7 +51,7 @@ class CreateAccountViewModelTest
             assertEquals(true,isCreated);
     }
 
-    @Test void createAccountFailAlreadyExists() throws RemoteException, SQLException
+    @Test void createAccountFailAlreadyExists()
     {
         username.setValue("arturas");
         password.setValue("password");
@@ -69,7 +60,7 @@ class CreateAccountViewModelTest
         assertEquals(false,isCreated);
     }
 
-    @Test void createAccountFailEmpty() throws RemoteException, SQLException
+    @Test void createAccountFailEmpty()
     {
         username.setValue("");
         password.setValue("password");
@@ -78,7 +69,7 @@ class CreateAccountViewModelTest
         assertEquals(false,isCreated);
     }
 
-    @Test void createAccountFailPasswDoesntMatch() throws RemoteException, SQLException
+    @Test void createAccountFailPasswDoesntMatch()
     {
         username.setValue("newusername1");
         password.setValue("notpassword");
@@ -87,7 +78,7 @@ class CreateAccountViewModelTest
         assertEquals(false,isCreated);
     }
 
-    @Test void createAccountFail() throws RemoteException, SQLException
+    @Test void createAccountFail()
     {
         username.setValue("arturas");
         password.setValue("password");
@@ -96,7 +87,7 @@ class CreateAccountViewModelTest
         assertEquals(false,isCreated);
     }
     //Boundry partitioning
-    @Test void createAccountUsernameToLong() throws RemoteException, SQLException
+    @Test void createAccountUsernameToLong()
     {
         //21 chars
         username.setValue("aaaaaaaaaaaaaaaaaaaaa");
@@ -106,7 +97,7 @@ class CreateAccountViewModelTest
         assertEquals(false,isCreated);
     }
 
-    @Test void createAccountUsername() throws RemoteException, SQLException
+    @Test void createAccountUsername()
     {
         //19 chars
         username.setValue("aaaaaaaaaaaaaaaaaaa");
@@ -116,7 +107,7 @@ class CreateAccountViewModelTest
         assertEquals(true,isCreated);
     }
 
-    @Test void createAccountUsernameTest() throws RemoteException, SQLException
+    @Test void createAccountUsernameTest()
     {
         //20 chars
         username.setValue("aaaaaaaaaaaaaaaaaaaa");
@@ -126,7 +117,7 @@ class CreateAccountViewModelTest
         assertEquals(true,isCreated);
     }
 
-    @Test void createAccountUsernameDigitAndSymbols() throws RemoteException, SQLException
+    @Test void createAccountUsernameDigitAndSymbols()
     {
         //characters
         username.setValue("...1");

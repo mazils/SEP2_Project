@@ -13,7 +13,8 @@ import javafx.stage.Stage;
 import java.rmi.RemoteException;
 
 
-public class LoginController {
+public class LoginController
+{
 
     private ViewHandler viewHandler;
     private LoginViewModel loginViewModel;
@@ -24,38 +25,42 @@ public class LoginController {
     @FXML
     private TextField passwordTextField;
 
-    /** initial method for controller, takes parameters and do binding
+    /**
+     * initial method for controller, takes parameters and do binding
+     *
      * @parameter view model of log in, view handler
      */
-    public void init(LoginViewModel viewModel, ViewHandler viewHandler){
-        loginViewModel=viewModel;
-        this.viewHandler=viewHandler;
+    public void init(LoginViewModel viewModel, ViewHandler viewHandler)
+    {
+        loginViewModel = viewModel;
+        this.viewHandler = viewHandler;
 
         loginViewModel.getUserNameProperty().bindBidirectional(userNameTextField.textProperty());
         loginViewModel.getPasswordProperty().bindBidirectional(passwordTextField.textProperty());
     }
 
-    public void buttonPressed(KeyEvent e) throws RemoteException
+    public void buttonPressed(KeyEvent e)
     {
-        if(e.getCode() == KeyCode.ENTER)
+        if (e.getCode() == KeyCode.ENTER)
         {
             onLogInButton();
         }
     }
 
-    /** execute the login function by view model
-     */
-    public void onLogInButton()  {
-        Stage stage= (Stage) passwordTextField.getScene().getWindow();
+    public void onLogInButton()
+    {
+        Stage stage = (Stage) passwordTextField.getScene().getWindow();
 
-        if(loginViewModel.checkIfExists()) {
+        if (loginViewModel.checkIfExists())
+        {
             viewHandler.closeView(stage);
-            if(loginViewModel.isManager()) {
+            if (loginViewModel.isManager())
+            {
                 viewHandler.openView("sparePartsManager");
-            }else
+            } else
                 viewHandler.openView("sparepartsVOS");
-        }
-        else {
+        } else
+        {
             passwordTextField.textProperty().setValue("");
             userNameTextField.textProperty().setValue("");
             Alert alert = new Alert(Alert.AlertType.WARNING);

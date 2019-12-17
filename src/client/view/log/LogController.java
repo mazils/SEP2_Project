@@ -9,7 +9,8 @@ import javafx.stage.Stage;
 
 import java.rmi.RemoteException;
 
-public class LogController {
+public class LogController
+{
 
     public ListView listView;
 
@@ -18,18 +19,15 @@ public class LogController {
 
     public void init(ViewHandler viewHandler, LogViewModel logviewmodel, SparePartViewModel sparePartViewModel)
     {
-        this.viewHandler= viewHandler;
-        this.logViewModel= logviewmodel;
+        this.viewHandler = viewHandler;
+        this.logViewModel = logviewmodel;
         listView.setItems(logviewmodel.getLogs());
-        try {
-            this.logViewModel.getList(sparePartViewModel.getCurrentSparePart(),new SModel(sparePartViewModel.getCurrentModelProperty().getValue()));
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+        this.logViewModel.getList(sparePartViewModel.getCurrentSparePart(), new SModel(sparePartViewModel.getCurrentModelProperty().getValue()));
     }
 
-    public void onBackAction() {
-        Stage stage= (Stage)listView.getScene().getWindow();
+    public void onBackAction()
+    {
+        Stage stage = (Stage) listView.getScene().getWindow();
         viewHandler.closeView(stage);
     }
 }

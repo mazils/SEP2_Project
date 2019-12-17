@@ -1,3 +1,5 @@
+package client;
+
 import client.model.ModelFactory;
 import client.view.ViewHandler;
 import client.viewmodel.ViewModelFactory;

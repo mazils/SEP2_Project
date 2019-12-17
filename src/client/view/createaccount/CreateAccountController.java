@@ -63,7 +63,7 @@ public class CreateAccountController
         alert.showAndWait();
     }
 
-    public void onCreateButton() throws RemoteException, SQLException
+    public void onCreateButton()
     {
         Stage stage = (Stage) userNameTextField.getScene().getWindow();
         viewModel.createAccount();

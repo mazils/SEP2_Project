@@ -13,17 +13,15 @@ import java.beans.PropertyChangeEvent;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 
-public class ModelsListViewModel {
+public class ModelsListViewModel
+{
     private IMSModel model;
     private ObservableList<String> models;
     private SimpleStringProperty currentModel = new SimpleStringProperty();
 
-    public ObservableList<String> getModelsProperty() {
+    public ObservableList<String> getModelsProperty()
+    {
         return models;
-    }
-
-    public ArrayList<ISModel> getModelObject() throws RemoteException {
-        return model.getAllModels();
     }
 
     public SimpleStringProperty getCurrentModelProperty()
@@ -31,17 +29,20 @@ public class ModelsListViewModel {
         return currentModel;
     }
 
-    public ModelsListViewModel(IMSModel model){
-        this.model=model;
-        models= FXCollections.observableArrayList();
-        try {
-            model.addListener("addedModel",evt -> updateModels(evt));
-        } catch (RemoteException e) {
+    public ModelsListViewModel(IMSModel model)
+    {
+        this.model = model;
+        models = FXCollections.observableArrayList();
+        try
+        {
+            model.addListener("addedModel", evt -> updateModels(evt));
+        } catch (RemoteException e)
+        {
             e.printStackTrace();
         }
         try
         {
-            model.addListener("deletedModel",evt ->  deleteModel(evt));
+            model.addListener("deletedModel", evt -> deleteModel(evt));
         } catch (RemoteException e)
         {
             e.printStackTrace();
@@ -51,17 +52,19 @@ public class ModelsListViewModel {
 
     public void updateAllModels()
     {
-        ArrayList<ISModel> modelcollection= new ArrayList<>();
-        try {
-            modelcollection= model.getAllModels();
-        } catch (RemoteException e) {
+        ArrayList<ISModel> modelcollection = new ArrayList<>();
+        try
+        {
+            modelcollection = model.getAllModels();
+        } catch (RemoteException e)
+        {
             e.printStackTrace();
         }
 
-        for(int i=0;i<modelcollection.size();i++)
+        for (int i = 0; i < modelcollection.size(); i++)
         {
-            ISModel model= modelcollection.get(i);
-            if(!(models.contains(model.getModelName())))
+            ISModel model = modelcollection.get(i);
+            if (!(models.contains(model.getModelName())))
             {
                 models.add(model.getModelName());
             }
@@ -70,15 +73,12 @@ public class ModelsListViewModel {
 
     public void updateModels(PropertyChangeEvent evt)
     {
-        Platform.runLater(() ->{
-            models.add((String) evt.getNewValue());
-        });
+        Platform.runLater(() -> models.add((String) evt.getNewValue()));
     }
+
     public void deleteModel(PropertyChangeEvent evt)
     {
-        Platform.runLater(() ->{
-            models.remove((String) evt.getNewValue());
-        });
+        Platform.runLater(() -> models.remove((String) evt.getNewValue()));
     }
 
     public void deleteModel()

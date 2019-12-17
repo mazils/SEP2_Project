@@ -4,6 +4,7 @@ import client.view.ViewHandler;
 import client.viewmodel.logIn.LoginViewModel;
 import javafx.fxml.FXML;
 
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -44,7 +45,7 @@ public class LoginController {
 
     /** execute the login function by view model
      */
-    public void onLogInButton() throws RemoteException {
+    public void onLogInButton()  {
         Stage stage= (Stage) passwordTextField.getScene().getWindow();
 
         if(loginViewModel.checkIfExists()) {
@@ -57,6 +58,10 @@ public class LoginController {
         else {
             passwordTextField.textProperty().setValue("");
             userNameTextField.textProperty().setValue("");
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setHeaderText("Log in error");
+            alert.setContentText("Invalid user name or password");
+            alert.showAndWait();
         }
     }
 

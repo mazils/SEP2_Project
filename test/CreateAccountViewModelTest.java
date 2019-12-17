@@ -42,18 +42,21 @@ class CreateAccountViewModelTest
     @AfterEach
     void tearDown()
     {
-
+        username.setValue("");
+        password.setValue("");
+        confPassword.setValue("");
     }
 
 
     @Test
     void createAccountPass() throws RemoteException, SQLException
     {
-        //act
+            //act
             username.setValue("shouldBeCreatedAcc");
             password.setValue("password");
             confPassword.setValue("password");
             boolean isCreated =createAccountViewModel.createAccount();
+            //assert
             assertEquals(true,isCreated);
     }
 

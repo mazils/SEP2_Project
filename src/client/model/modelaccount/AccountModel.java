@@ -30,11 +30,18 @@ public class AccountModel implements IAccountsModel {
      * @param password
      * @return true or false
      */
-    public boolean accountExists( String username, String password) throws RemoteException {
+    public boolean accountExists( String username, String password) throws RemoteException
+    {
 
-        if(rmi.checkIfExists(username, password)) {
-            log.setUsername(username);
-            System.out.println( "username is    "+username);
+        try
+        {
+            if(rmi.checkIfExists(username, password)) {
+                log.setUsername(username);
+                System.out.println( "username is    "+username);
+            }
+        } catch (RemoteException e)
+        {
+            e.printStackTrace();
         }
 
         return rmi.checkIfExists(username, password);

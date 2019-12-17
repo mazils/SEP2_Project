@@ -9,7 +9,6 @@ import client.viewmodel.sparePartsList.SparePartViewModel;
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -44,8 +43,8 @@ public class SparePartsVOSController {
         currentModel = new SimpleStringProperty();
         initialLoad();
         modelsViewModel.updateAllModels();
-        currentModel.bindBidirectional(sparePartsViewModel.currentmodelProperty());//todo
-        currentModel.bindBidirectional(sparePartsVOSViewModel.currentmodelProperty());
+        currentModel.bindBidirectional(sparePartsViewModel.getCurrentModelProperty());//todo
+        currentModel.bindBidirectional(sparePartsVOSViewModel.getCurrentModelProperty());
     }
 
     public void initialLoad() {

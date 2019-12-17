@@ -42,7 +42,7 @@ public class SparePartViewModel
         }
     }
 
-    public StringProperty currentmodelProperty()
+    public StringProperty getCurrentModelProperty()
     {
         return currentmodel;
     }
@@ -108,7 +108,7 @@ public class SparePartViewModel
     }
 
 
-    public StringProperty commentsProperty()
+    public StringProperty getCommentsProperty()
     {
         return comments;
     }

@@ -17,12 +17,11 @@ import java.rmi.RemoteException;
 import java.util.ArrayList;
 
 public class LogViewModel {
-    private ObservableList<String> logs;
     private ILogger model;
+
+    private ObservableList<String> logs;
     public StringProperty currentpart;
     public StringProperty smodel;
-
-
 
     public LogViewModel(ILogger model)
     {

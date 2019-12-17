@@ -9,20 +9,14 @@ import java.rmi.RemoteException;
 
 public class NewSparePartViewModel
 {
-    private StringProperty partName;
-    private IMSparePart newSparePartModel;
+    private IMSparePart model;
 
+    private StringProperty partName;
     private StringProperty selectedModel;
 
-    public StringProperty getSelectedModel()
-    {
-        return selectedModel;
-    }
-
-    public NewSparePartViewModel(IMSparePart newSparePartModel)
-    {
-       System.out.println("constructor "+newSparePartModel);
-        this.newSparePartModel = newSparePartModel;
+    public NewSparePartViewModel(IMSparePart model) {
+       System.out.println("constructor "+ model);
+        this.model = model;
         partName = new SimpleStringProperty();
         selectedModel = new SimpleStringProperty();
     }
@@ -31,12 +25,16 @@ public class NewSparePartViewModel
     {
         return partName;
     }
+    public StringProperty getSelectedModel()
+    {
+        return selectedModel;
+    }
 
     public void addPart()
     {
         try
-        {   System.out.println(newSparePartModel);
-            newSparePartModel.addSparepart(partName.getValue(),new SModel(selectedModel.getValue()));
+        {   System.out.println(model);
+            model.addSparepart(partName.getValue(),new SModel(selectedModel.getValue()));
 
         }
         catch (RemoteException e)
@@ -44,4 +42,6 @@ public class NewSparePartViewModel
             e.printStackTrace();
         }
     }
+
+
 }

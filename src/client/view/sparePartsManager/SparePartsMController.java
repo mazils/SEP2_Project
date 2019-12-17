@@ -44,9 +44,9 @@ public class SparePartsMController {
         this.modelsViewModel=modelsViewModel;
         this.sparePartsViewModel=sparePartsViewModel;
         currentModel= new SimpleStringProperty();
-        currentModel.bindBidirectional(sparePartsViewModel.currentmodelProperty());
+        currentModel.bindBidirectional(sparePartsViewModel.getCurrentModelProperty());
         currentModel.bindBidirectional(modelsViewModel.getCurrentModelProperty());
-        commentArea.textProperty().bindBidirectional(sparePartsViewModel.commentsProperty());
+        commentArea.textProperty().bindBidirectional(sparePartsViewModel.getCommentsProperty());
         modelsViewModel.updateAllModels();
         inittialLoad();
         initCols();

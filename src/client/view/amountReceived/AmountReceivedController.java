@@ -4,7 +4,6 @@ import client.model.ScooterModels.SModel;
 import client.view.ViewHandler;
 import client.viewmodel.amountReceived.AmountReceivedViewModel;
 import client.viewmodel.sparePartsList.SparePartViewModel;
-import javafx.event.ActionEvent;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -25,7 +24,7 @@ public class AmountReceivedController {
     }
 
     public void onSaveAction() {
-        SModel model= new SModel(sparePartViewModel.currentmodelProperty().getValue());
+        SModel model= new SModel(sparePartViewModel.getCurrentModelProperty().getValue());
         amountReceivedViewModel.receivedAmount(sparePartViewModel.getCurrentSparePart(),model);
         Stage stage= (Stage) textField.getScene().getWindow();
         handler.closeView(stage);

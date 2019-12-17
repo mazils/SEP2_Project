@@ -137,11 +137,8 @@ public class SparePartsMController {
 
     public void onModelList() {
        currentModel.setValue((String) modelList.getValue());
-        try {
-            sparePartsViewModel.getList(currentModel.getValue());
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+
+       sparePartsViewModel.getList(currentModel.getValue());
 
             sparePartsList.setRowFactory(tv -> new TableRow<>() {
                 @Override

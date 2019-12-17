@@ -81,11 +81,7 @@ public class SparePartsVOSController {
 
     public void onModelList() {
         currentModel.setValue(modelList.getValue());
-        try {
-            sparePartsViewModel.getList(currentModel.getValue());
-        } catch (RemoteException e) {
-            e.printStackTrace();
-        }
+        sparePartsViewModel.getList(currentModel.getValue());
     }
 
     public void onViewLog()

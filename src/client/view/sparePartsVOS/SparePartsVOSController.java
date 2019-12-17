@@ -89,6 +89,14 @@ public class SparePartsVOSController {
             e.printStackTrace();
         }
     }
+    public void onViewLog()
+    {
+        if(!(sparePartsList.getSelectionModel().isEmpty())) {
+            sparePartsViewModel.setCurrentSparepart(sparePartsList.getSelectionModel().getSelectedItem());
+            viewHandler.openView("viewLog");
+        }
+    }
+
 
     public void onViewLogAction(ActionEvent actionEvent) {
         if(!(sparePartsList.getSelectionModel().isEmpty())) {

@@ -213,10 +213,6 @@ public class SparePartsMController {
     }
 
     public void onLogAction() {
-        if(!(sparePartsList.getSelectionModel().isEmpty())) {
-            sparePartsViewModel.setCurrentSparepart(sparePartsList.getSelectionModel().getSelectedItem());
-            viewHandler.openView("viewLog");
-        }
     }
     public void onDeleteModel()
     {

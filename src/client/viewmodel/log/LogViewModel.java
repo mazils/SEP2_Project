@@ -33,7 +33,6 @@ public class LogViewModel {
         try {
             model.addListener("change", evt -> {
                 try {
-                    System.out.println("lambda in MSparePart: ");
                     getList(new SparePart(currentpart.getValue()),new SModel(smodel.getValue()));
                 } catch (RemoteException e) {
                     e.printStackTrace();

@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.sparePartsVOS.SparePartsVOSController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="762.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="client.view.sparePartsVOS.SparePartsVOSController">
    <children>
        <TableView fx:id="sparePartsList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="541.0">
            <columns>
@@ -45,7 +45,7 @@
                   </Button>
                   <ComboBox fx:id="modelList" onAction="#onModelList" prefWidth="150.0" GridPane.rowIndex="3" />
                   <Button mnemonicParsing="false" onAction="#onLogOff" text="Log off" GridPane.rowIndex="5" />
-                  <Button mnemonicParsing="false" onAction="#onViewLogAction" text="View Log" GridPane.rowIndex="4" />
+                  <Button mnemonicParsing="false" onAction="#onViewLog" text="View log" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                </children>
             </GridPane>
          </children>

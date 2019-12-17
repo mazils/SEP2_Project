@@ -33,7 +33,6 @@ public class SparePartViewModel {
         try {
             model.addListener("change", evt -> {
                 try {
-                    System.out.println("lambda in MSparePart: ");
                     getList(currentmodel.getValue());
                 } catch (RemoteException e) {
                     e.printStackTrace();
@@ -131,4 +130,5 @@ public class SparePartViewModel {
     {
         model.decrementSparePartQuantity(iSparePart,scooterModel);
     }
+
 }

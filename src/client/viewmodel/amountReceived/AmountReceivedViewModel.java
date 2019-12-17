@@ -20,8 +20,10 @@ public class AmountReceivedViewModel {
 
     public void receivedAmount(SparePart part, SModel model)
     {
+
        int amount= Integer.parseInt(this.amount.getValue());
         try {
+            System.out.println(amount);
             this.model.receivedAmount(part,model,amount);
         } catch (RemoteException e) {
             e.printStackTrace();

@@ -20,7 +20,7 @@ public class SparePartViewModel
     private IMSparePart model;
     private ObservableList<SparePart> spareParts;
     private StringProperty currentmodel;
-    private StringProperty currentSparePart;
+    private SparePart currentSparePart;
     private StringProperty comments;
 
 
@@ -29,7 +29,6 @@ public class SparePartViewModel
 
         this.model = model;
         currentmodel = new SimpleStringProperty();
-        currentSparePart = new SimpleStringProperty();
         spareParts = FXCollections.observableArrayList();
         comments = new SimpleStringProperty();
 
@@ -115,8 +114,7 @@ public class SparePartViewModel
 
     public SparePart getCurrentSparePart()
     {
-        SparePart part = new SparePart(currentSparePart.getValue());
-        return part;
+        return currentSparePart;
     }
 
     public ObservableList<SparePart> getSpareParts()
@@ -127,7 +125,7 @@ public class SparePartViewModel
 
     public void setCurrentSparepart(SparePart selectedItem)
     {
-        currentSparePart.setValue(selectedItem.getName());
+        currentSparePart= selectedItem;
     }
 
     public void incrementPart(ISparePart iSparePart, String scooterModel)

@@ -41,7 +41,7 @@
               </rowConstraints>
                <children>
                   <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onPlaceOrder" prefHeight="25.0" prefWidth="121.0" text="Place an order" />
-                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onRecive" prefHeight="25.0" prefWidth="121.0" text="Recive an order" GridPane.columnIndex="1">
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#onReceive" prefHeight="25.0" prefWidth="121.0" text="Recive an order" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets />
                      </GridPane.margin>

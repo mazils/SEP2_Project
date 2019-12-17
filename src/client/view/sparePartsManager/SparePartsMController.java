@@ -7,17 +7,13 @@ import client.viewmodel.sparePartsList.ModelsListViewModel;
 import client.viewmodel.sparePartsList.SparePartViewModel;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
-import org.w3c.dom.ls.LSOutput;
-
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public class SparePartsMController {
     @FXML
@@ -43,9 +39,6 @@ public class SparePartsMController {
     private SparePartViewModel sparePartsViewModel;
     private StringProperty currentModel;
 
-
-    private ArrayList<ISModel> models;
-
     public void init(ModelsListViewModel modelsViewModel, SparePartViewModel sparePartsViewModel, ViewHandler viewHandler){
         this.viewHandler=viewHandler;
         this.modelsViewModel=modelsViewModel;
@@ -57,10 +50,6 @@ public class SparePartsMController {
         modelsViewModel.updateAllModels();
         inittialLoad();
         initCols();
-
-
-
-
     }
 
     public void inittialLoad() {
@@ -76,7 +65,6 @@ public class SparePartsMController {
         modelList.setValue("Choose");
 
         initCols();
-
     }
 
     public void initCols(){
@@ -200,12 +188,9 @@ public class SparePartsMController {
     public void onPlaceOrder()
     {
         sparePartsViewModel.placeOrder();
-        System.out.println("place order");
     }
 
-    public void onRecive() {
-
-
+    public void onReceive() {
         if(!(sparePartsList.getSelectionModel().isEmpty())) {
             sparePartsViewModel.setCurrentSparepart(sparePartsList.getSelectionModel().getSelectedItem());
             viewHandler.openView("amountReceived");

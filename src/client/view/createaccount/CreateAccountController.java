@@ -52,7 +52,6 @@ public class CreateAccountController
         viewModel.alertTextProperty().bindBidirectional(alertText);
         alertText.addListener((observableValue, number, type) -> showAlert());
     }
-    //todo the alerts
 
     private void showAlert()
     {

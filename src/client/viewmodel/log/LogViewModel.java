@@ -1,10 +1,7 @@
 package client.viewmodel.log;
 
-import client.model.ScooterModels.ISModel;
 import client.model.ScooterModels.SModel;
 import client.model.logModel.ILogger;
-import client.model.logModel.Logger;
-import client.model.spareParts.IMSparePart;
 import client.model.spareParts.ISparePart;
 import client.model.spareParts.SparePart;
 import javafx.application.Platform;

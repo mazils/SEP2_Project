@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 
-public class ChatApplication extends Application {
+public class VOIApplication extends javafx.application.Application {
 
     public void start(Stage stage) throws RemoteException, NotBoundException {
         ModelFactory mf= new ModelFactory();

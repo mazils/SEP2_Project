@@ -11,11 +11,9 @@ public class JDBC implements  Runnable{
     private Connection con = null;
     private Statement st= null;
 
-    private JDBC()
-    {}
+    private JDBC() {}
 
-    public static JDBC getInstance()
-    {
+    public static JDBC getInstance() {
         if(databaseConnector==null) {
             synchronized (lock) {
                 if(databaseConnector==null) {
@@ -26,13 +24,7 @@ public class JDBC implements  Runnable{
         return  databaseConnector;
     }
 
-
-
-
-
-
-    public void executeUpdate(String statement)
-    {
+    public void executeUpdate(String statement) {
         try {
             System.out.println(statement);
             st.executeUpdate(statement);
@@ -41,8 +33,7 @@ public class JDBC implements  Runnable{
         }
     }
 
-    public ResultSet executeQuery(String statement)
-    {
+    public ResultSet executeQuery(String statement) {
         ResultSet rs= null;
         try {
            rs = st.executeQuery(statement);
@@ -51,12 +42,6 @@ public class JDBC implements  Runnable{
         }
         return rs;
     }
-
-
-
-
-
-
 
     @Override
     public void run() {
@@ -68,6 +53,5 @@ public class JDBC implements  Runnable{
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
-
     }
 }

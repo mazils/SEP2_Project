@@ -13,7 +13,7 @@ import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
 class CreateAccountViewModelTest
@@ -117,7 +117,8 @@ class CreateAccountViewModelTest
         assertEquals(true,isCreated);
     }
 
-    @Test void createAccountUsernameDigitAndSymbols()
+    @Test()
+    void createAccountUsernameDigitAndSymbols()
     {
         //characters
         username.setValue("...1");

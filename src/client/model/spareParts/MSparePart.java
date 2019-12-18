@@ -67,7 +67,7 @@ public class MSparePart implements IMSparePart {
                 log.log(" decremented sparepart " + part.getName() + " in model:" + scooterModel);
             }
             else
-            {System.out.println("nothin is selected");}
+            {System.out.println("nothing is selected");}
 
 
         } catch (RemoteException e)
